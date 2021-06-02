@@ -177,16 +177,18 @@ p + p {
 		padding: 0 0.375em;
 }
 
+:root {
+	--page-width: 900px;
+}
+
 .page-centered-content {
 	padding-left: 15px;
 	padding-right: 15px;
-	max-width: 900px;
+	max-width: var(--page-width);
 	margin: 0 auto;
 }
 
-
-
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
 	.page-centered-content {
 		padding-left: 0;
 		padding-right: 0;
@@ -249,6 +251,12 @@ main + footer a:visited{
 .main-navigation.mega-menu {
 
 }
+.mega-menu {
+	--menu-width: var(--page-width);
+	--inner-sub-menu-margin: 20px;
+	--image-width: 150px;
+}
+
 .mega-menu > ul {
 	color: #fff;
 	list-style: none;
@@ -263,13 +271,13 @@ main + footer a:visited{
 .mega-menu > ul > li:first-of-type {
 	margin-left: calc(15px - 0.3125rem);
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
 	.mega-menu > ul > li:first-of-type {
 		/*margin-left: -0.3125rem;*/
 		margin-left: 0;
 	}
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 	.mega-sub-menu {
 		display: none;
 	}
@@ -332,27 +340,28 @@ main + footer a:visited{
 }
 
 
- div.mega-sub-menu {
+
+div.mega-sub-menu {
 	display: none;
 	position: absolute;
 	background: #000e54;
 	color: #fff;
 	list-style: none;
-	padding: 15px 20px;
+	padding: 15px var(--inner-sub-menu-margin);
 	z-index: 10;
 	right: 0;
-	min-width: 900px;
+	min-width: var(--menu-width);
 	transition: opacity .4s 1s;
  }
 /* add a 10px "border" around the submenus to make it not close as easily */
- div.mega-sub-menu:before {
+div.mega-sub-menu:before {
 	content: "";
 	background: transparent;
 	display: block;
 	z-index: -1;
 	position: absolute;
 	width: calc(100% + 20px); 
-	height: calc(100% + 10px);
+	height: calc(100% + 15px);
 	top: 0;
 	left: -10px;
 }
@@ -385,39 +394,16 @@ div.mega-sub-menu > ul {
 	align-items: center;
 }
 
-div.mega-sub-menu > ul.ColColCol li.text-column { 
-	width: 270px;
-}
 
-div.mega-sub-menu > ul.ColColColCol li.text-column { 
-	width: 200px;
-}
 
-div.mega-sub-menu > ul.ImgColCol li.image-column{ 
-	width: 240px;
-}
-div.mega-sub-menu > ul.ImgColCol li.text-column { 
-	width: 290px;
-}
 
-div.mega-sub-menu > ul.ImgColColCol li.image-column{ 
-	width: 150px;
-}
-div.mega-sub-menu > ul.ImgColColCol li.text-column { 
-	width: 216px;
-}
 
-div.mega-sub-menu > ul.ImgImgColCol li.image-column{ 
-	width: 150px;
-}
-div.mega-sub-menu > ul.ImgImgColCol li.text-column { 
-	width: 250px;
-}
 
 
 div.mega-sub-menu > ul > li {
 	list-style: none;
 	justify-self: center;
+	border: solid 1px yellow;
 }
 div.mega-sub-menu > ul > li:before {
 	content: "\200b";
@@ -425,7 +411,7 @@ div.mega-sub-menu > ul > li:before {
 }
 
 .mega-sub-menu > ul > li + li {
-	margin-left: 20px;
+	margin-left: var(--inner-sub-menu-margin);
 }
 
 div.mega-sub-menu > ul > li.text-column {
@@ -433,7 +419,8 @@ div.mega-sub-menu > ul > li.text-column {
 }
 
 div.mega-sub-menu > ul > li.image-column {
-
+	min-width: var(--image-width);
+	width: var(--image-width);
 }
 div.mega-sub-menu > ul > li.image-column > a {
 	text-align: center;
@@ -443,6 +430,20 @@ div.mega-sub-menu > ul > li.image-column > a > img {
 	width: 100%;
 }
 
+div.mega-sub-menu > ul.ColColColCol li.text-column {
+	min-width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
+	width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
+}
+
+div.mega-sub-menu > ul.ImgColColCol li.text-column {
+	min-width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
+	width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
+}
+
+div.mega-sub-menu > ul.ImgImgColCol li.text-column {
+	min-width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
+	width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
+}
 
 
 div.mega-sub-menu > ul > li > ul {
