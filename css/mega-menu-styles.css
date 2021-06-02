@@ -55,7 +55,7 @@
 body {
 	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
 	color: #101010;
-	line-height: 1.6;
+	line-height: 1.5;
 }
 
 a, a:visited {
@@ -152,33 +152,13 @@ p + p {
 	min-height: 400px;
 }
 
-#sidebar {
-	padding-left: 1rem;
-	min-width: 175px;
-	max-width: 200px;
-}
-
-#breadcrumbs ul {
-		margin: 0;
-		padding: 15px 0 0;
-		list-style: none;
-}
-
-#breadcrumbs > ul > li {
-		display: inline-block;
-		font-size: 1.1rem;
-		font-weight: 600;
-}
-
-
-#breadcrumbs > ul > li + li::before {
-		content: "/";
-		display: inline-block;
-		padding: 0 0.375em;
-}
 
 :root {
-	--page-width: 900px;
+	--page-width: 1000px;
+	--menu-background: #000e54;
+	--menu-color: #fff;
+	--menu-hover-background: #D74100;
+	--menu-hover-color: #fff;
 }
 
 .page-centered-content {
@@ -193,9 +173,7 @@ p + p {
 		padding-left: 0;
 		padding-right: 0;
 	}
-	.main-navigation > ul > li:first-of-type {
-		margin-left: -15px;
-	}
+
 }
 
 .main-navigation {
@@ -214,11 +192,7 @@ p + p {
 	display: inline-block;
 }
 
-.main-navigation > ul > li > button {
-	color: #fff;
-	text-decoration: none;
-	white-space: nowrap;
-}
+
 
 
 
@@ -257,6 +231,8 @@ main + footer a:visited{
 	--image-width: 150px;
 }
 
+
+
 .mega-menu > ul {
 	color: #fff;
 	list-style: none;
@@ -268,19 +244,10 @@ main + footer a:visited{
 	align-content: stretch;
 }
 
-.mega-menu > ul > li:first-of-type {
-	margin-left: calc(15px - 0.3125rem);
-}
-@media screen and (min-width: 1000px) {
-	.mega-menu > ul > li:first-of-type {
-		/*margin-left: -0.3125rem;*/
-		margin-left: 0;
-	}
-}
-@media screen and (max-width: 1000px) {
-	.mega-sub-menu {
-		display: none;
-	}
+.mega-menu > ul > li > button {
+	color: var(--menu-color);
+	text-decoration: none;
+	white-space: nowrap;
 }
 
 .mega-menu > ul > li > button:focus:hover {
@@ -295,16 +262,15 @@ main + footer a:visited{
 	border-right: solid 2px transparent;
 }
 .mega-menu ul > li > button[aria-expanded="true"] {
-	background: #000e54;
+	background: var(--menu-background);
+	/*
 	border-left-color: #adb3b8;
 	border-right-color: #adb3b8;
+	*/
+	box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4); 
+
 }
-.mega-menu ul > li:first-of-type > button[aria-expanded="true"] {
-	border-left-color: transparent;
-}
-.mega-menu ul > li:last-of-type > button[aria-expanded="true"] {
-	border-right-color: transparent;
-}
+
 
 .mega-menu li button svg.icon {
 	height: 0.625em;
@@ -327,34 +293,35 @@ main + footer a:visited{
 }
 
 .main-navigation > ul > li > button:hover {
-	color: #fff;
-	background: #D74100;
+	color: var(--menu-hover-color);
+	background: var(--menu-hover-background);
 }
 .main-navigation > ul > li > button:focus {
-	outline: dotted #fff 3px;
+	outline: dotted var(--menu-color) 3px;
 	outline-offset: -3px;
 }
 .main-navigation > ul > li > button:focus:hover {
-	outline: dotted #fff 3px;
+	outline: dotted var(--menu-color) 3px;
 	outline-offset: -3px;
 }
 
 
 
-div.mega-sub-menu {
+.mega-sub-menu {
 	display: none;
 	position: absolute;
-	background: #000e54;
-	color: #fff;
+	background: var(--menu-background);
+	color: var(--menu-color);
 	list-style: none;
 	padding: 15px var(--inner-sub-menu-margin);
 	z-index: 10;
 	right: 0;
-	min-width: var(--menu-width);
+	width: var(--menu-width);
 	transition: opacity .4s 1s;
- }
+	box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+}
 /* add a 10px "border" around the submenus to make it not close as easily */
-div.mega-sub-menu:before {
+.mega-sub-menu:before {
 	content: "";
 	background: transparent;
 	display: block;
@@ -367,18 +334,13 @@ div.mega-sub-menu:before {
 }
 
 
-/*
-nav[data-focus-open="false"] button.mega-menu-toggle:hover + div.mega-sub-menu {
-	display: block;
-}
-*/
 
 
-nav[data-focus-open="true"] button[aria-expanded="true"] + div.mega-sub-menu {
+nav[data-focus-open="true"] button[aria-expanded="true"] + .mega-sub-menu {
 	display: block;
 }
 
-nav[data-hover-open="true"] button[aria-expanded="true"] + div.mega-sub-menu {
+nav[data-hover-open="true"] button[aria-expanded="true"] + .mega-sub-menu {
 	display: block;
 }
 
@@ -386,7 +348,7 @@ nav[data-hover-open="true"] button[aria-expanded="true"] + div.mega-sub-menu {
 
 
 
-div.mega-sub-menu > ul {
+.mega-sub-menu > ul {
 	padding-left: 0;
 	list-style: none;
 	display: flex;
@@ -400,12 +362,11 @@ div.mega-sub-menu > ul {
 
 
 
-div.mega-sub-menu > ul > li {
+.mega-sub-menu > ul > li {
 	list-style: none;
 	justify-self: center;
-	border: solid 1px yellow;
 }
-div.mega-sub-menu > ul > li:before {
+.mega-sub-menu > ul > li:before {
 	content: "\200b";
 	position: absolute;
 }
@@ -414,39 +375,39 @@ div.mega-sub-menu > ul > li:before {
 	margin-left: var(--inner-sub-menu-margin);
 }
 
-div.mega-sub-menu > ul > li.text-column {
+.mega-sub-menu > ul > li.text-column {
 	align-self: flex-start;
 }
 
-div.mega-sub-menu > ul > li.image-column {
+.mega-sub-menu > ul > li.image-column {
 	min-width: var(--image-width);
 	width: var(--image-width);
 }
-div.mega-sub-menu > ul > li.image-column > a {
+.mega-sub-menu > ul > li.image-column > a {
 	text-align: center;
 	display: block;
 }
-div.mega-sub-menu > ul > li.image-column > a > img {
+.mega-sub-menu > ul > li.image-column > a > img {
 	width: 100%;
 }
 
-div.mega-sub-menu > ul.ColColColCol li.text-column {
+.mega-sub-menu > ul.ColColColCol li.text-column {
 	min-width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
 	width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
 }
 
-div.mega-sub-menu > ul.ImgColColCol li.text-column {
+.mega-sub-menu > ul.ImgColColCol li.text-column {
 	min-width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
 	width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
 }
 
-div.mega-sub-menu > ul.ImgImgColCol li.text-column {
+.mega-sub-menu > ul.ImgImgColCol li.text-column {
 	min-width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
 	width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
 }
 
 
-div.mega-sub-menu > ul > li > ul {
+.mega-sub-menu > ul > li > ul {
 	padding-left: 0;
 }
 
@@ -467,21 +428,23 @@ div.mega-sub-menu > ul > li > ul {
 }
 
 
-div.mega-sub-menu > ul li a {
+.mega-sub-menu > ul li a {
 	color: #fff;
 	text-decoration: none;
 }
-div.mega-sub-menu > ul li a:focus {
+.mega-sub-menu > ul li a:focus {
 	outline-color: #fff;
 }
-div.mega-sub-menu > ul li a:hover {
+.mega-sub-menu > ul li a:hover {
 	text-decoration: underline;
 	color: #f76900;
 }
 
 .mega-sub-heading {
+	font-size: inherit;
+	margin: 0 0 0.125em;
+	padding: 0;
 	font-weight: 600;
-	text-transform: uppercase;
 }
 
 

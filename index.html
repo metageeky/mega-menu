@@ -4,18 +4,17 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>Accessible Mega Menu</title>
 
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/mega-menu-styles.css">
 	<script src="js/mega-menu.js"></script>
-	<!--<script src="js/pseudorandom.js"></script>-->
-	<!--<script src="js/loadPageStructure.js"></script>-->
+
 </head>
 
 <body>
 	<div id="hiddenStuff" aria-hidden="true">
-		<svg id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<svg aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<symbol id="icon-right-triangle" viewBox="0 0 50 50">
 				<polygon points="0,0 0,50 43.3,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
 				</polygon>
@@ -47,15 +46,17 @@
 				<div id="logo-container">
 					<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 				</div>
-				<div id="menuType">Mega Menu</div>
 			</div>
-			<nav id="main-nav" class="main-navigation mega-menu" data-focus-open="false" data-hover-open="false">
+			<h2 id="main-nav-heading" class="offscreen">
+				Main Navigation
+			</h2>
+			<nav id="main-nav" class="main-navigation mega-menu" aria-labelledby="main-nav-heading" data-focus-open="false" data-hover-open="false">
 				<ul class="page-centered-content">
 					<li>
 						<button id="mega1" aria-expanded="false" class="mega-menu-toggle">
 							Services and Support
-							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 						</button>
 						<div class="mega-sub-menu">
 							<ul class="ImgImgColCol">
@@ -72,7 +73,7 @@
 									</a>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Services</span>
+									<div class="mega-sub-heading">Services</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Borrow Laptops and Gear</a></li>
 										<li><a href="">Borrowing Process and Policies</a></li>
@@ -87,7 +88,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Help</span>
+									<div class="mega-sub-heading">Help</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Accessibility and Disability Services</a></li>
 										<li><a href="">Printing and Technology</a></li>
@@ -105,8 +106,8 @@
 					<li>
 						<button id="mega2" aria-expanded="false" class="mega-menu-toggle">
 							Visit and Study
-							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 						</button>
 						<div class="mega-sub-menu">
 							<ul class="ImgColColCol">
@@ -117,7 +118,7 @@
 									</a>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Spaces</span>
+									<div class="mega-sub-heading">Spaces</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Floor Maps</a></li>
 										<li><a href="">Service Desks</a></li>
@@ -128,7 +129,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Libraries</span>
+									<div class="mega-sub-heading">Libraries</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Bird Library</a></li>
 										<li><a href="">Carnegie Library</a></li>
@@ -140,7 +141,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Partners</span>
+									<div class="mega-sub-heading">Partners</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Center for Learning and Student Success (CLASS)</a></li>
 										<li><a href="">Syracuse Abroad @ Bird</a></li>
@@ -155,8 +156,8 @@
 					<li>
 						<button id="mega3" aria-expanded="false" class="mega-menu-toggle">
 							Research
-							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 						</button>
 						<div class="mega-sub-menu">
 							<ul class="ImgImgColCol">
@@ -173,7 +174,7 @@
 									</a>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Research Support</span>
+									<div class="mega-sub-heading">Research Support</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">General Research</a></li>
 										<li><a href="">In-Depth Research</a></li>
@@ -185,7 +186,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Services and Tools</span>
+									<div class="mega-sub-heading">Services and Tools</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Workshops</a></li>
 										<li><a href="">Citing Sources</a></li>
@@ -203,13 +204,13 @@
 					<li>
 						<button id="mega4" aria-expanded="false" class="mega-menu-toggle">
 							Collections
-							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 						</button>
 						<div class="mega-sub-menu">
 							<ul class="ColColColCol">
 								<li class="text-column">
-									<span class="mega-sub-heading">Special Collections Research Center</span>
+									<div class="mega-sub-heading">Special Collections Research Center</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Collection Areas</a></li>
 										<li><a href="">Digital Collections</a></li>
@@ -219,7 +220,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">General</span>
+									<div class="mega-sub-heading">General</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Ebooks</a></li>
 										<li><a href="">Journals</a></li>
@@ -229,7 +230,8 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Subheading 3</span>
+									<!-- hide this heading visually just so things line up -->
+									<div class="mega-sub-heading" style="opacity:0">General (cont)</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Federal Depository Library Program (FDLP)</a></li>
 										<li><a href="">Maps and Government Information</a></li>
@@ -239,7 +241,7 @@
 									</ul>
 								</li>
 								<li class="text-column">
-									<span class="mega-sub-heading">Digital Library</span>
+									<div class="mega-sub-heading">Digital Library</div>
 									<ul class="mega-menu-bulleted">
 										<li><a href="">Digital Collections Repository</a></li>
 										<li><a href="">SURFACE Institutional Repository</a></li>
@@ -252,8 +254,8 @@
 					<li>
 						<button id="mega5" aria-expanded="false" class="mega-menu-toggle">
 							About Us
-							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 						</button>
 						<div class="mega-sub-menu">
 							<ul class="ImgImgColCol">
