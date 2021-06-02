@@ -1,0 +1,489 @@
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: dotted #2B72D7 3px;
+	outline-offset: 2px;
+}
+
+body {
+	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
+	color: #101010;
+	line-height: 1.6;
+}
+
+a, a:visited {
+	color: #2B72D7;
+}
+
+banner div.page-centered-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row nowrap;
+	margin: 15px auto;
+}
+
+#logo-container {
+	flex: 1 1 auto;
+	min-width: 100px;
+	max-width: 300px;
+}
+
+#logo {
+	display: block;
+	max-width: 100%;
+	max-height: 100vh;
+}
+
+#menuType {
+	padding: 0.75rem;
+	font-size: 1.5rem;
+	text-transform: lowercase;
+	color: #fff;
+	background: #7815b0;
+}
+
+h1 {
+	font-size: 2.25rem;
+	margin: 1.125rem 0 0.5rem;
+}
+
+h2 {
+	font-size: 1.75rem;
+	margin: 1.125rem 0 0.5rem;
+}
+
+p {
+	margin: 0;
+}
+
+p + p {
+	margin-top: 0.75rem;
+}
+
+.offscreen {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.skipnavlink {
+	position: absolute;
+	margin: 0.375rem;
+	padding: 0.625rem;
+	color: #fff !important;
+	background-color: #2B72D7;
+	z-index: 2000;
+	font-size: 1.125rem;
+}
+
+.skipnavlink:focus {
+	overflow: auto;
+	clip: auto;
+	width: auto;
+	height: auto;
+}
+
+#icons {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+#dummy-text {
+	display: none;
+}
+
+#main {
+	display: flex;
+	min-height: 400px;
+}
+
+#sidebar {
+	padding-left: 1rem;
+	min-width: 175px;
+	max-width: 200px;
+}
+
+#breadcrumbs ul {
+		margin: 0;
+		padding: 15px 0 0;
+		list-style: none;
+}
+
+#breadcrumbs > ul > li {
+		display: inline-block;
+		font-size: 1.1rem;
+		font-weight: 600;
+}
+
+
+#breadcrumbs > ul > li + li::before {
+		content: "/";
+		display: inline-block;
+		padding: 0 0.375em;
+}
+
+.page-centered-content {
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+
+
+@media screen and (min-width: 900px) {
+	.page-centered-content {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.main-navigation > ul > li:first-of-type {
+		margin-left: -15px;
+	}
+}
+
+.main-navigation {
+	color: #eee;
+	background: #404040;
+	padding: 0;
+	font-size: 1rem;
+}
+
+.main-navigation > ul {
+	padding: 0;
+}
+
+.main-navigation > ul > li {
+	padding: 0;
+	display: inline-block;
+}
+
+.main-navigation > ul > li > button {
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+
+
+.main-navigation > ul > li > ul {
+	display: none;
+}
+
+main {
+	margin: 20px;
+}
+
+main + footer {
+	background: #404040;
+	color: #fff;
+	font-size: 1.25rem;
+	padding: 1em 0;
+	text-align: center;
+	margin-top: 2rem;
+}
+main + footer a,
+main + footer a:visited{
+	color: #fff;
+}
+
+
+
+
+/* mega-menu top-level */
+
+.main-navigation.mega-menu {
+
+}
+.mega-menu > ul {
+	color: #fff;
+	list-style: none;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+}
+
+.mega-menu > ul > li:first-of-type {
+	margin-left: calc(15px - 0.3125rem);
+}
+@media screen and (min-width: 900px) {
+	.mega-menu > ul > li:first-of-type {
+		/*margin-left: -0.3125rem;*/
+		margin-left: 0;
+	}
+}
+@media screen and (max-width: 900px) {
+	.mega-sub-menu {
+		display: none;
+	}
+}
+
+.mega-menu > ul > li > button:focus:hover {
+	outline-offset: -4px;
+}
+.mega-menu ul > li > button.mega-menu-toggle {
+	background-color: transparent;
+	border: none;
+	padding: 0.625rem 1rem;
+	line-height: inherit;
+	border-left: solid 2px transparent;
+	border-right: solid 2px transparent;
+}
+.mega-menu ul > li > button[aria-expanded="true"] {
+	background: #000e54;
+	border-left-color: #adb3b8;
+	border-right-color: #adb3b8;
+}
+.mega-menu ul > li:first-of-type > button[aria-expanded="true"] {
+	border-left-color: transparent;
+}
+.mega-menu ul > li:last-of-type > button[aria-expanded="true"] {
+	border-right-color: transparent;
+}
+
+.mega-menu li button svg.icon {
+	height: 0.625em;
+	width: 0.625em;
+	position: relative;
+	top: -1px;
+	margin-left: 2px;
+}
+.mega-menu li button[aria-expanded="false"] svg.icon.up {
+	display: none;
+}
+.mega-menu li button[aria-expanded="false"] svg.icon.down {
+	display: inline-block;
+}
+.mega-menu li button[aria-expanded="true"] svg.icon.up {
+	display: inline-block;
+}
+.mega-menu li button[aria-expanded="true"] svg.icon.down {
+	display: none;
+}
+
+.main-navigation > ul > li > button:hover {
+	color: #fff;
+	background: #D74100;
+}
+.main-navigation > ul > li > button:focus {
+	outline: dotted #fff 3px;
+	outline-offset: -3px;
+}
+.main-navigation > ul > li > button:focus:hover {
+	outline: dotted #fff 3px;
+	outline-offset: -3px;
+}
+
+
+ div.mega-sub-menu {
+	display: none;
+	position: absolute;
+	background: #000e54;
+	color: #fff;
+	list-style: none;
+	padding: 15px 20px;
+	z-index: 10;
+	right: 0;
+	min-width: 900px;
+	transition: opacity .4s 1s;
+ }
+/* add a 10px "border" around the submenus to make it not close as easily */
+ div.mega-sub-menu:before {
+	content: "";
+	background: transparent;
+	display: block;
+	z-index: -1;
+	position: absolute;
+	width: calc(100% + 20px); 
+	height: calc(100% + 10px);
+	top: 0;
+	left: -10px;
+}
+
+
+/*
+nav[data-focus-open="false"] button.mega-menu-toggle:hover + div.mega-sub-menu {
+	display: block;
+}
+*/
+
+
+nav[data-focus-open="true"] button[aria-expanded="true"] + div.mega-sub-menu {
+	display: block;
+}
+
+nav[data-hover-open="true"] button[aria-expanded="true"] + div.mega-sub-menu {
+	display: block;
+}
+
+
+
+
+
+div.mega-sub-menu > ul {
+	padding-left: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.mega-sub-menu > ul.ColColCol li.text-column { 
+	width: 270px;
+}
+
+div.mega-sub-menu > ul.ColColColCol li.text-column { 
+	width: 200px;
+}
+
+div.mega-sub-menu > ul.ImgColCol li.image-column{ 
+	width: 240px;
+}
+div.mega-sub-menu > ul.ImgColCol li.text-column { 
+	width: 290px;
+}
+
+div.mega-sub-menu > ul.ImgColColCol li.image-column{ 
+	width: 150px;
+}
+div.mega-sub-menu > ul.ImgColColCol li.text-column { 
+	width: 216px;
+}
+
+div.mega-sub-menu > ul.ImgImgColCol li.image-column{ 
+	width: 150px;
+}
+div.mega-sub-menu > ul.ImgImgColCol li.text-column { 
+	width: 250px;
+}
+
+
+div.mega-sub-menu > ul > li {
+	list-style: none;
+	justify-self: center;
+}
+div.mega-sub-menu > ul > li:before {
+	content: "\200b";
+	position: absolute;
+}
+
+.mega-sub-menu > ul > li + li {
+	margin-left: 20px;
+}
+
+div.mega-sub-menu > ul > li.text-column {
+	align-self: flex-start;
+}
+
+div.mega-sub-menu > ul > li.image-column {
+
+}
+div.mega-sub-menu > ul > li.image-column > a {
+	text-align: center;
+	display: block;
+}
+div.mega-sub-menu > ul > li.image-column > a > img {
+	width: 100%;
+}
+
+
+
+div.mega-sub-menu > ul > li > ul {
+	padding-left: 0;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted {
+	list-style-type: square;
+	list-style-position: outside;
+	padding-left: 1rem;
+}
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li {
+	
+}
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li + li {
+	margin-top: 4px;
+}
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li a {
+	display: block;
+	padding: 1px 0;
+}
+
+
+div.mega-sub-menu > ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+div.mega-sub-menu > ul li a:focus {
+	outline-color: #fff;
+}
+div.mega-sub-menu > ul li a:hover {
+	text-decoration: underline;
+	color: #f76900;
+}
+
+.mega-sub-heading {
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+
+
+
+

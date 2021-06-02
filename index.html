@@ -1,0 +1,318 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title></title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/mega-menu-styles.css">
+	<script src="js/mega-menu.js"></script>
+	<!--<script src="js/pseudorandom.js"></script>-->
+	<!--<script src="js/loadPageStructure.js"></script>-->
+</head>
+
+<body>
+	<div id="hiddenStuff" aria-hidden="true">
+		<svg id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<symbol id="icon-right-triangle" viewBox="0 0 50 50">
+				<polygon points="0,0 0,50 43.3,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-left-triangle" viewBox="0 0 50 50">
+				<polygon points="50,0 50,50 6.6,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-up-triangle" viewBox="0 0 50 50">
+				<polygon points="0,50 50,50 25.0,6.7" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-down-triangle" viewBox="0 0 50 43.3">
+				<polygon points="0,0 50,0 25.0,43.3" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-menu" viewBox="0 0 512 512">
+				<path style="fill:currentColor" d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/>
+			</symbol>
+		</svg>
+	</div>
+
+	<header>
+		<banner>
+			<a class="skipnavlink offscreen" href="#main">
+				Skip to main content
+			</a>
+			<div class="page-centered-content">
+				<div id="logo-container">
+					<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
+				</div>
+				<div id="menuType">Mega Menu</div>
+			</div>
+			<nav id="main-nav" class="main-navigation mega-menu" data-focus-open="false" data-hover-open="false">
+				<ul class="page-centered-content">
+					<li>
+						<button id="mega1" aria-expanded="false" class="mega-menu-toggle">
+							Services and Support
+							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						</button>
+						<div class="mega-sub-menu">
+							<ul class="ImgColCol">
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/200/160/cat?random=43" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Services</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Borrow Laptops and Gear</a></li>
+										<li><a href="">Borrowing Process and Policies</a></li>
+										<li><a href="">Course Reserves</a></li>
+										<li><a href="">Interlibrary Loan</a></li>
+										<li><a href="">Delivery Services</a></li>
+										<li><a href="">Request Forms</a></li>
+										<li><a href="">Suggest a Title</a></li>
+										<li><a href="">University Records Management</a></li>
+										<li><a href="">Special Collections Research Center</a></li>
+										<li><a href="">Instructional Services</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Help</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Accessibility and Disability Services</a></li>
+										<li><a href="">Printing and Technology</a></li>
+										<li><a href="">Connecting from Off-Campus</a></li>
+										<li><a href="">Onsite Help at Bird Library</a></li>
+										<li><a href="">Trouble with a Resource</a></li>
+										<li><a href="">Help with Summon</a></li>
+										<li><a href="">Subject Librarians</a></li>
+										<li><a href="">Entreprenurial Help</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<button id="mega2" aria-expanded="false" class="mega-menu-toggle">
+							Visit and Study
+							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						</button>
+						<div class="mega-sub-menu">
+							<ul class="ImgColColCol">
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/160/100/cat?random=1" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Spaces</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Floor Maps</a></li>
+										<li><a href="">Service Desks</a></li>
+										<li><a href="">Pages Cafe</a></li>
+										<li><a href="">Study and Meeting Spaces</a></li>
+										<li><a href="">Blackstone LaunchPad</a></li>
+										<li><a href="">Faculty Research Commons</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Libraries</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Bird Library</a></li>
+										<li><a href="">Carnegie Library</a></li>
+										<li><a href="">King + King Library</a></li>
+										<li><a href="">SU College of Law Library</a></li>
+										<li><a href="">Martin Luther King Jr. Library</a></li>
+										<li><a href="">F. Franklin Moon Library (ESF)</a></li>
+										<li><a href="">Special Collections Research Center</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Partners</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Center for Learning and Student Success (CLASS)</a></li>
+										<li><a href="">Syracuse Abroad @ Bird</a></li>
+										<li><a href="">Syracuse Office of Undergraduate Research and Creative Engagement (SOURCE)</a></li>
+										<li><a href="">Digital Scholarship Space (DSS)</a></li>
+										<li><a href="">Center for Teaching and Learning Excellence</a></li>
+									</ul>								
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<button id="mega3" aria-expanded="false" class="mega-menu-toggle">
+							Research
+							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						</button>
+						<div class="mega-sub-menu">
+							<ul class="ImgImgColCol">
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/160/100/cat?random=4" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/160/100/cat?random=5" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Research Support</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">General Research</a></li>
+										<li><a href="">In-Depth Research</a></li>
+										<li><a href="">Research and Course Guides</a></li>
+										<li><a href="">Subject Areas</a></li>
+										<li><a href="">Research Process</a></li>
+										<li><a href="">Subject Librarians</a></li>
+										<li><a href="">Special Collections Research Center</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Services and Tools</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Workshops</a></li>
+										<li><a href="">Citing Sources</a></li>
+										<li><a href="">Citation Management Tools</a></li>
+										<li><a href="">Experts@Syracuse</a></li>
+										<li><a href="">Research Data Services</a></li>
+										<li><a href="">Writing Center</a></li>
+										<li><a href="">Plagiarism Checker</a></li>
+										<li><a href="">SU Press</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<button id="mega4" aria-expanded="false" class="mega-menu-toggle">
+							Collections
+							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						</button>
+						<div class="mega-sub-menu">
+							<ul class="ColColColCol">
+								<li class="text-column">
+									<span class="mega-sub-heading">Special Collections Research Center</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Collection Areas</a></li>
+										<li><a href="">Digital Collections</a></li>
+										<li><a href="">Pan Am 103</a></li>
+										<li><a href="">University Archives</a></li>
+										<li><a href="">Search the Collections</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">General</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Ebooks</a></li>
+										<li><a href="">Journals</a></li>
+										<li><a href="">Databases</a></li>
+										<li><a href="">Videos and Film</a></li>
+										<li><a href="">Data Sources</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Subheading 3</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Federal Depository Library Program (FDLP)</a></li>
+										<li><a href="">Maps and Government Information</a></li>
+										<li><a href="">Music Scores and Sheet Music</a></li>
+										<li><a href="">Newspapers</a></li>
+										<li><a href="">HathiTrust</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<span class="mega-sub-heading">Digital Library</span>
+									<ul class="mega-menu-bulleted">
+										<li><a href="">Digital Collections Repository</a></li>
+										<li><a href="">SURFACE Institutional Repository</a></li>
+										<li><a href="">Digital Exhibits</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>						
+					</li>
+					<li>
+						<button id="mega5" aria-expanded="false" class="mega-menu-toggle">
+							About Us
+							<svg class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+							<svg class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						</button>
+						<div class="mega-sub-menu">
+							<ul class="ImgImgColCol">
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/160/100/cat?random=34" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/160/100/cat?random=25" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</li>
+								<li class="text-column">
+										<ul class="mega-menu-bulleted">
+										<li><a href="">Policies and Procedures</a></li>
+										<li><a href="">Strategic Plan</a></li>
+										<li><a href="">Publications</a></li>
+										<li><a href="">Blog</a></li>
+										<li><a href="">Staff Directory</a></li>
+										<li><a href="">Equity, Diversity, Accessibility, and Inclusion</a></li>
+									</ul>
+								</li>
+								<li class="text-column">
+									<ul class="mega-menu-bulleted">
+										<li><a href="">News</a></li>
+										<li><a href="">Events</a></li>
+										<li><a href="">Exhibitions</a></li>
+										<li><a href="">Job Opportunities</a></li>
+										<li><a href="">Give to the Libraries</a></li>
+										<li><a href="">Departments</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</banner>
+		<nav aria-label="Breadcrumb" id="breadcrumbs" class="page-centered-content">
+			<ul>
+			</ul>
+		</nav>
+	</header>
+	<main id="main" class="page-centered-content">
+		<div id="main-content">
+			<h1 id="page-title"></h1>
+		</div>
+		<ul>
+			<li> Closes on ESC. If focus is in submenu, move to parent trigger.
+			<li> No auto-open on focus. Open must be triggered by 
+			<li> If focus is IN a submenu, no hover opening unless there is a click
+			<li> if focus is ON submenu trigger and submenu opened, hover does not open. Click outside will close. 
+			<li>	If focusable, go there but if hover is open but focus moves, close the hover
+		</ul>
+	</main>
+	<footer>
+		<div class="page-centered-content">
+			Return to <a href="index.html">Menu Examples</a>
+		</div>
+	</footer>
+
+
+
+</body>
+</html>
