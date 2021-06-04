@@ -47,11 +47,18 @@
 					<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 				</div>
 			</div>
+			
 			<h2 id="main-nav-heading" class="offscreen">
 				Main Navigation
 			</h2>
-			<nav id="main-nav" class="main-navigation mega-menu" aria-labelledby="main-nav-heading" data-focus-open="false" data-hover-open="false">
-				<ul class="page-centered-content">
+			
+			<div class="main-navigation">
+			<nav id="main-nav" class="mega-menu page-centered-content " aria-labelledby="main-nav-heading" data-focus-open="false" data-hover-open="false" data-responsive-width="1000px">
+				<button class="responsive-toggle" aria-expanded="true">
+					<svg focusable="false" ><use xlink:href="#icon-menu"></use></svg>
+					Menu
+				</button>
+				<ul>
 					<li>
 						<button id="mega1" aria-expanded="false" class="mega-menu-toggle">
 							Services and Support
@@ -296,15 +303,12 @@
 					</li>
 				</ul>
 			</nav>
+			</div>
 		</banner>
-		<nav aria-label="Breadcrumb" id="breadcrumbs" class="page-centered-content">
-			<ul>
-			</ul>
-		</nav>
 	</header>
 	<main id="main" class="page-centered-content">
 		<div id="main-content">
-			<h1 id="page-title"></h1>
+			<h1 id="page-title">Accessible Mega Menu</h1>
 		</div>
 		<ul>
 			<li> Closes on ESC. If focus is in submenu, move to parent trigger.
