@@ -280,11 +280,11 @@ main + footer a:visited{
 }
 
 /* accessibility fix for list-style none ul in safari */
-.mega-menu ul li:before {
+.mega-menu > ul > li:before,
+.mega-sub-menu > ul > li:before {
 	content: "\200b";
 	position: absolute;
 }
-
 
 .mega-menu li button svg.icon {
 	height: 0.625em;
@@ -320,12 +320,64 @@ main + footer a:visited{
 	display: block;
 }
 
+.mega-sub-menu > ul {
+	list-style: none;
+	border-bottom: solid 1px #fff;
+	padding: 0.625rem 1rem
+}
 
 
 .mega-sub-menu .image-column {
 	display: none;
 }
 
+
+.mega-sub-menu > ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+.mega-sub-menu > ul li a:focus {
+	text-decoration: underline;
+	outline-color: #fff;
+}
+.mega-sub-menu > ul li a:hover {
+	text-decoration: underline;
+	color: #f76900;
+}
+
+.mega-sub-heading {
+	font-size: inherit;
+	margin: 0 0 0.125em;
+	padding: 0;
+	font-weight: 600;
+}
+.mega-sub-heading.hidden {
+	display: none;
+}
+
+
+.mega-sub-menu > ul > li > ul {
+	padding-left: 0;
+}
+
+.mega-sub-menu > ul > li.text-column + li.text-column > .mega-sub-heading {
+	margin-top: 0.625rem;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted {
+	list-style-type: square;
+	list-style-position: outside;
+	padding-left: 1rem;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li {
+	margin-top: 4px;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li a {
+	display: block;
+	padding: 1px 0;
+}
 
 
 
@@ -411,19 +463,12 @@ main + footer a:visited{
 	}
 
 
-
-
-
-
-
-
-
 	.mega-sub-menu > ul {
-		padding-left: 0;
-		list-style: none;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 0;
+		border: 0;
 	}
 
 
@@ -444,6 +489,10 @@ main + footer a:visited{
 	.mega-sub-menu > ul > li.text-column {
 		align-self: flex-start;
 	}
+	
+	.mega-sub-menu > ul > li.text-column + li.text-column > .mega-sub-heading {
+		margin-top: 0;
+	}
 
 	.mega-sub-menu > ul > li.image-column {
 		min-width: var(--image-width);
@@ -458,6 +507,7 @@ main + footer a:visited{
 		width: 100%;
 	}
 
+/*
 	.mega-sub-menu > ul.ColColColCol li.text-column {
 		min-width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
 		width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
@@ -472,48 +522,16 @@ main + footer a:visited{
 		min-width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
 		width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
 	}
+*/
 
-
-	.mega-sub-menu > ul > li > ul {
-		padding-left: 0;
+	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li:first-of-type {
+		margin-top: 0;
 	}
 
-	.mega-sub-menu > ul > li > ul.mega-menu-bulleted {
-		list-style-type: square;
-		list-style-position: outside;
-		padding-left: 1rem;
-	}
-	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li {
-		
-	}
-	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li + li {
-		margin-top: 4px;
-	}
-	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li a {
+	.mega-sub-heading.hidden {
 		display: block;
-		padding: 1px 0;
+		visibility: hidden;
 	}
-
-
-	.mega-sub-menu > ul li a {
-		color: #fff;
-		text-decoration: none;
-	}
-	.mega-sub-menu > ul li a:focus {
-		outline-color: #fff;
-	}
-	.mega-sub-menu > ul li a:hover {
-		text-decoration: underline;
-		color: #f76900;
-	}
-
-	.mega-sub-heading {
-		font-size: inherit;
-		margin: 0 0 0.125em;
-		padding: 0;
-		font-weight: 600;
-	}
-
 }
 
 
