@@ -253,12 +253,18 @@ main + footer a:visited{
 	outline-offset: -5px;
 }
 
+.mega-menu button.responsive-toggle[aria-expanded="true"] {
+	background: var(--menu-background);
+	box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4); 
+}
+
 .mega-menu button.responsive-toggle[aria-expanded="false"] + ul {
 	display: none;
 }
 
 .mega-menu button.responsive-toggle[aria-expanded="true"] + ul {
 	display: block;
+	box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
 }
 
 .mega-menu {
@@ -351,10 +357,6 @@ main + footer a:visited{
 	padding: 0;
 	font-weight: 600;
 }
-.mega-sub-heading.hidden {
-	display: none;
-}
-
 
 .mega-sub-menu > ul > li > ul {
 	padding-left: 0;
@@ -385,7 +387,7 @@ main + footer a:visited{
 	.mega-menu {
 		--menu-width: var(--content-width);
 		--inner-sub-menu-margin: 20px;
-		--image-width: 15%;
+		--image-width: 20%;
 	}
 
 	.mega-menu button.responsive-toggle {
@@ -416,10 +418,6 @@ main + footer a:visited{
 	}
 	.mega-menu ul > li > button[aria-expanded="true"]:not(:hover) {
 		background: var(--menu-background);
-		/*
-		border-left-color: #adb3b8;
-		border-right-color: #adb3b8;
-		*/
 		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4); 
 	}
 
@@ -507,30 +505,21 @@ main + footer a:visited{
 		width: 100%;
 	}
 
-/*
-	.mega-sub-menu > ul.ColColColCol li.text-column {
-		min-width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
-		width: calc((var(--menu-width) - 5 * var(--inner-sub-menu-margin)) / 4);
-	}
-
-	.mega-sub-menu > ul.ImgColColCol li.text-column {
-		min-width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
-		width: calc((var(--menu-width) - var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 3);
-	}
-
-	.mega-sub-menu > ul.ImgImgColCol li.text-column {
-		min-width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
-		width: calc((var(--menu-width) - 2 * var(--image-width) - 5 * var(--inner-sub-menu-margin)) / 2);
-	}
-*/
-
 	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li:first-of-type {
 		margin-top: 0;
 	}
+	
+	.mega-sub-menu > ul > li > ul.mega-menu-bulleted.double {
+		column-count: 2;
+		column-gap: var(--inner-sub-menu-margin);
+	}
 
-	.mega-sub-heading.hidden {
-		display: block;
-		visibility: hidden;
+	.mega-sub-menu > ul > li > ul.mega-menu-bulleted.double > li {
+		break-inside: avoid;
+	}
+
+	.mega-sub-heading {
+		white-space: nowrap;
 	}
 }
 
