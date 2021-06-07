@@ -2,7 +2,9 @@
 
 :root {
 	--content-width: 900px;
+}
 
+.mega-menu {
 	--menu-background: #000e54;
 	--menu-color: #fff;
 	--menu-hover-background: #D74100;
@@ -187,7 +189,7 @@
 
 
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 900px) {
 	.mega-menu {
 		--menu-width: var(--content-width);
 		--inner-sub-menu-margin: 20px;

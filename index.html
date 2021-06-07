@@ -67,7 +67,7 @@
 			</h2>
 			
 			<div class="main-navigation">
-				<nav id="main-nav" class="mega-menu page-centered-content " aria-labelledby="main-nav-heading" data-focus-open="false" data-hover-open="false" data-responsive-width="1000px">
+				<nav id="main-nav" class="mega-menu page-centered-content " aria-labelledby="main-nav-heading" data-focus-open="false" data-hover-open="false" data-responsive-width="900px">
 					<button class="responsive-toggle" aria-expanded="false">
 						<svg focusable="false" ><use xlink:href="#icon-menu"></use></svg>
 						Menu
@@ -359,7 +359,6 @@
 		</section>
 		
 
-<!--
 		<section aria-labelledby="InteractionLogic">
 			<div class="header-anchor">
 				<h2 id="InteractionLogic">
@@ -373,9 +372,21 @@
 			<p> 
 				The biggest challenge with the design specifications involved the 
 				desktop view and properly balancing	the interactions involving 
-				opening the menus via hover or direct manipulation. The following 
-				logic was reasoned out:
+				opening the menus via hover or direct manipulation. To accomplish
+				this, the mega menu exists in one of three states:
 			</p>
+			<dl>
+				<dt>Closed</dt>
+				<dd>No sub-menu in the mega menu is opened.</dd>
+				
+				<dt>Hover Opened</dt>
+				<dd>A sub-menu is currently opened via hover interaction.</dd>
+				
+				<dt>Focus Opened</dt>
+				<dd>A sub-menu is open <strong>and</strong> focus is currently within the mega menu.</dd>
+			</dl>
+				
+			</dl>
 			<ul>
 				<li>
 					Regardless of whether a menu was opened by hovering or by 
@@ -401,12 +412,12 @@
 				<li>	If focusable, go there but if hover is open but focus moves, close the hover
 			</ul>
 	</section>
--->
+
 		
 	</main>
 	<footer>
 		<div class="page-centered-content">
-
+			Footer
 		</div>
 	</footer>
 
