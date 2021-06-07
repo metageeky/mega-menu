@@ -1,12 +1,16 @@
 
 
 :root {
-	--content-width: 1000px;
+	--content-width: 900px;
 
 	--menu-background: #000e54;
 	--menu-color: #fff;
 	--menu-hover-background: #D74100;
 	--menu-hover-color: #fff;
+}
+
+.mega-menu button svg {
+	pointer-events: none;
 }
 
 /* mega-menu top-level */
