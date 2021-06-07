@@ -76,6 +76,7 @@
 	position: absolute;
 	background: var(--menu-background);
 	list-style: none;
+	z-index: 100;
 }
 
 .mega-menu > ul > li > button.mega-menu-toggle {
@@ -241,6 +242,7 @@
 		width: var(--menu-width);
 		transition: opacity .4s 1s;
 		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+		z-index: 100;
 	}
 	/* add a 10px "border" around the submenus to make it not close as easily */
 	.mega-sub-menu:before {

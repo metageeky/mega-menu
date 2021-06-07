@@ -291,6 +291,7 @@ li code[class*="language-"]{
 	left: 0;
 	top: 50%;
 	transform: translate(0,-50%);
+	z-index: 10;
 }
 @media screen and (min-width: 975px) {
 	.header-anchor {
