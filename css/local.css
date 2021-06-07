@@ -156,6 +156,16 @@ h3 {
 	font-size: var(--h3-font-size, 1.25rem);
 }
 
+kbd {
+	font-family: "Lucida Console","Courier New",monospace;
+	border: 1px solid #333;
+	display: inline-block;
+	line-height: 1;
+	padding: 2px 4px;
+	white-space: nowrap;
+	border-radius: 3px;
+}
+
 main > p {
 	margin: 0;
 }

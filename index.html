@@ -314,13 +314,7 @@
 		<div id="main-content">
 			<h1 id="page-title">Accessible Mega Menu</h1>
 		</div>
-		<ul>
-			<li> Closes on ESC. If focus is in submenu, move to parent trigger.
-			<li> No auto-open on focus. Open must be triggered by 
-			<li> If focus is IN a submenu, no hover opening unless there is a click
-			<li> if focus is ON submenu trigger and submenu opened, hover does not open. Click outside will close. 
-			<li>	If focusable, go there but if hover is open but focus moves, close the hover
-		</ul>
+
 		
 		<section aria-labelledby="Specifications">
 			<div class="header-anchor">
@@ -365,13 +359,54 @@
 		</section>
 		
 
-
-
+<!--
+		<section aria-labelledby="InteractionLogic">
+			<div class="header-anchor">
+				<h2 id="InteractionLogic">
+					Interaction Logic
+				</h2>
+				<a href="#InteractionLogic">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Interaction Logic Link</span>
+				</a>
+			</div>
+			<p> 
+				The biggest challenge with the design specifications involved the 
+				desktop view and properly balancing	the interactions involving 
+				opening the menus via hover or direct manipulation. The following 
+				logic was reasoned out:
+			</p>
+			<ul>
+				<li>
+					Regardless of whether a menu was opened by hovering or by 
+					direct manipulation, the <kbd>Escape</kbd> key always closes
+					the menu.
+					<ul>
+						<li>If the focus is currently within a sub-menu, the focus
+							must be moved to the sub-menu's toggle button. 
+						</li>
+					</ul>
+				</li>
+				<li>
+					Focus should always override hover. If the current focus or 
+					<code class="language-html">document.activeElement</code> is 
+					a element of the mega menu, menus will not auto-open or 
+					auto-close based on hovering over the menu.
+				</li>
+				
+				
+				<li> No auto-open on focus. Open must be triggered by 
+				<li> If focus is IN a submenu, no hover opening unless there is a click
+				<li> if focus is ON submenu trigger and submenu opened, hover does not open. Click outside will close. 
+				<li>	If focusable, go there but if hover is open but focus moves, close the hover
+			</ul>
+	</section>
+-->
 		
 	</main>
 	<footer>
 		<div class="page-centered-content">
-			Return to <a href="index.html">Menu Examples</a>
+
 		</div>
 	</footer>
 
