@@ -1,0 +1,383 @@
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+
+
+
+:root {
+	--content-width: 950px;
+	--h1-font-size: 2.25rem;
+	--h2-font-size: 1.75rem;
+	--h3-font-size: 1.25rem;
+	
+	--blue: #0018a8;
+	--yellow: #ffd700;
+	--darkgrey: #404040;
+	--darkred: #7C0A02;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: dotted #2B72D7 3px;
+	outline-offset: 2px;
+}
+
+[hidden] {
+	display: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
+	color: #101010;
+	line-height: 1.5;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: stretch;
+}
+
+
+
+.page-centered-content {
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: var(--content-width);
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 1000px) {
+	.page-centered-content {
+		padding-left: 0;
+		padding-right: 0;
+		width: var(--content-width);
+	}
+}
+
+
+
+#logo-container {
+	flex: 1 1 auto;
+	min-width: 100px;
+	max-width: 300px;
+	margin: 15px 0;
+}
+
+#logo {
+	display: block;
+	max-width: 100%;
+	max-height: 100vh;
+}
+
+.main-navigation {
+	color: #eee;
+	background: #404040;
+	padding: 0;
+	font-size: 1rem;
+}
+
+main {
+	flex: 1 0 auto;
+	margin: 20px;
+}
+
+
+
+
+
+
+a, a:visited {
+	color: var(--blue,#0018A8);
+}
+
+h1, h2 {
+	margin: 1.125rem 0 0.5rem;
+}
+
+h1 {
+	font-size: var(--h1-font-size, 2.25rem);
+}
+
+h2 {
+	font-size: var(--h2-font-size, 1.75rem);
+}
+
+h3 {
+	font-size: var(--h3-font-size, 1.25rem);
+}
+
+main > p {
+	margin: 0;
+}
+
+main p + p {
+	margin-top: 0.75rem;
+}
+
+main li + li {
+	margin-top: 0.75rem;
+}
+
+main pre[class*="language-"] {
+	margin: 1rem 2rem;
+}
+
+code {
+	font-family: "Lucida Console","Courier New",monospace;
+	word-break: break-all;
+}
+
+p code[class*="language-"],
+li code[class*="language-"]{
+	white-space: nowrap !important;
+	border: 0 !important;
+	padding: 0 !important;
+}
+
+.offscreen {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.skipnavlink {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	padding: 0.625rem;
+	color: #000 !important;
+	background-color: var(--yellow);
+	z-index: 2000;
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+.skipnavlink:focus {
+	overflow: auto;
+	clip: auto;
+	width: auto;
+	height: auto;
+	outline-offset: -4px;
+	outline-color: #000;
+}
+
+
+#icons {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+#example {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: stretch;
+	justify-content: flex-start;
+	width: 30ch;
+	margin: 1rem auto;
+}
+#example > * {
+	width: 100%;
+	border: solid 2px #000;
+}
+#example > button {
+	margin-bottom: 4px;
+	z-index: 10;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	background: var(--yellow, #ffc030);
+	font-weight: 600;
+	font-size: 1rem;
+	border-radius: 5px;
+	text-transform: capitalize;
+
+}
+#example > textarea {
+	resize: none;
+	padding: 0.125rem 0.5rem;
+	line-height: 1.75;
+	height: 10rem;
+}
+
+/* anchored headings */
+.header-anchor {
+	margin-top: 1.5rem;
+	margin-bottom: 0.625rem;
+	margin-left: -4px;
+	margin-right: 0;
+	position: relative;
+}
+.header-anchor h2,
+.header-anchor h3 {
+	margin: 0;
+	margin-left: calc(1.5rem + 4px + 2px);
+	line-height: 1;
+	display: block;
+}
+.header-anchor h2 + a,
+.header-anchor h3 + a{
+	display: block;
+	width: calc(1.5rem + 4px);
+	height: calc(1.5rem + 4px);
+	text-decoration: none;
+	line-height: 1;
+	padding: 2px;
+	border-radius: 5px;
+	position: absolute; 
+	left: 0;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+@media screen and (min-width: 975px) {
+	.header-anchor {
+		margin-left: 0;
+	}
+	.header-anchor h2,
+	.header-anchor h3 {
+		margin-left: 0;
+	}
+	
+	.header-anchor h2 + a,
+	.header-anchor h3 + a {
+		left: calc(-1.5rem - 4px - 2px);
+	}
+}
+.header-anchor a:hover {
+	color: #fff;
+	background: var(--blue,#0018A8);
+}
+.header-anchor a:focus {
+	outline-offset: 1px;
+}
+
+.header-anchor a svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+/* hide the anchor text */
+.header-anchor a span {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+
+/* table of contents */
+#toc {
+	border: solid 1px #222;
+	padding: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+#toc h2 {
+	font-size: 1rem;
+	margin: 0;
+}
+#toc ul {
+	margin: 0;
+	padding-left: 1.125rem;
+}
+#toc li {
+	margin-top: 0.25rem;
+}
+
+@media screen and (min-width: 650px) {
+	#toc {
+		float: right;
+		margin-left: 1rem;
+		margin-bottom: 0.5rem;
+	}
+}
+
+details {
+	margin: 1rem 2rem;
+}
+details[open] {
+	padding-bottom: 0.5em;
+	border-bottom: solid 3px var(--darkred);
+}
+
+details summary {
+	font-weight: 700;
+	margin-bottom: 0.25em;
+	cursor: pointer;
+	color: var(--darkred);
+}
+details[open] summary {
+	position: relative;
+	margin-bottom: 0.5em;
+	border-bottom: solid 3px var(--darkred);
+}
+
+details > pre[class*="language-"] {
+	margin: 0;
+}

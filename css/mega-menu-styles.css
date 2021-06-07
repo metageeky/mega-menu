@@ -1,214 +1,13 @@
-@font-face {
-	font-family: 'ShermanSans';
-	src: url('https://assets.syracuse.edu/fonts/shermansans-book.woff2') format('woff2'),
-		url('https://assets.syracuse.edu/fonts/shermansans-book.woff') format('woff'),
-		url('https://assets.syracuse.edu/fonts/shermansans-book.eot') format('embedded-opentype');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
-}
-
-@font-face {
-	font-family: 'ShermanSans';
-	src: url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff2') format('woff2'),
-		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff') format('woff'),
-		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.eot') format('embedded-opentype');
-	font-weight: normal;
-	font-style: normal;
-	font-display: swap;
-	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
-}
-
-@font-face {
-	font-family: 'ShermanSans';
-	src: url('https://assets.syracuse.edu/fonts/shermansans-bold.woff2') format('woff2'),
-	 url('https://assets.syracuse.edu/fonts/shermansans-bold.woff') format('woff'),
-	 url('https://assets.syracuse.edu/fonts/shermansans-bold.eot') format('embedded-opentype');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
-}
-
-@font-face {
-	font-family: 'ShermanSans';
-	src: url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff2') format('woff2'),
-	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff') format('woff'),
-	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.eot') format('embedded-opentype');
-	font-weight: bold;
-	font-style: normal;
-	font-display: swap;
-	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
-}
-
-
-* {
-	box-sizing: border-box;
-}
-
-*:focus {
-	outline: dotted #2B72D7 3px;
-	outline-offset: 2px;
-}
-
-html {
-	height: 100%;
-}
-
-body {
-	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
-	color: #101010;
-	line-height: 1.5;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-content: flex-start;
-	align-items: stretch;
-}
-
-a, a:visited {
-	color: #2B72D7;
-}
-
-banner > div.page-centered-content {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-flow: row nowrap;
-	margin: 15px auto;
-}
-
-#logo-container {
-	flex: 1 1 auto;
-	min-width: 100px;
-	max-width: 300px;
-}
-
-#logo {
-	display: block;
-	max-width: 100%;
-	max-height: 100vh;
-}
-
-
-h1 {
-	font-size: 2.25rem;
-	margin: 1.125rem 0 0.5rem;
-}
-
-h2 {
-	font-size: 1.75rem;
-	margin: 1.125rem 0 0.5rem;
-}
-
-p {
-	margin: 0;
-}
-
-p + p {
-	margin-top: 0.75rem;
-}
-
-.offscreen {
-	position: absolute;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0;
-	border: 0;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-
-.skipnavlink {
-	position: absolute;
-	margin: 0.375rem;
-	padding: 0.625rem;
-	color: #fff !important;
-	background-color: #2B72D7;
-	z-index: 2000;
-	font-size: 1.125rem;
-}
-
-.skipnavlink:focus {
-	overflow: auto;
-	clip: auto;
-	width: auto;
-	height: auto;
-}
-
-#icons {
-	position: absolute;
-	width: 0;
-	height: 0;
-	overflow: hidden;
-}
-
-#dummy-text {
-	display: none;
-}
-
-#main {
-	flex: 1 0 auto;
-}
 
 
 :root {
 	--content-width: 1000px;
+
 	--menu-background: #000e54;
 	--menu-color: #fff;
 	--menu-hover-background: #D74100;
 	--menu-hover-color: #fff;
 }
-
-.page-centered-content {
-	padding-left: 15px;
-	padding-right: 15px;
-	max-width: var(--content-width);
-	margin: 0 auto;
-}
-
-@media screen and (min-width: 1000px) {
-	.page-centered-content {
-		padding-left: 0;
-		padding-right: 0;
-		width: var(--content-width);
-	}
-}
-
-.main-navigation {
-	color: #eee;
-	background: #404040;
-	padding: 0;
-	font-size: 1rem;
-}
-
-main {
-	margin: 20px;
-}
-
-main + footer {
-	background: #404040;
-	color: #fff;
-	font-size: 1.25rem;
-	padding: 1em 0;
-	text-align: center;
-	margin-top: 2rem;
-}
-main + footer a,
-main + footer a:visited{
-	color: #fff;
-}
-
-
-
-
-
-
-
 
 /* mega-menu top-level */
 
@@ -393,7 +192,10 @@ main + footer a:visited{
 	.mega-menu button.responsive-toggle {
 		display: none;
 	}
-
+	.mega-menu button.responsive-toggle[aria-expanded="true"] + ul {
+		display: block;
+		box-shadow: none;
+	}
 	.mega-menu button.responsive-toggle[aria-expanded="false"] + ul {
 		display: block;
 	}
@@ -410,6 +212,7 @@ main + footer a:visited{
 		padding: 0;
 		display: inline-block;
 	}
+	
 
 
 	.mega-menu > ul > li > button.mega-menu-toggle {
