@@ -70,7 +70,7 @@ window.addEventListener('load', function(event) {
 				if(nav.getAttribute('data-menu-state') == 'focus')
 					return;
 				// if relatedTarget is an open mega-sub-menu, don't close
-				if(evt.relatedTarget.classList.contains('mega-sub-menu'))
+				if(evt.relatedTarget != null && evt.relatedTarget.classList.contains('mega-sub-menu'))
 					return;
 				nav.setAttribute('data-menu-state', 'closed');
 				evt.target.setAttribute('aria-expanded', 'false');
@@ -86,7 +86,7 @@ window.addEventListener('load', function(event) {
 				return;
 			if(nav.getAttribute('data-menu-state') == 'focus')
 				return;
-			if(evt.relatedTarget == evt.target.previousElementSibling)
+			if(evt.relatedTarget != null && evt.relatedTarget == evt.target.previousElementSibling)
 				return;
 			
 			nav.setAttribute('data-menu-state', 'closed');
