@@ -128,10 +128,6 @@
 	display: block;
 }
 
-.mega-menu button[aria-expanded="true"] + .mega-sub-menu {
-	display: block;
-}
-
 .mega-sub-menu > ul {
 	list-style: none;
 	border-bottom: solid 1px #fff;
@@ -226,9 +222,11 @@
 		width: auto;
 		border-bottom: 0;
 	}
+	.mega-menu ul > li > button[aria-expanded="true"] {
+		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+	}
 	.mega-menu ul > li > button[aria-expanded="true"]:not(:hover) {
 		background: var(--menu-background);
-		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4); 
 	}
 
 
@@ -257,10 +255,10 @@
 		display: block;
 		z-index: -1;
 		position: absolute;
-		width: calc(100% + 20px); 
+		width: calc(100% + 30px); 
 		height: calc(100% + 20px);
-		top: -10px;
-		left: -10px;
+		top: 0;
+		left: -15px;
 	}
 
 	.mega-menu[data-menu-state="focus"] button[aria-expanded="true"] + .mega-sub-menu {

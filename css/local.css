@@ -55,6 +55,7 @@
 	--yellow: #ffd700;
 	--darkgrey: #404040;
 	--darkred: #7C0A02;
+	--lightgrey: #adb3b8
 }
 
 * {
@@ -393,4 +394,56 @@ details[open] summary {
 
 details > pre[class*="language-"] {
 	margin: 0;
+}
+
+dl {
+	width: 90%;
+	margin: 1rem auto;
+}
+dl dt {
+	font-weight: 600;
+	border-bottom: solid 1px var(--lightgrey);
+}
+
+table {
+	border-collapse: collapse;
+	width: 95%;
+	margin: 1rem auto;
+}
+
+table thead th {
+	color: #fff;
+	background: var(--blue);
+}
+
+table th,
+table td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.625rem;
+	border: solid 1px var(--darkgrey);
+}
+
+table tbody th {
+	white-space: nowrap;
+	font-weight: 400;
+}
+
+table td p {
+	margin: 0;
+}
+
+table td p + p {
+	margin-top: 0.5rem;
+}
+
+#notice {
+	font-weight: 600;
+	border: solid 5px var(--darkgrey);
+	color: #900;
+	font-size: 3rem;
+	padding: 1.25rem;
+	width: 85%;
+	margin: 1rem auto;
+	text-align: center;
 }

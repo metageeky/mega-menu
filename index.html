@@ -311,10 +311,15 @@
 		</banner>
 	</header>
 	<main id="main" class="page-centered-content">
+	
+	
+		<div id="notice">
+			The following text is a DRAFT and currently being edited
+		</div>
+	
 		<div id="main-content">
 			<h1 id="page-title">Accessible Mega Menu</h1>
 		</div>
-
 		
 		<section aria-labelledby="Specifications">
 			<div class="header-anchor">
@@ -347,8 +352,11 @@
 					same as the "desktop" mode. 
 				</li>
 				<li>
-					In desktop mode, the menus open on hover to increase discoverability.
+					In desktop mode ONLY, the menus open on hover to increase discoverability.
 				</li>
+				<li>
+					When in desktop mode, all toggle buttons are arranged horizontally without
+					any wrapping nor should it trigger any horizontal scrolling.
 				<li>
 					The individual mega menus consist of up to 4 columns that are either
 					an image link or a column of text links. The text link columns may 
@@ -359,34 +367,426 @@
 		</section>
 		
 
-		<section aria-labelledby="InteractionLogic">
+		<section aria-labelledby="AccessibilityConcerns">
 			<div class="header-anchor">
-				<h2 id="InteractionLogic">
-					Interaction Logic
+				<h2 id="AccessibilityConcerns">
+					Accessibility Concerns
 				</h2>
-				<a href="#InteractionLogic">
+				<a href="#AccessibilityConcerns">
 					<svg><use xlink:href="#icon-link"></use></svg>
-					<span>Interaction Logic Link</span>
+					<span>Accessibility Concerns Link</span>
 				</a>
 			</div>
+			<p>
+				The mega menu is a collection of drop down menus for navigation. 
+				As such, each dropdown should thus mostly follow the recommended 
+				practices for the 
+				<a href="https://www.w3.org/TR/wai-aria-practices-1.1/#disclosure">WAI-ARIA
+				disclosure pattern</a>. The example provided for 
+				<a href="https://www.w3.org/TR/wai-aria-practices-1.1/examples/disclosure/disclosure-navigation.html">navigation
+				menu examples via disclosures</a> can be used. In terms of accessibility 
+				features, the following subsections discuss what is needed for proper 
+				implementation.
+			</p>
+			<p>
+				Importantly, note that this is <strong>NOT</strong> an application 
+				menu and that pattern should not be used. Application menus are for
+				web applications such as Google Docs. This is for navigation between
+				pages on the web. As such is does <strong>NOT</strong> use the 
+				ARIA roles of either <code class="language-html">menu</code> or
+				<code class="language-html">menuitem</code>.
+			</p>
+			
+			<div class="header-anchor">
+				<h3 id="InteractionLogic">
+					Hover Interaction Logic
+				</h3>
+				<a href="#InteractionLogic">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Hover Interaction Logic Link</span>
+				</a>
+			</div>
+			<p>
+				The design specifications for this mega menu adds the requirement
+				for the dropdown menus to open on hover interaction when in
+				desktop mode. To support only having hover in desktop mode, 
+				the <code class="language-html">&lt;nav&gt;</code> that is
+				the mega menu should set the attributes
+				<code class="language-html">data-responsive-width</code> to
+				the minimum width that the desktop mode occurs. The 
+				<i>mega-menu.js</i> code utilizes this value when determining
+				interactivity for any event.
+			</p>
 			<p> 
-				The biggest challenge with the design specifications involved the 
-				desktop view and properly balancing	the interactions involving 
-				opening the menus via hover or direct manipulation. To accomplish
-				this, the mega menu exists in one of three states:
+				To support accessibility, the desktop view must properly balance
+				the interactions between opening the menus via hover or direct 
+				manipulation. To accomplish this, the mega menu should be considered
+				as existing in one of three states:
 			</p>
 			<dl>
 				<dt>Closed</dt>
 				<dd>No sub-menu in the mega menu is opened.</dd>
 				
-				<dt>Hover Opened</dt>
-				<dd>A sub-menu is currently opened via hover interaction.</dd>
+				<dt>Hover</dt>
+				<dd>A sub-menu is currently opened via hover interaction (the 
+					cursor is hovering over a submenu toggle button or a submenu).
+				</dd>
 				
-				<dt>Focus Opened</dt>
-				<dd>A sub-menu is open <strong>and</strong> focus is currently within the mega menu.</dd>
+				<dt>Focus</dt>
+				<dd>A sub-menu is open <strong>and</strong> focus is currently 
+					within the mega menu on either a link or toggle button.
+				</dd>
 			</dl>
 				
-			</dl>
+			<p>
+				In general, focus takes priority over the hover state. Once the 
+				menu enters the focus state, hover has no effect until the menu
+				returns to the closed state. The following table describes the 
+				various state transitions the desktop mega menu should take.
+			</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Current State</th>
+						<th>Interaction</th>
+						<th>Result</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Closed</td>
+						<td>Cursor hovers over a toggle button</td>
+						<td>
+							<p>State changes to Hover</p>
+							<p>
+								Set <code class="language-html">aria-expanded="true"</code> 
+								on the hovered toggle button
+							</p>
+							<p>Associated sub-menu is shown</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Closed</td>
+						<td>A toggle button receives a click event</td>
+						<td>
+							<p>State changes to Focus</p>
+							<p>
+								Set <code class="language-html">aria-expanded="true"</code> 
+								on the clicked toggle button
+							</p>
+							<p>Associated sub-menu is shown</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Hover</td>
+						<td>Cursor moves from toggle button to opened sub-menu 
+							or opened sub-menu to its associated toggle button.
+						</td>
+						<td>
+							<p>No changes</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Hover</td>
+						<td>
+							Cursor moves from opened sub-menu or its associated 
+							toggle button to a different toggle button
+						</td>
+						<td>
+							<p>State remains Hover</p>
+							<p>
+								Set <code class="language-html">aria-expanded="false"</code> 
+								on the previously opened toggle button and hide the
+								opened sub-menu
+							</p>
+							<p>
+								Set <code class="language-html">aria-expanded="true"</code> 
+								on the newly hovered dropdown button and show the 
+								associated sub-menu
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Hover</td>
+						<td>
+							The toggle button with <code class="language-html">aria-expanded="true"</code>
+							experiences a click event
+						</td>
+						<td>
+							<p>State changes to Focus</p>
+							<p>
+								No other changes
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Hover</td>
+						<td>
+							A link in the opened sub-menu receives focus
+						</td>
+						<td>
+							<p>State changes to Focus</p>
+							<p>
+								No other changes
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Hover</td>
+						<td>
+							<kbd>Escape</kbd> key is pressed
+						</td>
+						<td>
+							<p>State changes to Closed</p>
+							<p>
+								The relevant toggle buttons sets <code class="language-html">aria-expanded="false"</code> 
+							</p>
+							<p>
+								The opened sub menus closes
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							<kbd>Escape</kbd> key is pressed
+						</td>
+						<td>
+							<p>State changes to Closed</p>
+							<p>
+								All toggle buttons set <code class="language-html">aria-expanded="false"</code> 
+							</p>
+							<p>
+								Any opened sub menus disappear
+							</p>
+							<p>
+								If focus was within a sub-menu, focus is moved to the toggle button
+								associated with the sub-menu
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							A toggle button or opened sub-menu is hovered over
+						</td>
+						<td>
+							<p>No changes</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							The toggle button with <code class="language-html">aria-expanded="true"</code> 
+							receives a click event
+						</td>
+						<td>
+							<p>State changes to Closed</p>
+							<p>Toggle button sets <code class="language-html">aria-expanded="false"</code>
+							<p>Opened sub-menu is closed</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							A toggle button with <code class="language-html">aria-expanded="false</code> 
+							receives a click event
+						</td>
+						<td>
+							<p>State remains Focus</p>
+							<p>
+								Set <code class="language-html">aria-expanded="false"</code> 
+								on the previously opened toggle button and hide the
+								opened sub-menu
+							</p>
+							<p>
+								Set <code class="language-html">aria-expanded="true"</code> 
+								on the newly hovered dropdown button and show the 
+								associated sub-menu
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							<p>
+								Focus moves to any part of the mega menu: links in an opened sub-menu or any toggle button.
+							</p>
+							<p>
+								Can be detected by
+								<code class="language-js">document.activeElement.closest('.mega-menu')!=null</code>
+							</p>
+						</td>
+						<td>
+							<p>No changes</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Focus</td>
+						<td>
+							<p>
+								Focus moves outside of the mega menu
+							</p>
+							<p>
+								Can be detected by
+								<code class="language-js">document.activeElement.closest('.mega-menu')==null</code>
+							</p>
+						</td>
+						<td>
+							<p>To be discussed</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p>
+				The last item needs to be discussed and perhaps some user testing performed
+				due to disagreement in accessibility circles. By having focus changes close
+				the menu causes potential recovery issues in the case of accidental clicks or
+				over tabbing. Adding <i>blur</i> events for this situation is doable if soft
+				desired.
+			</p>
+			
+			
+			
+			<div class="header-anchor">
+				<h3 id="FeaturesAccessibility">
+					Features for Accessibility
+				</h3>
+				<a href="#FeaturesAccessibility">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Features for Accessibility Link</span>
+				</a>
+			</div>
+			
+			<div class="header-anchor">
+				<h3 id="KeyboardSupport">
+					Keyboard Support Logic
+				</h3>
+				<a href="#KeyboardSupport">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Keyboard Support Link</span>
+				</a>
+			</div>
+			<p>
+				For keyboard support, the mega menu should provide the following
+				interactivity in both mobile and desktop settings: 
+			</p>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Key</th>
+						<th>Function</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							<kbd>Tab</kbd> or <br> 
+							<kbd>Shift</kbd> + <kbd>Tab</kbd>
+						</th>
+						<td>
+							Move keyboard focus among top-level buttons, and if 
+							a dropdown is open, move the focus into and through 
+							the links in the dropdown.
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<kbd>Space</kbd> 
+						</th>
+						<td>
+							If focus is on a disclosure button, activates the button 
+							and toggles the visibility of the dropdown.
+						</td>
+					<tr>
+						<th>
+							<kbd>Enter</kbd>
+						</th>
+						<td>
+							<p>	If focus is on a disclosure button, activates the button 
+								and toggles the visibility of the dropdown.</p>
+							<p>If focus is on a link, activates the focused link.</p>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<kbd>Escape</kbd>
+						</th>
+						<td>
+							If a dropdown is open, closes it. If the focus was within the
+							opened dropdown, set focus on the button that controls that 
+							dropdown.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<p>
+				Although the disclosure pattern lists the arrow keys, <kbd>Home</kbd>,
+				and <kbd>End</kbd> keys as optional means of interactions, we do not
+				recommend their use here. These interaction options are not implemented
+				consistently. If they are to be added, we would need to make sure 
+				<strong>ALL</strong> disclosures on library sites also provide them.
+			</p>
+			<p>
+				Additionally, <kbd>space</kbd> and <kbd>enter</kbd> natively triggers
+				the <i>click</i> event for buttons, and <kbd>enter</kbd> natively triggers 
+				<i>click</i> for links (i.e., <code class="language-html">&lt;a&gt;</code>). 
+				No keyboard event listeners are needed for them. 
+			</p>
+				
+			
+			<div class="header-anchor">
+				<h3 id="ARIA">
+					ARIA
+				</h3>
+				<a href="#ARIA">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>ARIA Link</span>
+				</a>
+			</div>
+			<p>
+				In terms of ARIA support, the only required bit of ARIA is 
+				<code class="language-html">aria-expanded="true/false"</code>
+				on the toggle buttons for the dropdown menus. For each toggles
+				button, <code class="language-html">aria-expanded</code> should
+				be set to <i>false</i> if the associated dropdown menu is closed.
+				Whenever the associated menu is opened, whether by hover or click, 
+				the value should be set to <i>true</i>.
+			</p>
+			<p>
+				The disclosure pattern does suggest two additional ARIA attributes:
+				<code class="language-html">aria-controls</code> and 
+				<code class="language-html">aria-current</code> but neither are 
+				recommended here. The first, <code class="language-html">aria-controls</code>,
+				is not widely supported by screen readers currently due to difficulties
+				in implementation. Current recommended practice based on testing suggests
+				that <code class="language-html">aria-controls</code> either provides
+				no benefit or causes additional problems and should thus be avoided.
+			</p>
+			<p>
+				<code class="language-html">aria-current</code> is well supported among
+				screen readers currently. Setting <code class="language-html">aria-current="page"</code>
+				on a link will inform screen readers that the link is to the page the browser
+				is currently at. CSs can then be used to indicate that as well to sighted users.
+				Its utility, however, is debatable in a dropdown menu situation as no indication
+				is provided in the toggle buttons. Therefore, adding the code to support and properly
+				update its usage is not required or recommended for this mega menu.
+			</p>
+			
+
+
+			
+
+		</section>
+
+
+
+
+
 			<ul>
 				<li>
 					Regardless of whether a menu was opened by hovering or by 
@@ -411,7 +811,7 @@
 				<li> if focus is ON submenu trigger and submenu opened, hover does not open. Click outside will close. 
 				<li>	If focusable, go there but if hover is open but focus moves, close the hover
 			</ul>
-	</section>
+
 
 		
 	</main>
