@@ -9,6 +9,7 @@
 	--menu-color: #fff;
 	--menu-hover-background: #D74100;
 	--menu-hover-color: #fff;
+	--menu-font-size: 1rem;
 }
 
 .mega-menu button svg {
@@ -196,15 +197,14 @@
 		display: none;
 	}
 	.mega-menu button.responsive-toggle[aria-expanded="true"] + ul {
-		display: block;
+		display: flex;
 		box-shadow: none;
 	}
 	.mega-menu button.responsive-toggle[aria-expanded="false"] + ul {
-		display: block;
+		display: flex;
 	}
 	.mega-menu > ul {
 		position: relative;
-		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
 		justify-content: flex-start;
@@ -248,7 +248,7 @@
 		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
 		z-index: 100;
 	}
-	/* add a 10px "border" around the submenus to make it not close as easily */
+	/* add a "border" around the submenus to make it not close as easily */
 	.mega-sub-menu:before {
 		content: "";
 		background: transparent;
@@ -260,6 +260,10 @@
 		top: 0;
 		left: -15px;
 	}
+	.mega-sub-menu:focus {
+		outline: none;
+	}
+
 
 	.mega-menu[data-menu-state="focus"] button[aria-expanded="true"] + .mega-sub-menu {
 		display: block;

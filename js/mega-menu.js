@@ -77,7 +77,59 @@ window.addEventListener('load', function(event) {
 		}).options({timeout: 200, interval: 50,});
 			
 	}
-		
+	
+	// blur used to detect if focus has moved out of the mega menu
+	let focusables = nav.querySelectorAll('.mega-sub-menu a, button.mega-menu-toggle');
+	for(e of focusables) {
+		e.addEventListener('blur', function(evt) {
+			if(document.body.offsetWidth <= responsiveWidth)
+				return;
+			if(nav.getAttribute('data-menu-state') != 'focus')
+				return;
+			// if click on non-clickable, close the menu
+			if(evt.relatedTarget == null) {
+				nav.setAttribute('data-menu-state', 'closed');
+				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+			}
+			// focus moved to another focusable element not in the nav menu	
+			else if(evt.relatedTarget != null && evt.relatedTarget.closest('.mega-menu') == null) {
+				nav.setAttribute('data-menu-state', 'closed');
+				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+			}
+			// the opened sub menu is clicked on so just reset previous focus
+			else if(evt.relatedTarget != null && evt.relatedTarget === evt.relatedTarget.closest('div.mega-sub-menu')) {
+
+			}
+		});
+	}
+	
+	let subs = nav.querySelectorAll('div.mega-sub-menu');
+	for(e of subs) {
+		e.addEventListener('focus', function(evt) {
+			if(document.body.offsetWidth <= responsiveWidth)
+				return;
+			// if in hover state and click on the opened menu, switch to focus with focus on toggle
+			if(nav.getAttribute('data-menu-state') == 'hover') {
+				nav.setAttribute('data-menu-state', 'focus');
+				evt.target.previousElementSibling.focus();
+			}
+			// move the focus back to whatever what lost focus when the sub-menu was clicked
+			else if(nav.getAttribute('data-menu-state') == 'focus' && evt.relatedTarget != null) {
+				evt.relatedTarget.focus();
+			}
+		});
+	}
+	
+	/*
+	nav.addEventListener('click', function(evt) {
+		if(document.body.offsetWidth <= responsiveWidth)
+			return;
+		if(nav.getAttribute('data-menu-state') != 'focus')
+			return;
+		console.log(evt);
+	});
+	*/
+	
 	let submenus = document.querySelectorAll('button.mega-menu-toggle + div.mega-sub-menu');
 	for(e of submenus) {
 		// click events for the top-level menu buttons for dropdowns
