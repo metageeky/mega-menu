@@ -274,7 +274,7 @@
 		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
 		z-index: 100;
 	}
-	/* add a "border" around the submenus to make it not close as easily */
+	/* add a "cushion" around the submenus to make it not close as easily */
 	.mega-sub-menu:before {
 		content: "";
 		background: transparent;

@@ -9,12 +9,12 @@ window.addEventListener('load', function(event) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
-			evt.target.setAttribute('data-menu-state', 'focus');
+			nav.setAttribute('data-menu-state', 'focus');
 		}
 		// close menu
 		else {
 			evt.target.setAttribute('aria-expanded', 'false');
-			evt.target.setAttribute('data-menu-state', 'closed');
+			nav.setAttribute('data-menu-state', 'closed');
 		}
 	});
 	
@@ -28,6 +28,7 @@ window.addEventListener('load', function(event) {
 			// only happens in non-responsive mode
 			if(nav.getAttribute('data-menu-state') == 'hover') {
 				nav.setAttribute('data-menu-state', 'focus');
+				responsive.setAttribute('aria-expanded', 'true');
 				evt.target.focus();
 				return;
 			}
@@ -42,13 +43,14 @@ window.addEventListener('load', function(event) {
 			if(evt.target.getAttribute('aria-expanded') == 'false') {
 				evt.target.setAttribute('aria-expanded', 'true');
 				nav.setAttribute('data-menu-state', 'focus');
+				responsive.setAttribute('aria-expanded', 'true');
 			}
 			// close menu
 			else {
 				evt.target.setAttribute('aria-expanded', 'false');
-				// in the case of responsive mode, multiple may be open so don't always set data-focus-open to false
-				if(nav.querySelector('.mega-menu .mega-menu-toggle[aria-expanded="true"]') === null)
-					nav.setAttribute('data-menu-state', 'closed');
+				nav.setAttribute('data-menu-state', 'closed');
+				if(document.body.offsetWidth > responsiveWidth)
+					responsive.setAttribute('aria-expanded','false');
 			}
 		});
 		
@@ -82,8 +84,6 @@ window.addEventListener('load', function(event) {
 	let focusables = nav.querySelectorAll('.mega-sub-menu a, button.mega-menu-toggle');
 	for(e of focusables) {
 		e.addEventListener('blur', function(evt) {
-			if(document.body.offsetWidth <= responsiveWidth)
-				return;
 			if(nav.getAttribute('data-menu-state') != 'focus')
 				return;
 			// detect window change and don't close things
@@ -94,11 +94,13 @@ window.addEventListener('load', function(event) {
 			if(evt.relatedTarget == null) {
 				nav.setAttribute('data-menu-state', 'closed');
 				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+				responsive.setAttribute('aria-expanded', 'false');
 			}
 			// focus moved to another focusable element not in the nav menu	
 			else if(evt.relatedTarget != null && evt.relatedTarget.closest('.mega-menu') == null) {
 				nav.setAttribute('data-menu-state', 'closed');
 				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+				responsive.setAttribute('aria-expanded', 'false');
 			}
 		});
 	}
@@ -107,8 +109,6 @@ window.addEventListener('load', function(event) {
 	let subs = nav.querySelectorAll('div.mega-sub-menu');
 	for(e of subs) {
 		e.addEventListener('focus', function(evt) {
-			if(document.body.offsetWidth <= responsiveWidth)
-				return;
 			// if in hover state and click on the opened menu, switch to focus with focus on toggle
 			if(nav.getAttribute('data-menu-state') == 'hover') {
 				nav.setAttribute('data-menu-state', 'focus');
@@ -125,12 +125,13 @@ window.addEventListener('load', function(event) {
 	
 	let submenus = document.querySelectorAll('button.mega-menu-toggle + div.mega-sub-menu');
 	for(e of submenus) {
-		// click events for the top-level menu buttons for dropdowns
+		// handle hovering moving from opened sub-menu to the toggle button that controls it
 		e.addEventListener('mouseleave', function(evt) {
 			if(document.body.offsetWidth <= responsiveWidth)
 				return;
 			if(nav.getAttribute('data-menu-state') == 'focus')
 				return;
+			// target is the div.sub-menu, related target is the toggle button before it
 			if(evt.relatedTarget != null && evt.relatedTarget == evt.target.previousElementSibling)
 				return;
 			
@@ -149,6 +150,7 @@ window.addEventListener('load', function(event) {
 				return;
 			// set focus state
 			nav.setAttribute('data-menu-state', 'focus');
+			responsive.setAttribute('aria-expanded', 'true');
 		});
 	}
 	
@@ -199,6 +201,28 @@ window.addEventListener('load', function(event) {
 
 });
 
+/*	Below is the hoverintent.js code from https://github.com/tristen/hoverintent
+	Shared under the MIT License
+	Copyright (c) Tristen Brown
 
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+	"Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to
+	the following conditions:
+
+	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+	OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 
 !function(e,t){if("function"==typeof define&&define.amd)define("hoverintent",["module"],t);else if("undefined"!=typeof exports)t(module);else{var n={exports:{}};t(n),e.hoverintent=n.exports}}(this,function(e){"use strict";var t=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e};e.exports=function(e,n,o){function i(e,t){return y&&(y=clearTimeout(y)),b=0,p?void 0:o.call(e,t)}function r(e){m=e.clientX,d=e.clientY}function u(e,t){if(y&&(y=clearTimeout(y)),Math.abs(h-m)+Math.abs(E-d)<x.sensitivity)return b=1,p?void 0:n.call(e,t);h=m,E=d,y=setTimeout(function(){u(e,t)},x.interval)}function s(t){return L=!0,y&&(y=clearTimeout(y)),e.removeEventListener("mousemove",r,!1),1!==b&&(h=t.clientX,E=t.clientY,e.addEventListener("mousemove",r,!1),y=setTimeout(function(){u(e,t)},x.interval)),this}function c(t){return L=!1,y&&(y=clearTimeout(y)),e.removeEventListener("mousemove",r,!1),1===b&&(y=setTimeout(function(){i(e,t)},x.timeout)),this}function v(t){L||(p=!0,n.call(e,t))}function a(t){!L&&p&&(p=!1,o.call(e,t))}function f(){e.addEventListener("focus",v,!1),e.addEventListener("blur",a,!1)}function l(){e.removeEventListener("focus",v,!1),e.removeEventListener("blur",a,!1)}var m,d,h,E,L=!1,p=!1,T={},b=0,y=0,x={sensitivity:7,interval:100,timeout:0,handleFocus:!1};return T.options=function(e){var n=e.handleFocus!==x.handleFocus;return x=t({},x,e),n&&(x.handleFocus?f():l()),T},T.remove=function(){e&&(e.removeEventListener("mouseover",s,!1),e.removeEventListener("mouseout",c,!1),l())},e&&(e.addEventListener("mouseover",s,!1),e.addEventListener("mouseout",c,!1)),T}});

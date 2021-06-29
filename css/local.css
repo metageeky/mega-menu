@@ -448,3 +448,86 @@ table td p + p {
 	margin: 1rem auto;
 	text-align: center;
 }
+
+/* footer */
+main + footer {
+	background: var(--darkgrey, #404040);
+	color: #fff;
+	font-size: 1.25rem;
+	padding: 0.75rem 0;
+	text-align: center;
+}
+main + footer a,
+main + footer a:visited{
+	color: #fff;
+}
+main + footer .page-centered-content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+}
+
+main + footer .spacer {
+	flex: 1 1 auto;
+}
+
+main + footer img#avatar {
+	height: 36px;
+	border-radius: 7px;
+	margin-right:0.625rem;
+}
+
+main + footer a.social-media {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+main + footer a.social-media:hover {
+	text-decoration: underline;
+}
+main + footer a.social-media:focus {
+	outline-color: #fff;
+	outline-offset: 3px;
+}
+
+main + footer a.social-media + a.social-media {
+	margin-left: 1rem;
+}
+
+main + footer a.social-media svg {
+	width: 32px;
+	height: 32px;
+}
+main + footer a.social-media[href*="github"] svg {
+	fill: #fff;
+}
+main + footer a.social-media svg + span {
+	margin-left: 0;
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+@media screen and (min-width: 600px) {
+	main + footer a.social-media svg + span {
+		margin-left: 0.25rem;
+		position: static;
+		overflow: auto;
+		clip: auto;
+		width: auto;
+		height: auto
+	}
+}
