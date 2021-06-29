@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-	<title>Accessible Mega Menu</title>
+	<title>Accessible Mega Menu with Hover</title>
 
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/local.css">
@@ -315,11 +315,46 @@
 		</banner>
 	</header>
 	<main id="main" class="page-centered-content">
+		<nav id="toc" aria-labelledby="toc-h2">
+			<h2 id="toc-h2">
+				Table of Contents
+			</h2>
+			<ul>
+				<li>
+					<a href="#main-content">Accessible Mega Menu</a>
+				</li>
+				<li>
+					<a href="#Specifications">Design Specifications</a>
+				</li>
+				<li>
+					<a href="#HTML">HTML Structure</h1>
+				</li>
+				<li>
+					<a href="#AccessibilityConcerns">Accessibility Concerns</a>
+					<ul>
+						<li>
+							<a href="#InteractionLogic">Hover Interaction Logic in Desktop Mode</a>
+						</li>
+						<li>
+							<a href="#KeyboardSupport">Keyboard Support Logic</a>
+						</li>
+						<li>
+							<a href="#ARIA">ARIA</a>
+						</li>
+						<li>
+							<a href="#FeaturesAccessibility">Additional Features for Accessibility</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#Acknowledgements">Acknowledgments</a>
+				</li>
+			</ul>
+		</nav>
 	
-	
-		<div id="notice">
-			The following text is a DRAFT and currently being edited
-		</div>
+		<!-- <div id="notice"> -->
+			<!-- The following text is a DRAFT and currently being edited -->
+		<!-- </div> -->
 	
 		<div id="main-content">
 			<h1 id="page-title">Accessible Mega Menu</h1>
@@ -952,9 +987,9 @@
 
 		<section aria-labelledby="Acknowledgements">
 			<div class="header-anchor">
-				<h3 id="Acknowledgements">
+				<h2 id="Acknowledgements">
 					Acknowledgements
-				</h3>
+				</h2>
 				<a href="#Acknowledgements">
 					<svg><use xlink:href="#icon-link"></use></svg>
 					<span>Acknowledgements Link</span>

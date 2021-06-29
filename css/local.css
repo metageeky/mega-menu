@@ -352,6 +352,7 @@ li code[class*="language-"]{
 	border: solid 1px #222;
 	padding: 0.75rem;
 	margin-bottom: 0.75rem;
+	margin-top: 1.125rem;
 }
 #toc h2 {
 	font-size: 1rem;
