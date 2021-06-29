@@ -157,7 +157,7 @@
 
 .mega-sub-menu > ul {
 	list-style: none;
-	border-bottom: solid 1px #fff;
+	border-bottom: solid 1px currentColor;
 	padding: 0.625rem 1rem
 }
 
