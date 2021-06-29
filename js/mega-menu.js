@@ -32,8 +32,8 @@ window.addEventListener('load', function(event) {
 				return;
 			}
 
-			// close any sub menus opened previously only if in desktop mode
-			if(document.body.offsetWidth > responsiveWidth && opened_menu != null && evt.target != opened_menu) {
+			// close any sub menus opened previously
+			if(opened_menu != null && evt.target != opened_menu) {
 				// close other opened_menu
 				opened_menu.setAttribute('aria-expanded', 'false');
 			}
@@ -86,6 +86,10 @@ window.addEventListener('load', function(event) {
 				return;
 			if(nav.getAttribute('data-menu-state') != 'focus')
 				return;
+			// detect window change and don't close things
+			if(document.activeElement === this)
+				return;
+
 			// if click on non-clickable, close the menu
 			if(evt.relatedTarget == null) {
 				nav.setAttribute('data-menu-state', 'closed');
@@ -96,12 +100,9 @@ window.addEventListener('load', function(event) {
 				nav.setAttribute('data-menu-state', 'closed');
 				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
 			}
-			// the opened sub menu is clicked on so just reset previous focus
-			else if(evt.relatedTarget != null && evt.relatedTarget === evt.relatedTarget.closest('div.mega-sub-menu')) {
-
-			}
 		});
 	}
+
 	
 	let subs = nav.querySelectorAll('div.mega-sub-menu');
 	for(e of subs) {
@@ -120,15 +121,7 @@ window.addEventListener('load', function(event) {
 		});
 	}
 	
-	/*
-	nav.addEventListener('click', function(evt) {
-		if(document.body.offsetWidth <= responsiveWidth)
-			return;
-		if(nav.getAttribute('data-menu-state') != 'focus')
-			return;
-		console.log(evt);
-	});
-	*/
+
 	
 	let submenus = document.querySelectorAll('button.mega-menu-toggle + div.mega-sub-menu');
 	for(e of submenus) {

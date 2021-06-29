@@ -55,7 +55,8 @@
 	--yellow: #ffd700;
 	--darkgrey: #404040;
 	--darkred: #7C0A02;
-	--lightgrey: #adb3b8
+	--lightgrey: #adb3b8;
+	--darkorange: #d74100;
 }
 
 * {
@@ -123,8 +124,8 @@ body {
 }
 
 .main-navigation {
-	color: #eee;
-	background: #404040;
+	color: #fff;
+	background: var(--darkorange);
 	padding: 0;
 	font-size: 1rem;
 }
