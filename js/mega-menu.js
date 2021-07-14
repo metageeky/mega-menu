@@ -1,33 +1,33 @@
 window.addEventListener('load', function(event) { 
 	// REWRITE NAV TO BE CLOSEST megamenu
-	let nav = document.querySelector('.mega-menu');
-	let responsiveWidth = parseInt(nav.getAttribute('data-responsive-width'));
+	let megamenu = document.querySelector('.mega-menu');
+	let responsiveWidth = parseInt(megamenu.getAttribute('data-responsive-width'));
 	
 	// toggle button for the responsive menu
-	let responsive = nav.querySelector('button.responsive-toggle');
+	let responsive = megamenu.querySelector('button.responsive-toggle');
 	responsive.addEventListener('click', function(evt) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
-			nav.setAttribute('data-menu-state', 'focus');
+			megamenu.setAttribute('data-menu-state', 'focus');
 		}
 		// close menu
 		else {
 			evt.target.setAttribute('aria-expanded', 'false');
-			nav.setAttribute('data-menu-state', 'closed');
+			megamenu.setAttribute('data-menu-state', 'closed');
 		}
 	});
 	
 	// events for the top-level menu buttons for dropdowns
-	let triggers = nav.querySelectorAll('button.mega-menu-toggle');
+	let triggers = megamenu.querySelectorAll('button.mega-menu-toggle');
 	for(e of triggers) {
 		// click events for the top-level menu buttons for dropdowns
 		e.addEventListener('click', function(evt) {
-			let opened_menu = nav.querySelector('.mega-menu .mega-menu-toggle[aria-expanded="true"]');
+			let opened_menu = megamenu.querySelector('.mega-menu .mega-menu-toggle[aria-expanded="true"]');
 			// in the case of hover open, a click just switches the state to focus open
 			// only happens in non-responsive mode
-			if(nav.getAttribute('data-menu-state') == 'hover') {
-				nav.setAttribute('data-menu-state', 'focus');
+			if(megamenu.getAttribute('data-menu-state') == 'hover') {
+				megamenu.setAttribute('data-menu-state', 'focus');
 				responsive.setAttribute('aria-expanded', 'true');
 				evt.target.focus();
 				return;
@@ -42,13 +42,13 @@ window.addEventListener('load', function(event) {
 			// open menu
 			if(evt.target.getAttribute('aria-expanded') == 'false') {
 				evt.target.setAttribute('aria-expanded', 'true');
-				nav.setAttribute('data-menu-state', 'focus');
+				megamenu.setAttribute('data-menu-state', 'focus');
 				responsive.setAttribute('aria-expanded', 'true');
 			}
 			// close menu
 			else {
 				evt.target.setAttribute('aria-expanded', 'false');
-				nav.setAttribute('data-menu-state', 'closed');
+				megamenu.setAttribute('data-menu-state', 'closed');
 				if(document.body.offsetWidth > responsiveWidth)
 					responsive.setAttribute('aria-expanded','false');
 			}
@@ -60,31 +60,31 @@ window.addEventListener('load', function(event) {
 				if(document.body.offsetWidth <= responsiveWidth)
 					return;
 				// ignore hover effects if menu has been opened by focus
-				if(nav.getAttribute('data-menu-state') == 'focus')
+				if(megamenu.getAttribute('data-menu-state') == 'focus')
 					return;
-				nav.setAttribute('data-menu-state', 'hover');
+				megamenu.setAttribute('data-menu-state', 'hover');
 				evt.target.setAttribute('aria-expanded', 'true');
 			},
 			function(evt) {
 				if(document.body.offsetWidth <= responsiveWidth)
 					return;
 				// if a focus in the menu has happened, take precedent
-				if(nav.getAttribute('data-menu-state') == 'focus')
+				if(megamenu.getAttribute('data-menu-state') == 'focus')
 					return;
 				// if relatedTarget is an open mega-sub-menu, don't close
 				if(evt.relatedTarget != null && evt.relatedTarget.classList.contains('mega-sub-menu'))
 					return;
-				nav.setAttribute('data-menu-state', 'closed');
+				megamenu.setAttribute('data-menu-state', 'closed');
 				evt.target.setAttribute('aria-expanded', 'false');
 		}).options({timeout: 200, interval: 50,});
 			
 	}
 	
 	// blur used to detect if focus has moved out of the mega menu
-	let focusables = nav.querySelectorAll('.mega-sub-menu a, button.mega-menu-toggle');
+	let focusables = megamenu.querySelectorAll('.mega-sub-menu a, button.mega-menu-toggle');
 	for(e of focusables) {
 		e.addEventListener('blur', function(evt) {
-			if(nav.getAttribute('data-menu-state') != 'focus')
+			if(megamenu.getAttribute('data-menu-state') != 'focus')
 				return;
 			// detect window change and don't close things
 			if(document.activeElement === this)
@@ -92,30 +92,30 @@ window.addEventListener('load', function(event) {
 
 			// if click on non-clickable, close the menu
 			if(evt.relatedTarget == null) {
-				nav.setAttribute('data-menu-state', 'closed');
-				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+				megamenu.setAttribute('data-menu-state', 'closed');
+				megamenu.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
 				responsive.setAttribute('aria-expanded', 'false');
 			}
-			// focus moved to another focusable element not in the nav menu	
+			// focus moved to another focusable element not in the mega menu	
 			else if(evt.relatedTarget != null && evt.relatedTarget.closest('.mega-menu') == null) {
-				nav.setAttribute('data-menu-state', 'closed');
-				nav.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
+				megamenu.setAttribute('data-menu-state', 'closed');
+				megamenu.querySelector('.mega-menu-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
 				responsive.setAttribute('aria-expanded', 'false');
 			}
 		});
 	}
 
 	
-	let subs = nav.querySelectorAll('div.mega-sub-menu');
+	let subs = megamenu.querySelectorAll('div.mega-sub-menu');
 	for(e of subs) {
 		e.addEventListener('focus', function(evt) {
 			// if in hover state and click on the opened menu, switch to focus with focus on toggle
-			if(nav.getAttribute('data-menu-state') == 'hover') {
-				nav.setAttribute('data-menu-state', 'focus');
+			if(megamenu.getAttribute('data-menu-state') == 'hover') {
+				megamenu.setAttribute('data-menu-state', 'focus');
 				evt.target.previousElementSibling.focus();
 			}
 			// move the focus back to whatever what lost focus when the sub-menu was clicked
-			else if(nav.getAttribute('data-menu-state') == 'focus' && evt.relatedTarget != null) {
+			else if(megamenu.getAttribute('data-menu-state') == 'focus' && evt.relatedTarget != null) {
 				evt.relatedTarget.focus();
 			}
 		});
@@ -129,14 +129,14 @@ window.addEventListener('load', function(event) {
 		e.addEventListener('mouseleave', function(evt) {
 			if(document.body.offsetWidth <= responsiveWidth)
 				return;
-			if(nav.getAttribute('data-menu-state') == 'focus')
+			if(megamenu.getAttribute('data-menu-state') == 'focus')
 				return;
 			// target is the div.sub-menu, related target is the toggle button before it
 			if(evt.relatedTarget != null && evt.relatedTarget == evt.target.previousElementSibling)
 				return;
 			
-			nav.setAttribute('data-menu-state', 'closed');
-			let open_toggle_button = document.querySelector('nav.mega-menu button[aria-expanded="true"]');
+			megamenu.setAttribute('data-menu-state', 'closed');
+			let open_toggle_button = document.querySelector('.mega-menu button[aria-expanded="true"]');
 			if(open_toggle_button)
 				open_toggle_button.setAttribute('aria-expanded','false');
 		});
@@ -145,11 +145,11 @@ window.addEventListener('load', function(event) {
 	let menuLinks = document.querySelectorAll('button.mega-menu-toggle + div.mega-sub-menu a');
 	for(e of menuLinks) {
 		e.addEventListener('focus', function(evt) {
-			// if already having focus in the nav menu, not an issue
-			if(nav.getAttribute('data-menu-state') == 'focus')
+			// if already having focus in the mega menu, not an issue
+			if(megamenu.getAttribute('data-menu-state') == 'focus')
 				return;
 			// set focus state
-			nav.setAttribute('data-menu-state', 'focus');
+			megamenu.setAttribute('data-menu-state', 'focus');
 			responsive.setAttribute('aria-expanded', 'true');
 		});
 	}

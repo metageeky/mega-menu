@@ -322,6 +322,9 @@
 	.mega-sub-menu > ul > li.double {
 		width: 50%;
 	}
+	.mega-sub-menu > ul > li.triple {
+		width: 75%;
+	}
 
 	.mega-sub-menu > ul > li + li {
 		margin-left: var(--inner-sub-menu-margin);
@@ -358,6 +361,16 @@
 	.mega-sub-menu > ul > li.double > ul.mega-menu-bulleted > li {
 		break-inside: avoid;
 	}
+
+	.mega-sub-menu > ul > li.triple > ul.mega-menu-bulleted {
+		column-count: 3;
+		column-gap: var(--inner-sub-menu-margin);
+	}
+
+	.mega-sub-menu > ul > li.triple > ul.mega-menu-bulleted > li {
+		break-inside: avoid;
+	}
+
 
 	.mega-sub-heading {
 	}

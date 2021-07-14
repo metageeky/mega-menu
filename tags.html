@@ -1,0 +1,404 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Example Site</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/local-tags.css">
+	<link rel="stylesheet" href="css/mega-menu-styles.css">
+	<script src="js/mega-menu.js"></script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" >
+	<link rel="stylesheet" href="css/prism-visual-studio.css" >
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+
+</head>
+
+<body tabindex="-1">
+	<div id="hiddenStuff" aria-hidden="true">
+		<svg aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<symbol id="icon-right-triangle" viewBox="0 0 50 50">
+				<polygon points="0,0 0,50 43.3,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-left-triangle" viewBox="0 0 50 50">
+				<polygon points="50,0 50,50 6.6,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-up-triangle" viewBox="0 0 50 50">
+				<polygon points="0,50 50,50 25.0,6.7" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-down-triangle" viewBox="0 0 50 43.3">
+				<polygon points="0,0 50,0 25.0,43.3" style="fill:currentColor;stroke:currentColor;stroke-width:1">
+				</polygon>
+			</symbol>
+			<symbol id="icon-menu" viewBox="0 0 512 512">
+				<path style="fill:currentColor" d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"/>
+			</symbol>
+			<symbol id="icon-link" viewBox="0 0 32 32" xml:space="preserve">
+				<g stroke="currentColor" fill="currentColor" >
+					<path d="M11 5v6H5v2h6v6H5v2h6v6h2v-6h6v6h2v-6h6v-2h-6v-6h6v-2h-6V5h-2v6h-6V5zm2 8h6v6h-6z"/>
+				</g>
+			</symbol>
+			<symbol id="icon-github" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+			</symbol>
+			<symbol id="icon-twitter" viewBox="0 0 48 48">
+				<circle cx="24" cy="24" fill="#fff" r="24"/>
+				<path d="M36.8 15.4c-.9.5-2 .8-3 .9 1.1-.7 1.9-1.8 2.3-3.1-1 .6-2.1 1.1-3.4 1.4-1-1.1-2.3-1.8-3.8-1.8-2.9 0-5.3 2.5-5.3 5.7 0 .4 0 .9.1 1.3-4.4-.2-8.3-2.5-10.9-5.9-.5.8-.7 1.8-.7 2.9 0 2 .9 3.7 2.3 4.7-.9 0-1.7-.3-2.4-.7v.1c0 2.7 1.8 5 4.2 5.6-.4.1-.9.2-1.4.2-.3 0-.7 0-1-.1.7 2.3 2.6 3.9 4.9 3.9-1.8 1.5-4.1 2.4-6.5 2.4-.4 0-.8 0-1.3-.1 2.3 1.6 5.1 2.6 8.1 2.6 9.7 0 15-8.6 15-16.1v-.7c1.2-1 2.1-2 2.8-3.2z" fill="#000"/>
+			</symbol>
+		</svg>
+	</div>
+
+	<header>
+		<banner>
+			<a class="skipnavlink offscreen" href="#main">
+				Skip to main content
+			</a>
+			<div id="logo-container" class="page-centered-content">
+				<a href="">
+					<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
+				</a>
+			</div>
+
+			<nav>
+				<div id="audience-nav-container">
+					<div id="audience-nav" class="page-centered-content">
+						<span>Info For:</span>
+						<ul>
+							<li><a href="">Undergraduates</a></li>
+							<li><a href="">Graduates</a></li>
+							<li><a href="">Faculty</a></li>
+							<li><a href="">Alumni</a></li>
+							<li><a href="">Visitors</a></li>
+							<li><a href="">Donors</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div id="top-nav-container">
+					<div id="top-nav" class="page-centered-content">
+						<ul>
+							<li><a href="">Alert</a></li>
+							<li><a href="">Get Help</a></li>
+							<li><a href="">Feedback</a></li>
+							<li><a href="">My Accounts</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="main-nav-container">
+					<h2 id="main-nav-heading" class="offscreen">
+						Main Navigation
+					</h2>
+					<div id="main-nav" class="mega-menu page-centered-content " aria-labelledby="main-nav-heading" data-menu-state="closed" data-responsive-width="900px">
+						<button class="responsive-toggle" aria-expanded="false">
+							<svg focusable="false" ><use xlink:href="#icon-menu"></use></svg>
+							Menu
+						</button>
+						<ul>
+							<li>
+								<button aria-expanded="false" class="mega-menu-toggle">
+									Using the Libraries
+									<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+									<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								</button>
+								<div class="mega-sub-menu" tabindex="-1">
+									<ul>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/200/160/cat?random=473" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>							
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/200/160/cat?random=43" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>
+										<li class="text-column">
+											<div class="mega-sub-heading">Services</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Borrow Laptops and Gear</a></li>
+												<li><a href="">Borrowing Process and Policies</a></li>
+												<li><a href="">Course Reserves</a></li>
+												<li><a href="">Interlibrary Loan</a></li>
+												<li><a href="">Delivery Services</a></li>
+												<li><a href="">Suggest a Title</a></li>
+												<li><a href="">University Records Management</a></li>
+												<li><a href="">Instructional Services</a></li>
+											</ul>
+										</li>
+										<li class="text-column">
+											<div class="mega-sub-heading">Help</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Accessibility and Disability Services</a></li>
+												<li><a href="">Printing and Technology</a></li>
+												<li><a href="">Connecting from Off-Campus</a></li>
+												<li><a href="">Onsite Help at Bird Library</a></li>
+												<li><a href="">Trouble with a Resource</a></li>
+												<li><a href="">Help with Summon</a></li>
+												<li><a href="">Subject Librarians</a></li>
+												<li><a href="">Entreprenurial Help</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<button aria-expanded="false" class="mega-menu-toggle">
+									Spaces
+									<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+									<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								</button>
+								<div class="mega-sub-menu" tabindex="-1">
+									<ul>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/160/100/cat?random=1" alt="random cat"/>
+												<div>Reserve a Room</div>
+											</a>
+										</li>
+										<li class="text-column">
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Floor Maps</a></li>
+												<li><a href="">Service Desks</a></li>
+												<li><a href="">Pages Cafe</a></li>
+												<li><a href="">Study and Meeting Spaces</a></li>
+												<li><a href="">Faculty Research Commons</a></li>
+											</ul>
+										</li>
+										<li class="text-column">
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Bird Library</a></li>
+												<li><a href="">Carnegie Library</a></li>
+												<li><a href="">King + King Library</a></li>
+												<li><a href="">Special Collections Research Center</a></li>
+												<li><a href="">SU College of Law Library</a></li>
+												<li><a href="">Martin Luther King Jr. Library</a></li>
+												<li><a href="">F. Franklin Moon Library (ESF)</a></li>
+											</ul>
+										</li>
+										<li class="text-column">
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Center for Learning and Student Success (CLASS)</a></li>
+												<li><a href="">Syracuse Abroad@Bird</a></li>
+												<li><a href="">Syracuse Office of Undergraduate Research and Creative Engagement (SOURCE)</a></li>
+												<li><a href="">Digital Scholarship Space (DSS)</a></li>
+												<li><a href="">Center for Teaching and Learning Excellence</a></li>
+												<li><a href="">Blackstone LaunchPad</a></li>
+											</ul>								
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<button aria-expanded="false" class="mega-menu-toggle">
+									Research
+									<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+									<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								</button>
+								<div class="mega-sub-menu" tabindex="-1">
+									<ul>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/160/100/cat?random=4" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/160/100/cat?random=5" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>
+										<li class="text-column">
+											<div class="mega-sub-heading">Research Support</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">General Research</a></li>
+												<li><a href="">In-Depth Research</a></li>
+												<li><a href="">Research and Course Guides</a></li>
+												<li><a href="">Research Process</a></li>
+												<li><a href="">Subject Librarians</a></li>
+												<li><a href="">Special Collections Research Center</a></li>
+											</ul>
+										</li>
+										<li class="text-column">
+											<div class="mega-sub-heading">Services and Tools</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Workshops</a></li>
+												<li><a href="">Citing Sources</a></li>
+												<li><a href="">Citation Management Tools</a></li>
+												<li><a href="">Experts@Syracuse</a></li>
+												<li><a href="">Research Data Services</a></li>
+												<li><a href="">Writing Center</a></li>
+												<li><a href="">Plagiarism Checker</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<button aria-expanded="false" class="mega-menu-toggle">
+									Collections
+									<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+									<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								</button>
+								<div class="mega-sub-menu" tabindex="-1">
+									<ul>
+										<li class="text-column">
+											<div class="mega-sub-heading">Special Collections Research Center</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Collection Areas</a></li>
+												<li><a href="">Digital Collections</a></li>
+												<li><a href="">Pan Am 103</a></li>
+												<li><a href="">University Archives</a></li>
+												<li><a href="">Search the Collections</a></li>
+											</ul>
+										</li>
+										<li class="text-column double">
+											<div class="mega-sub-heading">General</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">eBooks</a></li>
+												<li><a href="">Journals</a></li>
+												<li><a href="">Databases</a></li>
+												<li><a href="">Videos and Film</a></li>
+												<li><a href="">Maps and Government Information</a></li>
+												<li><a href="">Music Scores and Sheet Music</a></li>
+												<li><a href="">Newspapers</a></li>
+												<li><a href="">HathiTrust</a></li>
+											</ul>
+										</li>
+										<li class="text-column">
+											<div class="mega-sub-heading">Digital Library</div>
+											<ul class="mega-menu-bulleted">
+												<li><a href="">Digital Collections Repository</a></li>
+												<li><a href="">SURFACE Institutional Repository</a></li>
+												<li><a href="">Digital Exhibits</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>						
+							</li>
+							<li>
+								<button aria-expanded="false" class="mega-menu-toggle">
+									About
+									<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+									<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								</button>
+								<div class="mega-sub-menu" tabindex="-1">
+									<ul>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/180/100/cat?random=4" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>
+										<li class="image-column">
+											<a href="">
+												<img src="https://loremflickr.com/150/150/cat?random=5" alt="random cat"/>
+												<div>Look a Cat!!!</div>
+											</a>
+										</li>
+										<li class="text-column double">
+												<ul class="mega-menu-bulleted">
+												<li><a href="">Policies and Procedures</a></li>
+												<li><a href="">Strategic Plan</a></li>
+												<li><a href="">Publications</a></li>
+												<li><a href="">Blog</a></li>
+												<li><a href="">Staff Directory</a></li>
+												<li><a href="">Equity, Diversity, Accessibility, and Inclusion</a></li>
+												<li><a href="">News</a></li>
+												<li><a href="">Events</a></li>
+												<li><a href="">Exhibitions</a></li>
+												<li><a href="">Job Opportunities</a></li>
+												<li><a href="">Give to the Libraries</a></li>
+												<li><a href="">SU Press</a></li>
+												<li><a href="">Federal Depository Library Program (FDLP)</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</banner>
+	</header>
+	<main id="main" class="page-centered-content">
+		
+		<div id="main-content">
+			<h1 id="page-title">Heading 1</h1>
+		</div>
+		
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. </p>
+
+		<p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. </p>
+
+		<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. </p>
+		
+		<section aria-labelledby="Specifications">
+			<div class="header-anchor">
+				<h2 id="Specifications">
+					Heading 2
+				</h2>
+				<a href="#Specifications">
+					<svg><use xlink:href="#icon-link"></use></svg>
+					<span>Heading 2 Link</span>
+				</a>
+			</div>
+		
+			<p>Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. </p>
+
+			<p>Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. </p>
+
+			<p>Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. </p>
+
+			<p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. </p>
+
+			<p>Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. </p>
+
+			<p>Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. </p>
+
+			<p>In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. </p>
+
+			<p>Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum non, convallis id, sagittis at, neque. Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula. Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis lectus. Vivamus consectetuer risus et tortor. </p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. </p>
+
+			<p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. </p>
+
+			<p>Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. </p>
+
+		</section>
+
+		
+	</main>
+
+	<footer aria-label="Additional Information">
+		<div class="page-centered-content">
+			<img id="avatar" src="https://metageeky.github.io/resources/avatar-bg.png" alt="Cartoon avatar of a bespectacled brunette geek girl in a green hoodie in front of a bookcase">
+			<div>
+				a metageeky production
+			</div>
+			<div class="spacer"></div>
+			<a class="social-media" href="https://twitter.com/metageeky">
+				<svg><use xlink:href="#icon-twitter"></use></svg>
+				<span>twitter</span>
+			</a>
+			<a class="social-media" href="https://github.com/metageeky">
+				<svg><use xlink:href="#icon-github"></use></svg>
+				<span>github</span>
+			</a>
+		</div>
+	</footer>
+
+</body>
+</html>
