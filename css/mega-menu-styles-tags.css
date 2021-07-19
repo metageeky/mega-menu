@@ -1,0 +1,328 @@
+
+
+:root {
+	--content-width: 900px;
+}
+
+.mega-menu {
+	--menu-bar-background: transparent;
+	--menu-bar-color: #fff;
+	--menu-bar-hover-background: #000e54;
+	--menu-bar-hover-color: #fff;
+	--menu-bar-open-color: #000;
+	
+	--menu-background: #f1f1f2; 
+	--menu-link-color: #203299;
+
+	--menu-color: #000;
+	--menu-hover-background: #000e54;
+	--menu-hover-color: #fff;
+	--menu-font-size: 1rem;
+}
+
+.mega-menu button svg {
+	pointer-events: none;
+}
+
+/* mega-menu top-level */
+
+.mega-menu button.mega-menu-toggle {
+	padding: 0.625rem 1rem;
+	text-decoration: none;
+	white-space: nowrap;
+	border: none;
+	line-height: inherit;
+}
+
+
+.mega-menu button.mega-menu-toggle[aria-expanded="true"] {
+	color: var(--menu-bar-open-color);
+	background: var(--menu-background);
+}
+.mega-menu button.mega-menu-toggle[aria-expanded]:hover {
+	color: var(--menu-bar-hover-color);
+	background: var(--menu-bar-hover-background);
+}
+.mega-menu button.mega-menu-toggle:focus {
+	outline: dotted currentColor 3px;
+	outline-offset: -5px;
+}
+.mega-menu button.mega-menu-toggle:focus:hover {
+	outline: dotted currentColor 3px;
+	outline-offset: -5px;
+}
+
+
+
+
+.mega-menu {
+	position: relative; 
+}
+
+.mega-menu > ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	background: var(--menu-background);
+	list-style: none;
+	z-index: 100;
+}
+
+.mega-menu > ul > li > button.mega-menu-toggle {
+	width: 100%;
+	text-align: left;
+	border-bottom: solid 1px currentColor;
+}
+
+/* accessibility fix for list-style none ul in safari */
+.mega-menu > ul > li:before,
+.mega-sub-menu > ul > li:before {
+	content: "\200b";
+	position: absolute;
+}
+
+button svg.icon {
+	height: 0.625em;
+	width: 0.625em;
+	position: relative;
+	top: -1px;
+	margin-left: 2px;
+}
+button[aria-expanded="false"] svg.icon.up {
+	display: none;
+}
+button[aria-expanded="false"] svg.icon.down {
+	display: inline-block;
+}
+li button[aria-expanded="true"] svg.icon.up {
+	display: inline-block;
+}
+button[aria-expanded="true"] svg.icon.down {
+	display: none;
+}
+
+
+
+
+.mega-sub-menu {
+	color: var(--menu-color);
+	display: none;
+}
+.mega-menu button[aria-expanded="true"] + .mega-sub-menu {
+	display: block;
+}
+
+.mega-sub-menu > ul {
+	list-style: none;
+	border-bottom: solid 1px currentColor;
+	padding: 0.625rem 1rem
+}
+
+
+.mega-sub-menu .image-column {
+	display: none;
+}
+
+
+.mega-sub-menu > ul li a {
+	text-decoration: none;
+}
+.mega-sub-menu > ul li a:focus {
+	text-decoration: underline;
+	outline-color: currentColor;
+}
+.mega-sub-menu > ul li a:hover {
+	text-decoration: underline;
+}
+
+.mega-sub-heading {
+	font-size: inherit;
+	margin: 0 0 0.125em;
+	padding: 0;
+	font-weight: 600;
+}
+
+.mega-sub-menu > ul > li > ul {
+	padding-left: 0;
+}
+
+.mega-sub-menu > ul > li.text-column + li.text-column > .mega-sub-heading {
+	margin-top: 0.625rem;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted {
+	list-style-type: square;
+	list-style-position: outside;
+	padding-left: 1rem;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li {
+	margin-top: 4px;
+}
+
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li a {
+	display: block;
+	padding: 1px 0;
+}
+
+
+
+@media screen and (min-width: 900px) {
+	.mega-menu {
+		--menu-width: var(--content-width);
+		--inner-sub-menu-margin: 20px;
+		--image-width: 20%;
+	}
+
+
+	.mega-menu > ul {
+		position: relative;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-content: stretch;
+		background: transparent;
+	}
+	.mega-menu > ul > li {
+		padding: 0;
+		display: inline-block;
+	}
+	
+
+
+	.mega-menu > ul > li > button.mega-menu-toggle {
+		width: auto;
+		border-bottom: 0;
+		background: var(--menu-bar-background);
+		color: var(--menu-bar-color);
+	}
+	.mega-menu ul > li > button[aria-expanded="true"] {
+		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+	}
+	.mega-menu ul > li > button[aria-expanded="true"]:not(:hover) {
+		background: var(--menu-background);
+	}
+
+
+
+
+
+
+	.mega-sub-menu {
+		display: none;
+		position: absolute;
+		background: var(--menu-background);
+		color: var(--menu-color);
+		list-style: none;
+		padding: 15px var(--inner-sub-menu-margin);
+		z-index: 10;
+		right: 0;
+		width: var(--menu-width);
+		transition: opacity .4s 1s;
+		box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+		z-index: 100;
+	}
+	/* add a "cushion" around the submenus to make it not close as easily */
+	.mega-sub-menu:before {
+		content: "";
+		background: transparent;
+		display: block;
+		z-index: -1;
+		position: absolute;
+		width: calc(100% + 30px); 
+		height: calc(100% + 20px);
+		top: 0;
+		left: -15px;
+	}
+	.mega-sub-menu:focus {
+		outline: none;
+	}
+
+
+	.mega-menu[data-menu-state="focus"] button[aria-expanded="true"] + .mega-sub-menu {
+		display: block;
+	}
+
+	.mega-menu[data-menu-state="hover"] button[aria-expanded="true"] + .mega-sub-menu {
+		display: block;
+	}
+
+
+	.mega-sub-menu > ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0;
+		border: 0;
+	}
+
+
+
+
+
+
+
+	.mega-sub-menu > ul > li {
+		list-style: none;
+		justify-self: center;
+		width: 25%;
+	}
+	.mega-sub-menu > ul > li.double {
+		width: 50%;
+	}
+	.mega-sub-menu > ul > li.triple {
+		width: 75%;
+	}
+
+	.mega-sub-menu > ul > li + li {
+		margin-left: var(--inner-sub-menu-margin);
+	}
+
+	.mega-sub-menu > ul > li.text-column {
+		align-self: flex-start;
+	}
+	
+	.mega-sub-menu > ul > li.text-column + li.text-column > .mega-sub-heading {
+		margin-top: 0;
+	}
+
+	.mega-sub-menu > ul > li.image-column {
+		display: block;
+	}
+	.mega-sub-menu > ul > li.image-column > a {
+		text-align: center;
+		display: block;
+	}
+	.mega-sub-menu > ul > li.image-column > a > img {
+		width: 100%;
+	}
+
+	.mega-sub-menu > ul > li > ul.mega-menu-bulleted li:first-of-type {
+		margin-top: 0;
+	}
+	
+	.mega-sub-menu > ul > li.double > ul.mega-menu-bulleted {
+		column-count: 2;
+		column-gap: var(--inner-sub-menu-margin);
+	}
+
+	.mega-sub-menu > ul > li.double > ul.mega-menu-bulleted > li {
+		break-inside: avoid;
+	}
+
+	.mega-sub-menu > ul > li.triple > ul.mega-menu-bulleted {
+		column-count: 3;
+		column-gap: var(--inner-sub-menu-margin);
+	}
+
+	.mega-sub-menu > ul > li.triple > ul.mega-menu-bulleted > li {
+		break-inside: avoid;
+	}
+
+
+	.mega-sub-heading {
+	}
+}
+
+
+
