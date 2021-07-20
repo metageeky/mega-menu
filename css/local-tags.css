@@ -550,7 +550,7 @@ main + footer a.social-media svg + span {
 }
 */
 
-banner {
+body > header {
 	display: block;
 	position: relative;
 }
@@ -572,11 +572,13 @@ button.mega-menu-toggle {
 }
 
 
+#logo-container {
+	pointer-events: none;
+}
 
 #logo-container a {
 	display: block;
 	pointer-events: auto;
-	padding: 1rem 0;
 	width: calc(320px - 2rem - 2rem - 2rem - 0.5rem);
 }
 
@@ -699,10 +701,8 @@ button.mega-menu-toggle[aria-expanded="false"] + ul {
 		height: calc(0.5rem + 1.5 * 1rem + 0.5rem); 
 		/* ul top margin + line-height * font-size + ul bottom margin */
 	}
-	#logo-container {
-		position: relative;
-		top: calc(0.5rem + 1.5 * 1rem + 0.5rem);
-	}
+
+	
 	
 	#main-nav-container {
 		position: relative;
@@ -747,7 +747,7 @@ button.mega-menu-toggle[aria-expanded="false"] + ul {
 	}
 
 	#top-nav {
-
+		position: relative;
 	}
 
 	#top-nav ul {
@@ -767,11 +767,14 @@ button.mega-menu-toggle[aria-expanded="false"] + ul {
 		text-decoration: none;
 	}
 
-		
+	#logo-container {
+		position: relative;
+		top: calc(0.5rem + 1.5 * 1rem + 0.5rem);
+		padding: 1rem 0;
+	}
+	
 	#logo-container a {
-		display: inline-block;
-		pointer-events: auto;
-		padding: 1rem 0 1rem;
+		display: block;
 	}
 
 	#logo {
