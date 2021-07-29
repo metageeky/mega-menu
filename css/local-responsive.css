@@ -1,0 +1,164 @@
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff2') format('woff2'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.woff') format('woff'),
+		url('https://assets.syracuse.edu/fonts/shermansans-book-intl.eot') format('embedded-opentype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0020-007F, U+00A9, U+00AE, U+2013-201D;
+}
+
+@font-face {
+	font-family: 'ShermanSans';
+	src: url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff2') format('woff2'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.woff') format('woff'),
+	 url('https://assets.syracuse.edu/fonts/shermansans-bold-intl.eot') format('embedded-opentype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+00A0-00A8, U+00C0-024F, U+201E-2026;
+}
+
+
+:root {
+	--content-width: 900px;
+
+	/* SU Colors */
+	--suorange: #f76900;
+	--white: #ffffff;
+	--primaryblue: #000e54;
+	--mediumorange: #ff431b;
+	--lightorange: #ff8e00;
+	--mediumblue: #203299;
+	--lightblue: #2b72d7;
+	--black: #000000;
+	--mediumgray: #707780;
+	--darkgrey: #404040;
+	--lightgrey: #adb3b8;
+	--darkorange: #d74100;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+*:focus {
+	outline: dotted currentColor 3px;
+	outline-offset: 2px;
+}
+
+[hidden] {
+	display: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
+	color: #101010;
+	line-height: 1.5;
+	/* below is for forcing the footer always to the bottom */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: stretch;
+}
+
+.offscreen {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.skipnavlink {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	padding: 0.625rem;
+	color: var(--white) !important;
+	background-color: var(--lightblue);
+	z-index: 2000;
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+.skipnavlink:focus {
+	overflow: auto;
+	clip: auto;
+	width: auto;
+	height: auto;
+	outline-offset: -4px;
+}
+
+
+/******************************************
+	HEADER
+ ******************************************/
+header {
+}
+
+
+
+
+
+
+/******************************************
+	MAIN
+ ******************************************/
+main {
+	/* makes the main resize to force the footer down on short content pages */
+	flex: 1 0 auto;
+}
+
+h1 {
+	background: var(--lightgrey);
+	margin: 0;
+	padding: 1rem 0;
+}
+
+
+/******************************************
+	FOOTER
+ ******************************************/
+footer {
+	background: var(--primaryblue);
+	color: var(--white);
+	
+	height: 8rem;
+	font-size: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}

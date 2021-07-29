@@ -130,7 +130,7 @@ body {
 
 #main-nav-container {
 	color: #fff;
-	background: var(--darkorange);
+	background: var(--suorange);
 	padding: 0;
 	font-size: 1rem;
 }
@@ -687,6 +687,8 @@ button.mega-menu-toggle[aria-expanded="false"] + ul {
 	}
 	#audience-nav-container span {
 		display: inline;
+		white-space: nowrap;
+		margin-right: 2rem;
 	}
 	
 	#top-nav-container .mega-menu-toggle {
@@ -722,7 +724,7 @@ button.mega-menu-toggle[aria-expanded="false"] + ul {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		justify-content: flex-end;
+		justify-content: flex-start;
 		align-content: stretch;
 		align-items: center;
 	}

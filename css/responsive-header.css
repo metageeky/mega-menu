@@ -1,0 +1,126 @@
+.page-centered-content {
+	max-width: var(--content-width);
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/****************************
+ LOGO
+ ****************************/
+#logo_container {
+	display: block;
+}
+
+#logo_container a {
+	display: block; /* needed to avoid extra height being created by the SVG in an inline-block */
+}
+
+#logo {
+	display: block; /* needed to avoid extra height being created by the SVG in an inline-block */
+	width: auto;
+}
+
+@media screen and (min-width: 900px) {
+	.page-centered-content {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+	
+	#page_header {
+		position: relative;
+		--logo-height: 60px;
+		--logo-vertical-padding: 0.75rem;
+	}
+	
+	#logo_container {
+		display: block;
+		margin-top: calc(0.5rem + 1.5*1rem + 0.5rem);
+		padding-top: var(--logo-vertical-padding);
+		height: calc(var(--logo-vertical-padding) + var(--logo-height));
+	}
+	#logo_container a {
+		display: inline-block;
+		height: var(--logo-height);
+	}
+	#logo {
+		display: inline-block;
+		height: var(--logo-height);
+	}
+	
+
+	
+	#top_nav {
+		margin-top: calc(-1.5 * 1rem);
+	}
+	
+	#audience_nav_container {
+		background: var(--primaryblue);
+		color: var(--white);
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	#audience_nav {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-content: stretch;
+		align-items: center;
+	}
+	#audience_nav_container span {
+		display: inline;
+		white-space: nowrap;
+		margin-right: 2rem;
+		text-transform: uppercase;
+	}
+
+	#audience_nav ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-content: stretch;
+		align-items: center;
+		list-style: none;
+		padding: 0;
+		margin: 0.5rem 0;
+	}
+	#audience_nav ul li a {
+		color: var(--white);
+		margin-left: 1.5rem;
+	}
+	
+	
+	#user_nav_container {
+	}
+	#user_nav {
+	}
+	#user_nav ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: flex-end;
+		align-content: stretch;
+		align-items: center;
+		list-style: none;
+		margin: 0;
+	}
+	#user_nav ul li a {
+		text-transform: uppercase;
+		margin-left: 1.5rem;
+		text-decoration: none;
+	}
+	
+	#main_nav_container {
+		background: var(--suorange);
+		color: var(--white);
+		margin-top: var(--logo-vertical-padding);
+	}
+	#main_nav {
+	}
+	
+}
