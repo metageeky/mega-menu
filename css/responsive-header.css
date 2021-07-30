@@ -6,6 +6,8 @@
 	margin-right: auto;
 }
 
+
+
 /****************************
  LOGO
  ****************************/
@@ -22,6 +24,44 @@
 	width: auto;
 }
 
+/********************* 
+ NAV TOGGLE BUTTONS 
+ *********************/
+button.nav-toggle-button {
+	padding: 0.625rem 1rem;
+	text-decoration: none;
+	white-space: nowrap;
+	border: solid 2px red;
+}
+
+button.nav-toggle-button svg {
+	height: 0.625em;
+	width: 0.625em;
+	position: relative;
+	top: -1px;
+	margin-left: 2px;
+}
+
+button.nav-toggle-button[aria-expanded="false"] svg.icon.down{
+	display: inline;
+}
+button.nav-toggle-button[aria-expanded="false"] svg.icon.up{
+	display: none;
+}
+button.nav-toggle-button[aria-expanded="true"] svg.icon.down{
+	display: none;
+}
+button.nav-toggle-button[aria-expanded="true"] svg.icon.up{
+	display: inline;
+}
+
+/******************************
+ AUDIENCE NAVIGATION
+*******************************/
+#audience_nav > span {
+	display: none;
+}
+
 @media screen and (min-width: 900px) {
 	.page-centered-content {
 		padding-left: 1rem;
@@ -32,6 +72,15 @@
 		position: relative;
 		--logo-height: 60px;
 		--logo-vertical-padding: 0.75rem;
+	}
+	
+	#audience_nav > span{
+		display: inline;
+	}
+	
+	#audience_nav .nav-toggle-button,
+	#user_nav .nav-toggle-button {
+		display:none;
 	}
 	
 	#logo_container {

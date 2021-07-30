@@ -194,13 +194,17 @@
 }
 
 .mega-sub-menu > ul > li > ul.mega-menu-bulleted {
-	list-style-type: square;
+	list-style-type: none;
 	list-style-position: outside;
-	padding-left: 1rem;
+	padding-left: 0;
 }
 
 .mega-sub-menu > ul > li > ul.mega-menu-bulleted li {
 	margin-top: 4px;
+}
+.mega-sub-menu > ul > li > ul.mega-menu-bulleted li:before {
+	content: "\200b";
+	position: absolute;
 }
 
 .mega-sub-menu > ul > li > ul.mega-menu-bulleted li a {
