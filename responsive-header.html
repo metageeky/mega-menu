@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/local-responsive.css">
 	<link rel="stylesheet" href="css/responsive-header.css">
-	
+
 	<script src="js/responsive-header.js"></script>
 </head>
 <body>
@@ -51,16 +51,21 @@
 				<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 			</a>
 		</div>
-		<nav id="top_nav" aria-label="Site Navigation">
-			<div id="audience_nav_container"> 
+		<nav id="top_nav" aria-label="Main">
+			<button class="hamburger-toggle" aria-expanded="false">
+				<svg><use xlink:href="#icon-menu"></use></svg>
+				<div>Menu</div>
+			</button>
+
+			<div id="audience_nav_container">
 				<div id="audience_nav" class="page-centered-content">
 					<span>Info For:</span>
-					<button class="nav-toggle-button" aria-expanded="false"> 
-						Audience Links
+					<button class="nav-toggle" aria-expanded="false">
+						<span id="audience_nav_name">Audience Links</span>
 						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 					</button>
-					<ul>
+					<ul role="list" aria-labelledby="audience_nav_name">
 						<li><a href="">Undergraduates</a></li>
 						<li><a href="">Graduates</a></li>
 						<li><a href="">Faculty</a></li>
@@ -70,15 +75,15 @@
 					</ul>
 				</div>
 			</div>
-			
+
 			<div id="user_nav_container">
 				<div id="user_nav" class="page-centered-content">
-					<button class="nav-toggle-button" aria-expanded="false"> 
-						Usage Links
+					<button class="nav-toggle" aria-expanded="false">
+						<span id="user_nav_name">Usage Links</span>
 						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 					</button>
-					<ul>
+					<ul role="list" aria-labelledby="user_nav_name">
 						<li><a href="">Alert</a></li>
 						<li><a href="">Get Help</a></li>
 						<li><a href="">Feedback</a></li>
@@ -86,16 +91,177 @@
 					</ul>
 				</div>
 			</div>
-			
+
 			<div id="main_nav_container">
-				<h2 id="main_nav_heading" class="offscreen">
-					Main Navigation
-				</h2>
-				<div id="main_nav" class="page-centered-content">
-					MEGA MENU GOES HERE
+				<div id="main_nav" class="mega-menu page-centered-content" aria-labelledby="main-nav-heading" data-menu-state="closed" data-responsive-width="900px">
+					<ul role="list" aria-label="Library Site Menu">
+						<li>
+							<button aria-expanded="false" class="nav-toggle">
+								<span>Using the Libraries</span>
+								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							</button>
+							<div class="mega-sub-menu" tabindex="-1">
+								<div class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/200/160/cat?random=473" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</div>							
+								<div class="image-column">
+									<a href="">
+										<img src="https://loremflickr.com/200/160/cat?random=43" alt="random cat"/>
+										<div>Look a Cat!!!</div>
+									</a>
+								</div>
+								<div class="text-column">
+									<div class="mega-sub-heading" id="using_libs_services">Services</div>
+									<ul class="mega-menu-bulleted" aria-labelledby="using_libs_services">
+										<li><a href="">Borrow Laptops and Gear</a></li>
+										<li><a href="">Borrowing Process and Policies</a></li>
+										<li><a href="">Course Reserves</a></li>
+										<li><a href="">Interlibrary Loan</a></li>
+										<li><a href="">Delivery Services</a></li>
+										<li><a href="">Suggest a Title</a></li>
+										<li><a href="">University Records Management</a></li>
+										<li><a href="">Instructional Services</a></li>
+									</ul>
+								</div>
+								<div class="text-column">
+									<div class="mega-sub-heading" id="using_libs_help">Help</div>
+									<ul class="mega-menu-bulleted" aria-labelledby="using_libs_help">
+										<li><a href="">Accessibility and Disability Services</a></li>
+										<li><a href="">Printing and Technology</a></li>
+										<li><a href="">Connecting from Off-Campus</a></li>
+										<li><a href="">Onsite Help at Bird Library</a></li>
+										<li><a href="">Trouble with a Resource</a></li>
+										<li><a href="">Help with Summon</a></li>
+										<li><a href="">Subject Librarians</a></li>
+										<li><a href="">Entreprenurial Help</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<button aria-expanded="false" class="nav-toggle">
+								Spaces
+								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							</button>
+							<div class="mega-sub-menu" tabindex="-1">
+
+							</div>
+						</li>
+
+						<li>
+							<button aria-expanded="false" class="nav-toggle">
+								Research
+								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							</button>
+							<div class="mega-sub-menu" tabindex="-1">
+								Stuff
+							</div>
+						</li>
+
+						<li>
+							<button aria-expanded="false" class="nav-toggle">
+								Collections
+								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							</button>
+							<div class="mega-sub-menu" tabindex="-1">
+								<div class="text-column">
+									<div class="mega-sub-heading" id="collections_special">Special Collections</div>
+									<ul class="mega-menu-bulleted" aria-labelledby="collections_special">
+										<li><a href="">Collection Areas</a></li>
+										<li><a href="">Digital Collections</a></li>
+										<li><a href="">Pan Am 103</a></li>
+										<li><a href="">University Archives</a></li>
+										<li><a href="">Search the Collections</a></li>
+									</ul>
+								</div>
+								<div class="text-column">
+									<div class="mega-sub-heading" id="collections_digital">Digital Library</div>
+									<ul class="mega-menu-bulleted" aria-labelledby="collections_digital">
+										<li><a href="">Digital Collections Repository</a></li>
+										<li><a href="">SURFACE Institutional Repository</a></li>
+										<li><a href="">Digital Exhibits</a></li>
+									</ul>
+								</div>
+								<div class="text-column double">
+									<div class="mega-sub-heading" id="collections_general">General</div>
+									<ul class="mega-menu-bulleted" aria-labelledby="collections_general">
+										<li><a href="">eBooks</a></li>
+										<li><a href="">Journals</a></li>
+										<li><a href="">Databases</a></li>
+										<li><a href="">Videos and Film</a></li>
+										<li><a href="">Maps and Government Information</a></li>
+										<li><a href="">Music Scores and Sheet Music</a></li>
+										<li><a href="">Newspapers</a></li>
+										<li><a href="">HathiTrust</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li>
+							<button aria-expanded="false" class="nav-toggle">
+								About
+								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+							</button>
+							<div class="mega-sub-menu" tabindex="-1">
+								Stuff
+							</div>
+						</li>
+
+					</ul>
 				</div><!-- end main_nav -->
 			</div><!-- end main_nav_container -->
 		</nav>
+		<div id="search_hours_container">
+			<div id="search_hours" class="page-centered-content">
+				<div id="search_box">
+					<h2>
+						Search our catalog, articles, website, and more.
+					</h2>
+					<form role="search">
+
+						<input type="search" aria-label="search text" size="20">
+
+						<input type="submit" value="Search">
+					</form> 
+					<nav>
+						<h3 id="search_related_links" class="offscreen">Search-related links</h3>
+						<ul role="list" aria-labelledby="search_related_links">
+							<li><a href="">Classic Catalog</a></li>
+							<li><a href="">Summon</a></li>
+							<li><a href="">A-Z Journals</a></li>
+							<li><a href="">SURFACE</a></li>
+						</ul>
+					</nav>
+				</div>
+				
+				<div id="hours_box">
+					<h2>Today's Hours</h2>
+					<div id="hours">
+						<div id="hours_location">
+							9 a.m. - 5 p.m.
+						</div>
+						<a href="">All Hours</a>
+					</div>
+					<div id="hours_location_select" class="select">
+						<select id="hours_location" class="select-dropdown">
+							<option>Bird Library</option>
+							<option>Carnegie Library</option>
+							<option>King + King Architecture Library</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
 	</header>
 	<main class="page-centered-content">
 		<h1>

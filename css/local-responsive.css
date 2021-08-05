@@ -92,6 +92,59 @@ body {
 	align-items: stretch;
 }
 
+
+.select {
+	border: 1px solid #a9adb3;
+	background: #fff;
+	position: relative;
+	padding: 8px 40px 8px 8px;
+}
+.select::before {
+	content: "";
+	position: absolute;
+	color: #000e54;
+	left: 16px;
+}
+.select-dropdown {
+	color: #000e54;
+	border: 0;
+	background: transparent;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 9;
+}
+.select::after {
+	content: "";
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	position: absolute;
+	right: 16px;
+	bottom: 40%;
+	display: block;
+	width: .625em;
+	height: .625em;
+	border: 3px solid #000e54;
+		border-top-color: #000e54;
+		border-top-style: solid;
+		border-top-width: 3px;
+		border-right-color: #000e54;
+		border-right-style: solid;
+		border-right-width: 3px;
+	border-top: none;
+	border-right: none;
+	z-index: 3;
+	-webkit-transition: all 125ms ease-out;
+	transition: all 125ms ease-out;
+}
+
+
+
+
 .offscreen {
 	position: absolute;
 	clip: rect(1px 1px 1px 1px);
