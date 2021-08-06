@@ -57,7 +57,7 @@
 				<div>Menu</div>
 			</button>
 
-			<div id="audience_nav_container">
+			<div id="audience_nav_container"  aria-labelledby="audience_nav_name" role="region">
 				<div id="audience_nav" class="page-centered-content">
 					<span>Info For:</span>
 					<button class="nav-toggle" aria-expanded="false">
@@ -65,7 +65,7 @@
 						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 					</button>
-					<ul role="list" aria-labelledby="audience_nav_name">
+					<ul role="list">
 						<li><a href="">Undergraduates</a></li>
 						<li><a href="">Graduates</a></li>
 						<li><a href="">Faculty</a></li>
@@ -76,14 +76,14 @@
 				</div>
 			</div>
 
-			<div id="user_nav_container">
+			<div id="user_nav_container" role="region" aria-labelledby="user_nav_name">
 				<div id="user_nav" class="page-centered-content">
 					<button class="nav-toggle" aria-expanded="false">
 						<span id="user_nav_name">Usage Links</span>
 						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 					</button>
-					<ul role="list" aria-labelledby="user_nav_name">
+					<ul role="list">
 						<li><a href="">Alert</a></li>
 						<li><a href="">Get Help</a></li>
 						<li><a href="">Feedback</a></li>
@@ -93,8 +93,9 @@
 			</div>
 
 			<div id="main_nav_container">
-				<div id="main_nav" class="mega-menu page-centered-content" aria-labelledby="main-nav-heading" data-menu-state="closed" data-responsive-width="900px">
-					<ul role="list" aria-label="Library Site Menu">
+				<div id="main_nav" class="mega-menu page-centered-content" aria-labelledby="main_nav_name" role="region" data-menu-state="closed" data-responsive-width="900px">
+					<span id="main_nav_name" hidden>Library Site Menu</span>
+					<ul role="list">
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								<span>Using the Libraries</span>
@@ -104,19 +105,19 @@
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="image-column">
 									<a href="">
+										<div>New Cat in Bird Library</div>
 										<img src="https://loremflickr.com/200/160/cat?random=473" alt="random cat"/>
-										<div>Look a Cat!!!</div>
 									</a>
 								</div>							
 								<div class="image-column">
 									<a href="">
-										<img src="https://loremflickr.com/200/160/cat?random=43" alt="random cat"/>
-										<div>Look a Cat!!!</div>
+										<div>New Late Fee Policy</div>
+										<img src="https://loremflickr.com/200/160/money?random=43" alt=""/>
 									</a>
 								</div>
 								<div class="text-column">
-									<div class="mega-sub-heading" id="using_libs_services">Services</div>
-									<ul class="mega-menu-bulleted" aria-labelledby="using_libs_services">
+									<div class="mega-sub-heading" id="mm_using_libs_services">Services</div>
+									<ul role="list" aria-labelledby="mm_using_libs_services">
 										<li><a href="">Borrow Laptops and Gear</a></li>
 										<li><a href="">Borrowing Process and Policies</a></li>
 										<li><a href="">Course Reserves</a></li>
@@ -128,8 +129,8 @@
 									</ul>
 								</div>
 								<div class="text-column">
-									<div class="mega-sub-heading" id="using_libs_help">Help</div>
-									<ul class="mega-menu-bulleted" aria-labelledby="using_libs_help">
+									<div class="mega-sub-heading" id="mm_using_libs_help">Help</div>
+									<ul role="list" aria-labelledby="mm_using_libs_help">
 										<li><a href="">Accessibility and Disability Services</a></li>
 										<li><a href="">Printing and Technology</a></li>
 										<li><a href="">Connecting from Off-Campus</a></li>
@@ -150,7 +151,42 @@
 								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
-
+								<div class="image-column">
+										<a href="">
+											<div>Reserve a Study Room</div>
+											<img src="https://loremflickr.com/160/100/room?random=1" alt=""/>
+										</a>
+								</div>
+								<div class="text-column">
+									<ul role="list" aria-label="Spaces">
+										<li><a href="">Floor Maps</a></li>
+										<li><a href="">Service Desks</a></li>
+										<li><a href="">Pages Cafe</a></li>
+										<li><a href="">Study and Meeting Spaces</a></li>
+										<li><a href="">Faculty Research Commons</a></li>
+									</ul>
+								</div>
+								<div class="text-column">
+									<ul role="list" aria-label="Buildings">
+										<li><a href="">Bird Library</a></li>
+										<li><a href="">Carnegie Library</a></li>
+										<li><a href="">King + King Library</a></li>
+										<li><a href="">Special Collections Research Center</a></li>
+										<li><a href="">SU College of Law Library</a></li>
+										<li><a href="">Martin Luther King Jr. Library</a></li>
+										<li><a href="">F. Franklin Moon Library (ESF)</a></li>
+									</ul>
+								</div>
+								<div class="text-column">
+									<ul role="list" aria-label="Programs">
+										<li><a href="">Center for Learning and Student Success (CLASS)</a></li>
+										<li><a href="">Syracuse Abroad@Bird</a></li>
+										<li><a href="">Syracuse Office of Undergraduate Research and Creative Engagement (SOURCE)</a></li>
+										<li><a href="">Digital Scholarship Space (DSS)</a></li>
+										<li><a href="">Center for Teaching and Learning Excellence</a></li>
+										<li><a href="">Blackstone LaunchPad</a></li>
+									</ul>								
+								</div>
 							</div>
 						</li>
 
@@ -161,7 +197,41 @@
 								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
-								Stuff
+								<div class="image-column">
+									<a href="">
+										<div>New Biology Database: Skeletons</div>
+										<img src="https://loremflickr.com/160/100/skeleton?random=4" alt="random skeleton"/>
+									</a>
+								</div>
+								<div class="image-column">
+									<a href="">
+										<div>Guide: Writing a Thesis Proposal</div>
+										<img src="https://loremflickr.com/160/100/books?random=5" alt="photo of many books"/>
+									</a>
+								</div>
+								<div class="text-column">
+									<div class="mega-sub-heading" id="mm_research_support">Research Support</div>
+									<ul role="list" aria-labelledby="mm_research_support">
+										<li><a href="">General Research</a></li>
+										<li><a href="">In-Depth Research</a></li>
+										<li><a href="">Research and Course Guides</a></li>
+										<li><a href="">Research Process</a></li>
+										<li><a href="">Subject Librarians</a></li>
+										<li><a href="">Special Collections Research Center</a></li>
+									</ul>
+								</div>
+								<div class="text-column">
+									<div class="mega-sub-heading" id="mm_research_services">Services and Tools</div>
+									<ul role="list" aria-labelledby="mm_research_services">
+										<li><a href="">Workshops</a></li>
+										<li><a href="">Citing Sources</a></li>
+										<li><a href="">Citation Management Tools</a></li>
+										<li><a href="">Experts@Syracuse</a></li>
+										<li><a href="">Research Data Services</a></li>
+										<li><a href="">Writing Center</a></li>
+										<li><a href="">Plagiarism Checker</a></li>
+									</ul>
+								</div>
 							</div>
 						</li>
 
@@ -174,7 +244,7 @@
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="text-column">
 									<div class="mega-sub-heading" id="collections_special">Special Collections</div>
-									<ul class="mega-menu-bulleted" aria-labelledby="collections_special">
+									<ul role="list" aria-labelledby="collections_special">
 										<li><a href="">Collection Areas</a></li>
 										<li><a href="">Digital Collections</a></li>
 										<li><a href="">Pan Am 103</a></li>
@@ -184,7 +254,7 @@
 								</div>
 								<div class="text-column">
 									<div class="mega-sub-heading" id="collections_digital">Digital Library</div>
-									<ul class="mega-menu-bulleted" aria-labelledby="collections_digital">
+									<ul role="list" aria-labelledby="collections_digital">
 										<li><a href="">Digital Collections Repository</a></li>
 										<li><a href="">SURFACE Institutional Repository</a></li>
 										<li><a href="">Digital Exhibits</a></li>
@@ -192,7 +262,7 @@
 								</div>
 								<div class="text-column double">
 									<div class="mega-sub-heading" id="collections_general">General</div>
-									<ul class="mega-menu-bulleted" aria-labelledby="collections_general">
+									<ul role="list" aria-labelledby="collections_general">
 										<li><a href="">eBooks</a></li>
 										<li><a href="">Journals</a></li>
 										<li><a href="">Databases</a></li>
@@ -213,7 +283,35 @@
 								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
-								Stuff
+								<div class="image-column">
+									<a href="">
+										<div>Meet the New Librarians</div>
+										<img src="https://loremflickr.com/180/100/kittens?random=4" alt="random cats"/>
+									</a>
+								</div>
+								<div class="image-column">
+									<a href="">
+										<div>Staff Pet of the Month</div>
+										<img src="https://loremflickr.com/150/150/dog?random=5" alt="random dog"/>
+									</a>
+								</div>
+								<div class="text-column double">
+									<ul role="list">
+										<li><a href="">Policies and Procedures</a></li>
+										<li><a href="">Strategic Plan</a></li>
+										<li><a href="">Publications</a></li>
+										<li><a href="">Blog</a></li>
+										<li><a href="">Staff Directory</a></li>
+										<li><a href="">Equity, Diversity, Accessibility, and Inclusion</a></li>
+										<li><a href="">News</a></li>
+										<li><a href="">Events</a></li>
+										<li><a href="">Exhibitions</a></li>
+										<li><a href="">Job Opportunities</a></li>
+										<li><a href="">Give to the Libraries</a></li>
+										<li><a href="">SU Press</a></li>
+										<li><a href="">Federal Depository Library Program (FDLP)</a></li>
+									</ul>
+								</div>
 							</div>
 						</li>
 
@@ -247,13 +345,16 @@
 				<div id="hours_box">
 					<h2>Today's Hours</h2>
 					<div id="hours">
-						<div id="hours_location">
+						<div id="hours_location_today">
 							9 a.m. - 5 p.m.
 						</div>
 						<a href="">All Hours</a>
 					</div>
-					<div id="hours_location_select" class="select">
-						<select id="hours_location" class="select-dropdown">
+					<div>
+						<label for="hours_location_select" class="offscreen">
+							Select Location for Today's Hour
+						</label>
+						<select id="hours_location_select">
 							<option>Bird Library</option>
 							<option>Carnegie Library</option>
 							<option>King + King Architecture Library</option>
@@ -263,7 +364,7 @@
 			</div>
 		</div>
 	</header>
-	<main class="page-centered-content">
+	<main id="main" class="page-centered-content" tabindex="-1">
 		<h1>
 			Heading 1
 		</h1>

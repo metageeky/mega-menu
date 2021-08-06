@@ -69,7 +69,7 @@ button.hamburger-toggle {
 	color: var(--white);
 	background: var(--darkorange);
 	font-size: 0.75rem;
-	font-weight: 600;
+	font-weight: 700;
 	padding: 0.5rem;
 	position: absolute;
 	right: 0.5rem;
@@ -88,7 +88,7 @@ button.hamburger-toggle > div {
 @media screen and (min-width: 400px) {
 	button.hamburger-toggle {
 		font-size: 0.875rem;
-		font-weight: 600;
+		font-weight: 700;
 		padding: 0.5rem;
 		position: absolute;
 		right: 0.5rem;
@@ -135,13 +135,21 @@ button.nav-toggle[aria-expanded="true"] svg.icon.up{
 	display: inline;
 }
 
-button.nav-toggle[aria-expanded="false"] + ul,
-.mega-menu button.nav-toggle[aria-expanded="false"] + div.mega-sub-menu {
+button.nav-toggle[aria-expanded="false"] + ul {
 	display: none;
 }
-button.nav-toggle[aria-expanded="true"] + ul,
-.mega-menu button.nav-toggle[aria-expanded="true"] + div.mega-sub-menu  {
+button.nav-toggle[aria-expanded="true"] + ul {
 	display: block;
+}
+
+/********************************
+ MEGA MENU TOGGLES
+*********************************/
+.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="true"] + .mega-sub-menu {
+	display: block;
+}
+.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="false"] + .mega-sub-menu {
+	display: none;
 }
 
 
@@ -165,7 +173,7 @@ button.nav-toggle[aria-expanded="true"] + ul,
 	font-size: inherit;
 	margin: 0 0 0.125em;
 	padding: 0;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 
@@ -269,8 +277,8 @@ button.nav-toggle[aria-expanded="true"] + ul,
 		padding: 0.625rem 0rem;
 		color: var(--white);
 		background: transparent;
-		font-size: 1.1.875rem;
-		font-weight: 600;
+		font-size: 1.1875rem;
+		font-weight: 700;
 	}
 
 	#main_nav > ul {
@@ -325,12 +333,11 @@ button.nav-toggle[aria-expanded="true"] + ul,
 		outline: none;
 	}
 
-	.mega-menu[data-menu-state="focus"] button.nav-toggle[aria-expanded="true"] + .mega-sub-menu {
+	.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="true"] + .mega-sub-menu {
 		display: flex;
 	}
-
-	.mega-menu[data-menu-state="hover"] button.nav-toggle[aria-expanded="true"] + .mega-sub-menu {
-		display: flex;
+	.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="false"] + .mega-sub-menu {
+		display: none;
 	}
 
 	.mega-sub-menu > div {
@@ -377,14 +384,17 @@ button.nav-toggle[aria-expanded="true"] + ul,
 	}
 	.mega-sub-menu > div.image-column > a {
 		text-align: center;
-		display: block;
+		text-decoration: none;
+		display: flex;
+		flex-direction: column-reverse;
+		flex-wrap: nowrap;
 	}
 	.mega-sub-menu > div.image-column > a > img {
 		width: 100%;
+		margin-bottom: 0.75rem;
 	}
 	
 	#search_hours_container {
-		background-color: lime;
 		background-image: url("../assets/carnegie.jpg");
 		background-repeat: no-repeat;
 		background-position: center;
@@ -397,7 +407,7 @@ button.nav-toggle[aria-expanded="true"] + ul,
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		justify-content: space-between;
+		justify-content: space-around;
 		align-content: stretch;
 		align-items: stretch;
 		min-height: 100%;
@@ -420,7 +430,7 @@ button.nav-toggle[aria-expanded="true"] + ul,
 		list-style: none;
 		display: flex;
 		flex-wrap: nowrap;
-		flex-direction: nowrap;
+		flex-direction: row;
 		justify-content: space-between;
 		padding-left: 0;
 		margin: 0;
