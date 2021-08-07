@@ -66,23 +66,23 @@
 }
 
 *:focus {
-	outline: dotted currentColor 3px;
+	outline: solid currentColor 3px;
 	outline-offset: 2px;
-	position: relative;
+	/* position: relative; */
 }
-a:focus:before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: calc(100% + 10px);
-	height: calc(100% + 10px);
-	top: -5px;
-	left: -5px;
-	background: transparent;
-	z-index: -10;
-	border-radius: 5px;
-	box-shadow: 0 0 0 3px #f00, 0 0 0 6px #ff0, 0 0 0 9px #00f, 0 0 0 12px #0f0;
-}
+/* a:focus:before { */
+	/* content: ""; */
+	/* display: block; */
+	/* position: absolute; */
+	/* width: calc(100% + 10px); */
+	/* height: calc(100% + 10px); */
+	/* top: -5px; */
+	/* left: -5px; */
+	/* background: transparent; */
+	/* z-index: -10; */
+	/* border-radius: 5px; */
+	/* box-shadow: 0 0 0 3px #f00, 0 0 0 6px #ff0, 0 0 0 9px #00f, 0 0 0 12px #0f0; */
+/* } */
 
 [hidden] {
 	display: none;
