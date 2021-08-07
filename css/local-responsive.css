@@ -56,8 +56,8 @@
 	--lightblue: #2b72d7;
 	--black: #000000;
 	--mediumgray: #707780;
-	--darkgrey: #404040;
-	--lightgrey: #adb3b8;
+	--darkgray: #404040;
+	--lightgray: #adb3b8;
 	--darkorange: #d74100;
 }
 
@@ -68,6 +68,20 @@
 *:focus {
 	outline: dotted currentColor 3px;
 	outline-offset: 2px;
+	position: relative;
+}
+a:focus:before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: calc(100% + 10px);
+	height: calc(100% + 10px);
+	top: -5px;
+	left: -5px;
+	background: transparent;
+	z-index: -10;
+	border-radius: 5px;
+	box-shadow: 0 0 0 3px #f00, 0 0 0 6px #ff0, 0 0 0 9px #00f, 0 0 0 12px #0f0;
 }
 
 [hidden] {
@@ -149,9 +163,9 @@ main {
 }
 
 h1 {
-	background: var(--lightgrey);
+	background: lightgreen;
 	margin: 0;
-	padding: 1rem 0;
+	padding: 0;
 }
 
 
@@ -166,4 +180,58 @@ footer {
 	font-size: 2rem;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+}
+
+
+div.select {
+	position: relative;
+	border: solid 2px var(--lightgray);
+	background: var(--white);
+	color: var(--primaryblue);
+}
+div.select:after {
+	/* content: url("../assets/chevron-down.svg"); */
+	width: 1rem;
+
+	display: block;
+	position: absolute;
+	right: 0.5rem;
+	top: calc(0.5rem + 2px); /* 2px from border on select */
+	font-size: inherit;
+	line-height: inherit;
+	pointer-events: none;
+}
+div.select svg {
+	pointer-events: none;
+	width: 1rem;
+	height: 100%;
+	display: block;
+	position: absolute;
+	right: 0.5rem;
+	top: 0; 
+	font-size: inherit;
+	line-height: inherit;
+}
+select.select-dropdown {
+	color: inherit;
+	line-height: inherit;
+	font-size: inherit;
+	background: transparent;
+	overflow: hidden;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	padding-right: 1.75rem;
+	position: relative;
+	border: none;
+}
+
+select.select-dropdown option {
+	line-height: inherit;
+}
+select.select-dropdown:focus {
+	outline-color: var(--mediumorange);
+	outline-offset: 1px;
 }

@@ -16,21 +16,17 @@
 <body>
 	<div hidden aria-hidden="false">
 		<svg aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-			<symbol id="icon-right-triangle" viewBox="0 0 50 50">
-				<polygon points="0,0 0,50 43.3,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
-				</polygon>
+			<symbol id="icon-up-triangle" viewBox="0 0 100 65">
+				<g fill="currentColor">
+					<path d="M50 .503l14.142 14.142-49.497 49.497L.503 50z"/>
+					<path d="M50 .503L99.497 50 85.355 64.142 35.858 14.645z"/>
+				</g>
 			</symbol>
-			<symbol id="icon-left-triangle" viewBox="0 0 50 50">
-				<polygon points="50,0 50,50 6.6,25" style="fill:currentColor;stroke:currentColor;stroke-width:1">
-				</polygon>
-			</symbol>
-			<symbol id="icon-up-triangle" viewBox="0 0 50 50">
-				<polygon points="0,50 50,50 25.0,6.7" style="fill:currentColor;stroke:currentColor;stroke-width:1">
-				</polygon>
-			</symbol>
-			<symbol id="icon-down-triangle" viewBox="0 0 50 43.3">
-				<polygon points="0,0 50,0 25.0,43.3" style="fill:currentColor;stroke:currentColor;stroke-width:1">
-				</polygon>
+			<symbol id="icon-down-triangle" viewBox="0 0 100 65">
+				<g fill="currentColor" transform="matrix(1 0 0 -1 0 65)">
+					<path d="M50 .503l14.142 14.142-49.497 49.497L.503 50z"/>
+					<path d="M50 .503L99.497 50 85.355 64.142 35.858 14.645z"/>
+				</g>
 			</symbol>
 			<symbol id="icon-menu" viewBox="0 0 100 90">
 				<g>
@@ -38,6 +34,25 @@
 					<path fill="currentColor" d="M5 35h90v20H5z"></path>
 					<path fill="currentColor" d="M5 65h90v20H5z"></path>
 				</g>
+			</symbol>
+			<symbol id="icon-person" viewBox="0 0 42.667 42.667">
+				<g fill="currentColor" fill-opacity="1" fill-rule="nonzero" stroke="none">
+					<path d="M10.667 24H32l5.333 5.333V40l-32-.023V29.333L10.667 24M30.667 12a9.333 9.333 0 0 0-9.334-9.333A9.333 9.333 0 0 0 12 12a9.333 9.333 0 1 0 18.667 0"/>
+				</g>
+			</symbol>
+			<symbol id="icon-feedback" viewBox="0 0 42.667 42.667">
+				<path fill="currentColor" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M29.333 20.867a2 2 0 1 1 .001-4 2 2 0 0 1 0 4zm-8.036 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-7.98 0a2 2 0 1 1-.001-4 2 2 0 0 1 0 4zm-6.65-15.35v21.332L12 32.183h12l6.667 6.484v-6.484H36V5.516H6.667"/>
+			</symbol>
+			<symbol id="icon-help" viewBox="0 0 42.667 42.667">
+				<path fill="currentColor" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M23 23.023l-.154 2.612h-4.342l-.385-5.838c4.152-.807 5.725-2.422 5.725-4.188 0-1.73-1.42-2.69-3.38-2.69-2.151 0-4.38 1.267-5.227 1.959l-.92-4.803C15.47 9.191 17.738 8 21.233 8c4.15 0 8.263 2.306 8.263 7.224 0 4.341-3.114 6.57-6.495 7.8zm-2.344 11.644a3.426 3.426 0 0 1-3.42-3.42 3.427 3.427 0 0 1 3.42-3.422c1.92 0 3.458 1.539 3.458 3.422 0 1.882-1.537 3.42-3.458 3.42zm.677-32c-10.31 0-18.666 8.356-18.666 18.666S11.023 40 21.333 40 40 31.643 40 21.333c0-10.31-8.357-18.666-18.667-18.666"/>
+			</symbol>
+			<symbol id="icon-alert" viewBox="0 0 42.667 42.667">
+				<path fill="currentColor" fill-opacity="1" fill-rule="nonzero" stroke="none" d="M21.116 33.257c-1.628 0-2.929-1.302-2.929-2.897 0-1.594 1.301-2.896 2.929-2.896a2.903 2.903 0 0 1 2.897 2.896 2.903 2.903 0 0 1-2.897 2.897zm2.767-22.034L22.94 25.61h-3.677l-.912-14.386zm-2.537-8.556c-10.309 0-18.666 8.357-18.666 18.666C2.68 31.643 11.037 40 21.346 40c10.31 0 18.667-8.357 18.667-18.667 0-10.309-8.357-18.666-18.667-18.666"/>
+			</symbol>
+			<symbol id="icon-search" viewBox="0 0 115 115">
+				<path d="m44.973 4.1362a40 40 0 1 0 0 80 40 40 0 1 0 0-80zm0 10a30 30 0 1 1 0 60 30 30 0 1 1 0-60z" fill="currentColor"/>
+				<path d="m59.115 58.278a20 20 0 0 0 0-28.284" fill="none" stroke="currentColor" stroke-width="4"/>
+				<rect transform="rotate(-45 90.973 91.81)" x="85.973" y="69.864" width="10" height="43.892" fill="currentColor" />
 			</symbol>
 		</svg>
 	</div>
@@ -53,7 +68,7 @@
 		</div>
 		<nav id="top_nav" aria-label="Main">
 			<button class="hamburger-toggle" aria-expanded="false">
-				<svg><use xlink:href="#icon-menu"></use></svg>
+				<svg focusable="false"><use href="#icon-menu"></use></svg>
 				<div>Menu</div>
 			</button>
 
@@ -62,8 +77,8 @@
 					<span>Info For:</span>
 					<button class="nav-toggle" aria-expanded="false">
 						<span id="audience_nav_name">Audience Links</span>
-						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+						<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 					</button>
 					<ul role="list">
 						<li><a href="">Undergraduates</a></li>
@@ -80,14 +95,26 @@
 				<div id="user_nav" class="page-centered-content">
 					<button class="nav-toggle" aria-expanded="false">
 						<span id="user_nav_name">Usage Links</span>
-						<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-						<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+						<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+						<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 					</button>
 					<ul role="list">
-						<li><a href="">Alert</a></li>
-						<li><a href="">Get Help</a></li>
-						<li><a href="">Feedback</a></li>
-						<li><a href="">My Accounts</a></li>
+						<li><a id="alert_link" class="active" href="">
+							<svg class="alert" focusable="false"><use href="#icon-alert"></use></svg>
+							Alert<span>(90)</span> 
+						</a></li>
+						<li><a href="">
+							<svg class="help" focusable="false"><use href="#icon-help"></use></svg>
+							Get Help
+						</a></li>
+						<li><a href="">
+							<svg class="feedback" focusable="false"><use href="#icon-feedback"></use></svg>
+							Feedback
+						</a></li>
+						<li><a href="">
+							<svg class="accounts" focusable="false"><use href="#icon-person"></use></svg>
+							My Accounts
+						</a></li>
 					</ul>
 				</div>
 			</div>
@@ -99,8 +126,8 @@
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								<span>Using the Libraries</span>
-								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="image-column">
@@ -147,8 +174,8 @@
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								Spaces
-								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="image-column">
@@ -193,20 +220,20 @@
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								Research
-								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="image-column">
 									<a href="">
 										<div>New Biology Database: Skeletons</div>
-										<img src="https://loremflickr.com/160/100/skeleton?random=4" alt="random skeleton"/>
+										<img src="https://loremflickr.com/160/100/skeleton?random=1" alt="random skeleton"/>
 									</a>
 								</div>
 								<div class="image-column">
 									<a href="">
 										<div>Guide: Writing a Thesis Proposal</div>
-										<img src="https://loremflickr.com/160/100/books?random=5" alt="photo of many books"/>
+										<img src="https://loremflickr.com/160/100/book?random=1" alt="photo of many books"/>
 									</a>
 								</div>
 								<div class="text-column">
@@ -238,8 +265,8 @@
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								Collections
-								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="text-column">
@@ -279,8 +306,8 @@
 						<li>
 							<button aria-expanded="false" class="nav-toggle">
 								About
-								<svg focusable="false" class="icon down"><use xlink:href="#icon-down-triangle"></use></svg>
-								<svg focusable="false" class="icon up"><use xlink:href="#icon-up-triangle"></use></svg>
+								<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+								<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 							</button>
 							<div class="mega-sub-menu" tabindex="-1">
 								<div class="image-column">
@@ -314,11 +341,19 @@
 								</div>
 							</div>
 						</li>
-
 					</ul>
 				</div><!-- end main_nav -->
 			</div><!-- end main_nav_container -->
 		</nav>
+		<div id="search_hours_toggle_container">
+			<div class="page-centered-content">
+				<button id="search_hours_toggle" aria-expanded="true">
+					Search and Hours
+					<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+					<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
+				</button>
+			</div>
+		</div>
 		<div id="search_hours_container">
 			<div id="search_hours" class="page-centered-content">
 				<div id="search_box">
@@ -326,10 +361,11 @@
 						Search our catalog, articles, website, and more.
 					</h2>
 					<form role="search">
-
-						<input type="search" aria-label="search text" size="20">
-
-						<input type="submit" value="Search">
+						<input type="search" aria-label="search text" placeholder="enter keywords">
+						<button type="submit">
+							<svg focusable="false"><use href="#icon-search"></use></svg>
+							Search
+						</button>
 					</form> 
 					<nav>
 						<h3 id="search_related_links" class="offscreen">Search-related links</h3>
@@ -350,27 +386,38 @@
 						</div>
 						<a href="">All Hours</a>
 					</div>
-					<div>
+					<div id="hours_location_select_container">
 						<label for="hours_location_select" class="offscreen">
 							Select Location for Today's Hour
 						</label>
-						<select id="hours_location_select">
-							<option>Bird Library</option>
-							<option>Carnegie Library</option>
-							<option>King + King Architecture Library</option>
-						</select>
+						<div class="select">
+							<select id="hours_location_select" class="select-dropdown">
+								<option>Bird Library</option>
+								<option>Carnegie Library</option>
+								<option>King + King Architecture Library</option>
+							</select>
+							<svg focusable="false"><use href="#icon-down-triangle"></use></svg>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-	<main id="main" class="page-centered-content" tabindex="-1">
+	<main id="main" class="page-centered-content">
 		<h1>
 			Heading 1
 		</h1>
 		<p>
 			Sometimes there isn't a good answer. No matter how you try to rationalize the outcome, it doesn't make sense. And instead of an answer, you are simply left with a question. Why?
 		</p>
+		
+		<a href="">Big Link Name Here For Basic Testing Purposes</a>
+		
+		<div id="blah">
+		
+		</div>
+
+		
 	</main>
 	<footer aria-label="Additional Information">
 		Footer goes here

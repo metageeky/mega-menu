@@ -29,6 +29,18 @@ window.addEventListener('load', function(event) {
 		}
 	});
 	
+	e = document.querySelector('#search_hours_toggle');
+	e.addEventListener('click', function(evt) {
+		if(evt.target.getAttribute('aria-expanded') == 'false') {
+			evt.target.setAttribute('aria-expanded', 'true');
+			document.querySelector('#search_hours_container').style.display = 'block';
+		}
+		else {
+			evt.target.setAttribute('aria-expanded', 'false');
+			document.querySelector('#search_hours_container').style.display = 'none';
+		}
+	});
+	
 	// events for the top-level menu buttons for dropdowns
 	let mega_menu_toggles = megamenu.querySelectorAll('button.nav-toggle');
 	for(e of mega_menu_toggles) {
