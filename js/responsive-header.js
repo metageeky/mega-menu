@@ -3,6 +3,19 @@ window.addEventListener('load', function(event) {
 	let megamenu = document.querySelector('.mega-menu');
 	let responsiveWidth = parseInt(megamenu.getAttribute('data-responsive-width'));
 	
+	// hamburger-toggle for responsive view
+	e = document.querySelector('#logo_container + button.hamburger-toggle');
+	e.addEventListener('click', function(evt) {
+		// open menu
+		if(evt.target.getAttribute('aria-expanded') == 'false') {
+			evt.target.setAttribute('aria-expanded', 'true');
+		}
+		// close menu
+		else {
+			evt.target.setAttribute('aria-expanded', 'false');
+		}
+	});
+	
 	// toggle button for audience menu
 	e = document.querySelector('#audience_nav button.nav-toggle');
 	e.addEventListener('click', function(evt) {

@@ -45,6 +45,8 @@
 
 :root {
 	--content-width: 900px;
+	
+	--menu-background: #f1f1f2;
 
 	/* SU Colors */
 	--suorange: #f76900;
@@ -66,7 +68,8 @@
 }
 
 *:focus {
-	outline: solid currentColor 3px;
+	z-index: 1000;
+	outline: solid currentColor 4px;
 	outline-offset: 2px;
 	/* position: relative; */
 }

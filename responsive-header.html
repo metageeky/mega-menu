@@ -14,7 +14,7 @@
 	<script src="js/responsive-header.js"></script>
 </head>
 <body>
-	<div hidden aria-hidden="false">
+	<div hidden aria-hidden="true">
 		<svg aria-hidden="true" focusable="false" id="icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<symbol id="icon-up-triangle" viewBox="0 0 100 65">
 				<g fill="currentColor">
@@ -66,11 +66,12 @@
 				<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 			</a>
 		</div>
-		<nav id="top_nav" aria-label="Main">
-			<button class="hamburger-toggle" aria-expanded="false">
+		<button class="hamburger-toggle" aria-expanded="false">
 				<svg focusable="false"><use href="#icon-menu"></use></svg>
 				<div>Menu</div>
-			</button>
+		</button>
+		<nav id="top_nav" aria-label="Main">
+
 
 			<div id="audience_nav_container"  aria-labelledby="audience_nav_name" role="region">
 				<div id="audience_nav" class="page-centered-content">
@@ -101,7 +102,7 @@
 					<ul role="list">
 						<li><a id="alert_link" class="active" href="">
 							<svg class="alert" focusable="false"><use href="#icon-alert"></use></svg>
-							Alert<span>(90)</span> 
+							Alert <span>(90)</span> 
 						</a></li>
 						<li><a href="">
 							<svg class="help" focusable="false"><use href="#icon-help"></use></svg>
