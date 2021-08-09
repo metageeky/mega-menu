@@ -164,6 +164,7 @@ button.hamburger-toggle[aria-expanded="false"] + #top_nav {
 	min-width: var(--min-top-nav-width);
 	width: 75%;
 	font-size: 1.25rem;
+	z-index: 1000;
 }
 
 @media screen and (min-width: 900px) {
@@ -713,37 +714,43 @@ button.nav-toggle[aria-expanded="true"] + ul {
  SEARCH HOURS TOGGLE
 ****************************/
 #search_hours_toggle_container {
-	display: none;
 }
-/***************************
- SEARCH HOURS 
-****************************/
-#search_hours_container {
+
+button#search_hours_toggle {
 	display: none;
 }
 
-
-/******************************
- MAIN
-*******************************/
-main:focus {
-	outline: none;
+button#search_hours_toggle svg {
+	height: 0.75rem;
+	width: 0.75rem;
+	position: relative;
+	top: 1px;
+	margin-left: 2px;
 }
-
-
+button#search_hours_toggle[aria-expanded="false"] svg.icon.down{
+	display: inline;
+}
+button#search_hours_toggle[aria-expanded="false"] svg.icon.up{
+	display: none;
+}
+button#search_hours_toggle[aria-expanded="true"] svg.icon.down{
+	display: none;
+}
+button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
+	display: inline;
+}
 
 @media screen and (min-width: 900px) {
-	
 	#search_hours_toggle_container {
 		pointer-events: none;
 		width: 100%;
 		position: absolute;
-
 	}
 	#search_hours_toggle_container > div {
 		text-align: right;
 	}
 	#search_hours_toggle_container > div > button {
+		display: inline-block;
 		pointer-events: auto;
 		background: var(--white);
 		border-radius: 4px;
@@ -766,32 +773,22 @@ main:focus {
 		outline: solid 3px var(--white);
 		outline-offset: 0;
 	}
-	
-	button#search_hours_toggle svg {
-		height: 0.75rem;
-		width: 0.75rem;
-		position: relative;
-		top: 1px;
-		margin-left: 2px;
-	}
-	button#search_hours_toggle[aria-expanded="false"] svg.icon.down{
-		display: inline;
-	}
-	button#search_hours_toggle[aria-expanded="false"] svg.icon.up{
-		display: none;
-	}
-	button#search_hours_toggle[aria-expanded="true"] svg.icon.down{
-		display: none;
-	}
-	button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
-		display: inline;
-	}
+}
 
+/***************************
+ SEARCH HOURS
+****************************/
+#search_hours_container {
+	background-image: url("../assets/carnegie.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 900px) {
 	#search_hours_container {
-		background-image: url("../assets/carnegie.jpg");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}
@@ -805,8 +802,83 @@ main:focus {
 		align-items: center;
 		min-height: 100%;
 	}
+}
+
+/***************************
+ SEARCH BOX
+****************************/
+#search_box {
+	display: none;
+}
+
+#search_box > * {
 	
+}
+
+#search_box > form > button[type="submit"] svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	position: relative;
+	top: 2px;
+}
+
+@media screen and (min-width: 900px) {
+	#search_box {
+		display: block;
+	}
+}
+
+/***************************
+ HOURS BOX
+****************************/
+#hours_box {
+	background: var(--white);
+	padding: 0.75rem 0.75rem;
+}
+#hours_box > h2 {
+	color: var(--darkorange);
+	font-size: 1.25rem;
+	margin: 0;
+}
+#hours_box #hours {
+	margin: 0.375rem 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+}
+#hours_box #hours > div {
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+#hours_box #hours > a {
+	font-size: 0.875rem;
+}
+
+@media screen and (min-width: 900px) {
+	#hours_box {
+		background: var(--white);
+		padding: 0.75rem 1rem;
+	}
 	
+	#hours_box #hours {
+		margin: 0.75rem 0;
+	}
+}
+
+/******************************
+ MAIN
+*******************************/
+main:focus {
+	outline: none;
+}
+
+
+
+@media screen and (min-width: 900px) {
+
 	#search_box {
 		background: var(--primaryblue);
 		color: var(--white);
@@ -857,12 +929,7 @@ main:focus {
 		font-style: italic;
 		
 	}
-	#search_box > form > button[type="submit"] svg {
-		width: 1.25rem;
-		height: 1.25rem;
-		position: relative;
-		top: 2px;
-	}
+
 	
 	#search_box > nav > ul {
 		list-style: none;
@@ -878,30 +945,6 @@ main:focus {
 		text-decoration: none;
 	}
 	
-	#hours_box {
-		background: var(--white);
-		padding: 0.75rem 1rem;
-	}
-	#hours_box > h2 {
-		color: var(--darkorange);
-		font-size: 1.25rem;
-		margin: 0;
-	}
-	#hours_box #hours {
-		margin: 0.75rem 0;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-		align-content: center;
-		align-items: center;
-	}
-	#hours_box #hours > div {
-		font-weight: 700;
-		font-size: 1.125rem;
-	}
-	#hours_box #hours > a {
-		font-size: 0.875rem;
-	}
+	
 	
 }

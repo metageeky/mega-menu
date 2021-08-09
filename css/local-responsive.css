@@ -229,6 +229,7 @@ select.select-dropdown {
 	padding-right: 1.75rem;
 	position: relative;
 	border: none;
+	width: 100%;
 }
 
 select.select-dropdown option {
