@@ -10,8 +10,20 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/local-responsive.css">
 	<link rel="stylesheet" href="css/responsive-header.css">
-
 	<script src="js/responsive-header.js"></script>
+	<script src="js/screen-reader-messaging.js"></script>
+	<script>
+		window.addEventListener('load', function(event) { 
+			document.querySelector('#hours_location_select').addEventListener('change', function(evt) {
+				setTimeout(function() {
+					let times = {'bird': '9 a.m. - 5 p.m.', 'carnegie': '10 a.m. - 3 p.m.', 'arch': 'Closed' };
+					let new_time = document.getElementById('hours_location_today').innerText = times[evt.target.value];
+					// set a timeout so that the new selection is labeled
+					ScreenReaderMessenger.getMessenger().say("Today's hours are " + new_time);
+				}, 100);
+			});
+		});
+	</script>
 </head>
 <body>
 	<div hidden aria-hidden="true">
@@ -54,6 +66,12 @@
 				<path d="m59.115 58.278a20 20 0 0 0 0-28.284" fill="none" stroke="currentColor" stroke-width="4"/>
 				<rect transform="rotate(-45 90.973 91.81)" x="85.973" y="69.864" width="10" height="43.892" fill="currentColor" />
 			</symbol>
+			<symbol id="icon-chat" viewBox="0 0 17.29 12.3" xmlns="http://www.w3.org/2000/svg">
+				<g transform="translate(-.73542 -.73542)" fill="currentColor">
+					<path d="m15.997 8.0616a0.52917 0.52917 0 1 1 2.63e-4 -1.0583 0.52917 0.52917 0 0 1 0 1.0583zm-2.1262 0a0.52917 0.52917 0 1 1 0-1.0583 0.52917 0.52917 0 0 1 0 1.0583zm-2.1114 0a0.52917 0.52917 0 1 1-2.66e-4 -1.0583 0.52917 0.52917 0 0 1 0 1.0583zm-1.7595-4.0614v5.6441l1.411 1.4113h3.175l1.764 1.7156v-1.7156h1.411v-7.0556h-7.761"/>
+					<path d="m2.764 5.0616a0.52917 0.52917 0 1 0-2.65e-4 -1.0583 0.52917 0.52917 0 0 0 0 1.0583zm2.1262 0a0.52917 0.52917 0 1 0 0-1.0583 0.52917 0.52917 0 0 0 0 1.0583zm2.1114 0a0.52917 0.52917 0 1 0 2.64e-4 -1.0583 0.52917 0.52917 0 0 0 0 1.0583zm1.7595-4.0614v5.6441l-1.411 1.4113h-3.175l-1.764 1.7156v-1.7156h-1.411v-7.0556h7.761"/>
+				</g>
+			</symbol>
 		</svg>
 	</div>
 
@@ -66,12 +84,17 @@
 				<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 			</a>
 		</div>
-		<button class="hamburger-toggle" aria-expanded="false">
+		<div id="chat_container">
+			<a href="">
+				<svg focusable="false"><use href="#icon-chat"></use></svg>
+				<span>Chat</span>
+			</a>
+		</div>
+		<nav id="top_nav" aria-label="Main">
+			<button id="main_nav_hamburger" class="hamburger-toggle" aria-expanded="false">
 				<svg focusable="false"><use href="#icon-menu"></use></svg>
 				<div>Menu</div>
-		</button>
-		<nav id="top_nav" aria-label="Main">
-
+			</button>
 
 			<div id="audience_nav_container"  aria-labelledby="audience_nav_name" role="region">
 				<div id="audience_nav" class="page-centered-content">
@@ -357,10 +380,17 @@
 		</div>
 		<div id="search_hours_container">
 			<div id="search_hours" class="page-centered-content">
-				<div id="search_box">
-					<h2>
-						Search our catalog, articles, website, and more.
-					</h2>
+				<div id="search_box" class="collapsed">
+					<div>
+						<h2>
+							Search our catalog, articles, website, and more
+						</h2>
+						<button aria-label="toggle search" aria-expanded="false">
+							<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
+							<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
+						</button>
+					</div>
+
 					<form role="search">
 						<input type="search" aria-label="search text" placeholder="enter keywords">
 						<button type="submit">
@@ -393,9 +423,9 @@
 						</label>
 						<div class="select">
 							<select id="hours_location_select" class="select-dropdown">
-								<option>Bird Library</option>
-								<option>Carnegie Library</option>
-								<option>King + King Architecture Library</option>
+								<option value="bird">Bird Library</option>
+								<option value="carnegie">Carnegie Library</option>
+								<option value="arch">King + King Architecture Library</option>
 							</select>
 							<svg focusable="false"><use href="#icon-down-triangle"></use></svg>
 						</div>
@@ -423,5 +453,6 @@
 	<footer aria-label="Additional Information">
 		Footer goes here
 	</footer>
+	<div id="sr_messenger" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
 </body>
 </html>

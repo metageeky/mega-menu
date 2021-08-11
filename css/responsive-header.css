@@ -72,7 +72,7 @@ a, a:visited {
 
 @media screen and (min-width: 900px) {
 	#logo_container {
-		margin-top: 50px;
+		margin-top: 3.125rem;
 		padding-top: 1rem;
 		padding-bottom: 0;
 	}
@@ -88,10 +88,10 @@ button.hamburger-toggle {
 	font-size: 0.75rem;
 	font-weight: 700;
 	padding: 0.5rem;
+
 	position: absolute;
 	right: 0.5rem;
-	top: 0.5rem;
-	
+	top: -45px;
 	height: 45px;
 	
 	display: inline-flex;
@@ -126,7 +126,10 @@ button.hamburger-toggle > div {
 	margin-top: 0.25rem;
 }
 
-button.hamburger-toggle[aria-expanded="false"] + #top_nav {
+button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container,
+button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user_nav_container,
+button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user_nav_container + #main_nav_container 
+{
 	display: none;
 }
 
@@ -137,7 +140,7 @@ button.hamburger-toggle[aria-expanded="false"] + #top_nav {
 		font-weight: 700;
 		padding: 0.5rem;
 		right: 0.5rem;
-		top: 0.5rem;
+		top: -60px;
 		height: 60px;
 	}
 }
@@ -146,7 +149,10 @@ button.hamburger-toggle[aria-expanded="false"] + #top_nav {
 	button.hamburger-toggle {
 		display: none;
 	}
-	button.hamburger-toggle[aria-expanded="false"] + #top_nav {
+	button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container,
+	button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user_nav_container,
+	button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user_nav_container + #main_nav_container 
+	{
 		display: block;
 	}
 }
@@ -314,7 +320,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		justify-content: flex-start;
 		align-content: stretch;
 		align-items: flex-end;
-		height: 50px;
+		height: 3.125rem;
 	}
 	#audience_nav_container span {
 		display: inline;
@@ -787,6 +793,16 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	padding-bottom: 1rem;
 }
 
+#search_hours {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	min-height: 100%;
+}
+
 @media screen and (min-width: 900px) {
 	#search_hours_container {
 		padding-top: 2rem;
@@ -794,13 +810,8 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	}
 	
 	#search_hours {
-		display: flex;
 		flex-direction: row;
-		flex-wrap: nowrap;
 		justify-content: space-around;
-		align-content: center;
-		align-items: center;
-		min-height: 100%;
 	}
 }
 
@@ -808,13 +819,86 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
  SEARCH BOX
 ****************************/
 #search_box {
-	display: none;
+	line-height: 1;
+	display: block;
+	background: var(--primaryblue);
+	color: var(--white);
+	padding: 0.75rem 1rem;
 }
 
 #search_box > * {
 	
 }
 
+
+#search_box > div {
+	position: relative;
+	padding-right: 2.125rem;
+}
+#search_box h2 {
+	font-size: 1.25rem;
+	margin: 0;
+	z-index: 1;
+	position: relative;
+	pointer-events: none;
+}
+
+#search_box h2 + button {
+	line-height: 1;
+	position: absolute;
+	top: -3px;
+	bottom: -3px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	border: none;
+	background: transparent;
+	color: var(--white);
+	text-align: right;
+	z-index: 0;
+}
+
+
+#search_box h2 + button > svg {
+	width: 1rem;
+	height: 100%;
+	margin-right: 0.25rem;
+}
+#search_box h2 + button[aria-expanded="false"] > svg.up {
+	display: none;
+}
+#search_box h2 + button[aria-expanded="true"] > svg.down {
+	display: none;
+}
+
+#search_box.collapsed > form, 
+#search_box.collapsed > nav > ul {
+	display: none;
+}
+
+#search_box > form {
+	margin: 1.25rem 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+}
+#search_box > form > button[type="submit"] {
+	background: var(--mediumgray);
+	color: var(--white);
+	font-size: 1.125rem;
+	border: none;
+	text-transform: uppercase;
+	position: relative;
+	height: 2.25rem;
+	padding: 0 0.625rem;
+}
+#search_box > form > button[type="submit"]:focus {
+	outline: 4px solid var(--mediumorange);
+	outline-offset: 0;
+	z-index: 5;
+}
 #search_box > form > button[type="submit"] svg {
 	width: 1.25rem;
 	height: 1.25rem;
@@ -822,18 +906,66 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	top: 2px;
 }
 
+#search_box > form > input[type="search"] {
+	border: none;
+	height: 2.25rem;
+	padding: 0 0.5rem;
+	width: 65%;
+	background: var(--white);
+}
+#search_box > form > input[type="search"]:focus {
+	outline: 3px solid var(--mediumorange);
+	outline-offset: 0;
+	z-index: 5;
+}
+#search_box > form > input[type="search"]::placeholder {
+	color: var(--mediumgray);
+	opacity: 1;
+	font-style: italic;
+	
+}
+
+#search_box > nav > ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 0;
+	margin: 0;
+}
+#search_box > nav > ul > li > a {
+	color: var(--white);
+	text-decoration: none;
+}
+
+
 @media screen and (min-width: 900px) {
 	#search_box {
-		display: block;
+
 	}
+
+
+	#search_box h2 + button {
+		display: none;
+	}
+
+
+	#search_box.collapsed > form, 
+	#search_box.collapsed > nav > ul {
+		display: flex;
+	}
+
 }
 
 /***************************
  HOURS BOX
 ****************************/
 #hours_box {
+	margin-top: 1rem;
 	background: var(--white);
-	padding: 0.75rem 0.75rem;
+	padding: 0.75rem 1rem;
+	line-height: 1;
 }
 #hours_box > h2 {
 	color: var(--darkorange);
@@ -841,7 +973,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	margin: 0;
 }
 #hours_box #hours {
-	margin: 0.375rem 0;
+	margin: 1rem 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -859,12 +991,11 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 
 @media screen and (min-width: 900px) {
 	#hours_box {
-		background: var(--white);
-		padding: 0.75rem 1rem;
+		margin-top: 0;
 	}
 	
 	#hours_box #hours {
-		margin: 0.75rem 0;
+
 	}
 }
 
@@ -877,74 +1008,52 @@ main:focus {
 
 
 
-@media screen and (min-width: 900px) {
 
-	#search_box {
-		background: var(--primaryblue);
-		color: var(--white);
-		padding: 0.75rem;
-	}
-	#search_box > h2 {
-		font-size: 1.25rem;
-		margin: 0;
-	}
-	#search_box > form {
-		margin: 0.75rem 0;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: flex-start;
-		align-content: stretch;
-	}
-	#search_box > form > button[type="submit"] {
-		background: var(--mediumgray);
-		color: var(--white);
-		font-size: 1.125rem;
-		border: none;
-		text-transform: uppercase;
-		position: relative;
-		height: 2.25rem;
-		padding: 0 0.625rem;
-	}
-	#search_box > form > button[type="submit"]:focus {
-		outline: 4px solid var(--mediumorange);
-		outline-offset: 0;
-		z-index: 5;
-	}
-	#search_box > form > input[type="search"] {
-		border: none;
-		height: 2.25rem;
-		padding: 0 0.5rem;
-		width: 65%;
-		background: var(--white);
-	}
-	#search_box > form > input[type="search"]:focus {
-		outline: 3px solid var(--mediumorange);
-		outline-offset: 0;
-		z-index: 5;
-	}
-	#search_box > form > input[type="search"]::placeholder {
-		color: var(--mediumgray);
-		opacity: 1;
-		font-style: italic;
-		
-	}
 
+main {
+	height: 800px;
+}
+
+#chat_container {
+	display: none;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background: transparent;
+	pointer-events: none;
+	outline: 8px lime dotted;
+	top: 0;
+	left: 0;
+	z-index: 5000;
 	
-	#search_box > nav > ul {
-		list-style: none;
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: row;
-		justify-content: space-between;
-		padding-left: 0;
-		margin: 0;
-	}
-	#search_box > nav > ul > li > a {
-		color: var(--white);
-		text-decoration: none;
-	}
-	
-	
-	
+}
+#chat_container a {
+	background-color: var(--darkorange);
+	color: var(--white);
+	border: none;
+	font-size: 0.875rem;
+	font-weight: 700;
+	padding: 0.5rem;
+	display: inline-flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: center;
+	text-decoration: none;
+	position: sticky;
+	top: 1rem;
+	right: 1rem;
+	pointer-events: auto;
+}
+#chat_container a * {
+	pointer-events: none;
+}
+#chat_container a svg {
+	width: 3rem;
+	height: 2.5rem;
+}
+#chat_container a span {
+	flex: 0 0 auto;
+	margin-top: 0.25rem
 }

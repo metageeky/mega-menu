@@ -4,7 +4,7 @@ window.addEventListener('load', function(event) {
 	let responsiveWidth = parseInt(megamenu.getAttribute('data-responsive-width'));
 	
 	// hamburger-toggle for responsive view
-	e = document.querySelector('#logo_container + button.hamburger-toggle');
+	e = document.querySelector('#main_nav_hamburger');
 	e.addEventListener('click', function(evt) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
@@ -14,6 +14,21 @@ window.addEventListener('load', function(event) {
 		else {
 			evt.target.setAttribute('aria-expanded', 'false');
 		}
+	});
+	
+	// toggle for search box in responsive mode 
+	e = document.querySelector('#search_box h2 + button');
+	e.addEventListener('click', function(evt) {
+		// open search box
+		console.log(evt);
+		if(evt.target.getAttribute('aria-expanded') == 'false') {
+			evt.target.setAttribute('aria-expanded', 'true');
+		}
+		// close search box
+		else {
+			evt.target.setAttribute('aria-expanded', 'false');
+		}
+		document.getElementById('search_box').classList.toggle('collapsed');
 	});
 	
 	// toggle button for audience menu
