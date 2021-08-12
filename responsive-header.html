@@ -144,7 +144,7 @@
 			</div>
 
 			<div id="main_nav_container">
-				<div id="main_nav" class="mega-menu page-centered-content" aria-labelledby="main_nav_name" role="region" data-menu-state="closed" data-responsive-width="900px">
+				<div id="main_nav" class="mega-menu page-centered-content" aria-labelledby="main_nav_name" role="region" data-menu-state="closed" data-responsive-width="800px">
 					<span id="main_nav_name" hidden>Library Site Menu</span>
 					<ul role="list">
 						<li>
@@ -380,7 +380,7 @@
 		</div>
 		<div id="search_hours_container">
 			<div id="search_hours" class="page-centered-content">
-				<div id="search_box" class="collapsed">
+				<div id="search_box" class="collapsed" role="search">
 					<div>
 						<h2>
 							Search our catalog, articles, website, and more
@@ -391,7 +391,7 @@
 						</button>
 					</div>
 
-					<form role="search">
+					<form >
 						<input type="search" aria-label="search text" placeholder="enter keywords">
 						<button type="submit">
 							<svg focusable="false"><use href="#icon-search"></use></svg>
@@ -453,6 +453,6 @@
 	<footer aria-label="Additional Information">
 		Footer goes here
 	</footer>
-	<div id="sr_messenger" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
+	<div id="sr_messenger" class="offscreen" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
 </body>
 </html>

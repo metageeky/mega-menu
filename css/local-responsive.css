@@ -87,6 +87,10 @@
 	/* box-shadow: 0 0 0 3px #f00, 0 0 0 6px #ff0, 0 0 0 9px #00f, 0 0 0 12px #0f0; */
 /* } */
 
+a { 
+	text-decoration: underline;
+}
+
 [hidden] {
 	display: none;
 }
@@ -201,7 +205,7 @@ div.select:after {
 	right: 0.5rem;
 	top: calc(0.5rem + 2px); /* 2px from border on select */
 	font-size: inherit;
-	line-height: inherit;
+	line-height: 1.5;
 	pointer-events: none;
 }
 div.select svg {
@@ -217,7 +221,7 @@ div.select svg {
 }
 select.select-dropdown {
 	color: inherit;
-	line-height: inherit;
+	line-height: 1.5;
 	font-size: inherit;
 	background: transparent;
 	overflow: hidden;
@@ -238,5 +242,5 @@ select.select-dropdown option {
 }
 select.select-dropdown:focus {
 	outline-color: var(--mediumorange);
-	outline-offset: 1px;
+	outline-offset: -1px;
 }
