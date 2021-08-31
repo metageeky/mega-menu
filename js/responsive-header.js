@@ -1,11 +1,12 @@
 window.addEventListener('load', function(event) { 
 	let e;
 	let megamenu = document.querySelector('.mega-menu');
+	
 	let responsiveWidth = parseInt(megamenu.getAttribute('data-responsive-width'));
 	
 	// hamburger-toggle for responsive view
-	e = document.querySelector('#main_nav_hamburger');
-	e.addEventListener('click', function(evt) {
+	let hamburger = document.querySelector('#main_nav_hamburger');
+	hamburger.addEventListener('click', function(evt) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
@@ -37,6 +38,13 @@ window.addEventListener('load', function(event) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
+			// close other toggle menus
+			let open_menus = document.querySelectorAll('#top_nav button.nav-toggle[aria-expanded="true"]');
+			for(f of open_menus) {
+				if(f != evt.target)
+					f.setAttribute('aria-expanded', 'false');
+			}
+			megamenu.setAttribute('data-menu-state', 'closed');
 		}
 		// close menu
 		else {
@@ -49,7 +57,15 @@ window.addEventListener('load', function(event) {
 	e.addEventListener('click', function(evt) {
 		// open menu
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
+			console.log('open user menu');
 			evt.target.setAttribute('aria-expanded', 'true');
+			// close other toggle menus
+			let open_menus = document.querySelectorAll('#top_nav button.nav-toggle[aria-expanded="true"]');
+			for(f of open_menus) {
+				if(f != evt.target)
+					f.setAttribute('aria-expanded', 'false');
+			}
+			megamenu.setAttribute('data-menu-state', 'closed');
 		}
 		// close menu
 		else {
@@ -80,7 +96,7 @@ window.addEventListener('load', function(event) {
 			// only happens in non-responsive mode
 			if(megamenu.getAttribute('data-menu-state') == 'hover') {
 				megamenu.setAttribute('data-menu-state', 'focus');
-				// responsive.setAttribute('aria-expanded', 'true');
+				hamburger.setAttribute('aria-expanded', 'true');
 				evt.target.focus();
 				return;
 			}
@@ -95,14 +111,17 @@ window.addEventListener('load', function(event) {
 			if(evt.target.getAttribute('aria-expanded') == 'false') {
 				evt.target.setAttribute('aria-expanded', 'true');
 				megamenu.setAttribute('data-menu-state', 'focus');
-				// responsive.setAttribute('aria-expanded', 'true');
+				/* make sure the audience and user navs are closed */
+				document.querySelector('#audience_nav .nav-toggle').setAttribute('aria-expanded', 'false');
+				document.querySelector('#user_nav .nav-toggle').setAttribute('aria-expanded', 'false');
+				hamburger.setAttribute('aria-expanded', 'true');
 			}
 			// close menu
 			else {
 				evt.target.setAttribute('aria-expanded', 'false');
 				megamenu.setAttribute('data-menu-state', 'closed');
-				//if(document.body.offsetWidth > responsiveWidth)
-					// responsive.setAttribute('aria-expanded','false');
+				if(document.body.offsetWidth > responsiveWidth)
+					hamburger.setAttribute('aria-expanded','false');
 			}
 		});
 		
@@ -147,13 +166,13 @@ window.addEventListener('load', function(event) {
 			if(evt.relatedTarget == null) {
 				megamenu.setAttribute('data-menu-state', 'closed');
 				megamenu.querySelector('.nav-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
-				// responsive.setAttribute('aria-expanded', 'false');
+				hamburger.setAttribute('aria-expanded', 'false');
 			}
 			// focus moved to another focusable element not in the mega menu	
 			else if(evt.relatedTarget != null && evt.relatedTarget.closest('.mega-menu') == null) {
 				megamenu.setAttribute('data-menu-state', 'closed');
 				megamenu.querySelector('.nav-toggle[aria-expanded="true"]').setAttribute('aria-expanded', 'false');
-				// responsive.setAttribute('aria-expanded', 'false');
+				hamburger.setAttribute('aria-expanded', 'false');
 			}
 		});
 	}
@@ -203,7 +222,7 @@ window.addEventListener('load', function(event) {
 				return;
 			// set focus state
 			megamenu.setAttribute('data-menu-state', 'focus');
-			// responsive.setAttribute('aria-expanded', 'true');
+			hamburger.setAttribute('aria-expanded', 'true');
 		});
 	}
 	
@@ -211,15 +230,16 @@ window.addEventListener('load', function(event) {
 	document.addEventListener('keydown', function(event){
 		if(event.key === 'Escape') {
 			let menu = document.querySelector('.mega-menu');
+			hamburger.setAttribute('aria-expanded', 'false');
 
 			if(document.body.offsetWidth <= responsiveWidth) {
 				// responsive mode
-				// if there is a focused element, reset focus to responsive toggle
+				// if there is a focused element, reset focus to hamburger toggle
 				if(	document.activeElement != null && 
 					document.activeElement != document.body && 
 					document.activeElement.closest('.mega-menu') !== null
 				) {
-					//menu.querySelector('.responsive-toggle').focus();
+					hamburger.focus();
 				}
 				
 				// set all things to close

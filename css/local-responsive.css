@@ -46,21 +46,7 @@
 :root {
 	--content-width: 900px;
 	
-	--menu-background: #f1f1f2;
 
-	/* SU Colors */
-	--suorange: #f76900;
-	--white: #ffffff;
-	--primaryblue: #000e54;
-	--mediumorange: #ff431b;
-	--lightorange: #ff8e00;
-	--mediumblue: #203299;
-	--lightblue: #2b72d7;
-	--black: #000000;
-	--mediumgray: #707780;
-	--darkgray: #404040;
-	--lightgray: #adb3b8;
-	--darkorange: #d74100;
 }
 
 * {
@@ -100,36 +86,6 @@ body {
 
 
 
-.offscreen {
-	position: absolute;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0;
-	border: 0;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-}
-
-.skipnavlink {
-	position: absolute;
-	left: 1rem;
-	top: 1rem;
-	padding: 0.625rem;
-	color: var(--white) !important;
-	background-color: var(--lightblue);
-	z-index: 2000;
-	font-size: 1.125rem;
-	font-weight: 600;
-}
-
-.skipnavlink:focus {
-	overflow: auto;
-	clip: auto;
-	width: auto;
-	height: auto;
-	outline-offset: -4px;
-}
 
 
 /******************************************

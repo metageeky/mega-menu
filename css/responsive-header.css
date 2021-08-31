@@ -1,18 +1,82 @@
 :root {
+
+	/* SU Colors */
+	--suorange: #f76900;
+	--white: #ffffff;
+	--primaryblue: #000e54;
+	--mediumorange: #ff431b;
+	--lightorange: #ff8e00;
+	--mediumblue: #203299;
+	--lightblue: #2b72d7;
+	--black: #000000;
+	--mediumgray: #707780;
+	--darkgray: #404040;
+	--lightgray: #adb3b8;
+	--darkorange: #d74100;
+
+	/* other colors */
+	--menu-background: #f1f1f2;
+	
+	
 	--responsive-width: 800px;
 	--max-content-width: 1200px;
-	
 	--mega-menu-height: 3.25rem;
+}
+
+
+*:focus{
+	outline: solid var(--suorange) 3px;
+	outline-offset: 2px;
+}
+
+a {
+	text-decoration: underline;
 }
 
 a, a:visited {
 	color: var(--mediumblue);
 }
 
-*:focus {
-	outline: solid currentColor 3px;
-	outline-offset: 2px;
+a:hover {
+	text-decoration: none;
 }
+
+
+.sr-only {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.skipnavlink {
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	padding: 0.625rem;
+	color: var(--white) !important;
+	background-color: var(--lightblue);
+	z-index: 2000;
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+.skipnavlink:focus {
+	overflow: auto;
+	clip: auto;
+	width: auto;
+	height: auto;
+	outline-offset: -4px;
+	outline-color: var(--white);
+}
+
+
+
+
 
 /***************************
  PAGE CENTERING TRICK
@@ -45,6 +109,23 @@ a, a:visited {
 }
 
 /*****************************
+ NAV TOGGLE BUTTONS {
+ *****************************/	 
+.nav-toggle {
+	background: var(--darkorange);
+	color: var(--white);
+}
+.nav-toggle:focus {
+	outline-color: var(--white);
+	outline-offset: -8px;
+}
+.nav-toggle:hover {
+	background: var(--primaryblue);
+}
+
+
+
+/*****************************
  MOBILE ALERT 
  *****************************/
 #mobile_alert_link_container {
@@ -54,6 +135,9 @@ a, a:visited {
  
 #mobile_alert_link_container a {
 	display: none;
+}
+#mobile_alert_link_container a:focus {
+	outline-color: var(--white);
 }
 
 #mobile_alert_link_container a.active {
@@ -151,10 +235,7 @@ button.hamburger-toggle:hover {
 	background: var(--mediumblue);
 }
 button.hamburger-toggle:focus {
-	outline-color: var(--mediumblue);
-}
-button.hamburger-toggle:hover:focus {
-	outline-color: var(--suorange);
+	outline-color: var(--primaryblue);
 }
 
 button.hamburger-toggle > * {
@@ -305,6 +386,9 @@ button.nav-toggle[aria-expanded="true"] + ul {
 /******************************
  AUDIENCE NAVIGATION
 *******************************/
+#audience_nav_container {
+	margin-top: 0.375rem;
+}
 #audience_nav {
 }
 
@@ -335,14 +419,23 @@ button.nav-toggle[aria-expanded="true"] + ul {
 #audience_nav > ul li a {
 	padding-top: 1px;
 	padding-bottom: 1px;
-	padding-left: 1rem;
+	padding-left: 0.25rem;
 	padding-right: 1rem;
 	text-decoration: none;
-	margin: 0;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 	display: block;
 }
 
+#audience_nav > ul li a:focus {
+	outline-color: var(--mediumblue);
+	outline-offset: -1px;
+}
+
 @media screen and (min-width: 800px) {
+	#audience_nav_container {
+		margin-top: 0;
+	}
 	#audience_nav > span{
 		display: inline;
 	}
@@ -399,8 +492,16 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		display: inline;
 		color: var(--white);
 		margin-left: 1.5rem;
-		text-decoration: underline;
+		margin-right: 0;
 		padding: 0;
+		text-decoration: underline;
+	}
+	#audience_nav ul li a:focus {
+		outline-color: var(--white);
+		outline-offset: 2px;
+	}
+	#audience_nav ul li a:hover {
+		text-decoration: none;
 	}
 }
 
@@ -436,11 +537,17 @@ button.nav-toggle[aria-expanded="true"] + ul {
 #user_nav > ul li a {
 	padding-top: 1px;
 	padding-bottom: 1px;
-	padding-left: 1rem;
+	padding-left: 0.25rem;
 	padding-right: 1rem;
 	text-decoration: none;
-	margin: 0;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 	display: block;
+}
+
+#user_nav > ul li a:focus {
+	outline-color: var(--mediumblue);
+	outline-offset: -1px;
 }
 
 @media screen and (min-width: 800px) {
@@ -480,6 +587,11 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		font-size: 0.875rem;
 		text-transform: uppercase;
 	}
+	#user_nav ul li a:focus {
+		outline-color: var(--suorange);
+		outline-offset: 2px;
+	}
+	
 	#user_nav ul li a#alert_link.active {
 		color: var(--darkorange);
 	}
@@ -561,12 +673,18 @@ button.nav-toggle[aria-expanded="true"] + ul {
 .mega-sub-menu ul li a {
 	padding-top: 1px;
 	padding-bottom: 1px;
-	padding-left: 1rem;
+	padding-left: 0.25rem;
 	padding-right: 1rem;
 	text-decoration: none;
-	margin: 0;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 	display: block;
 }
+.mega-sub-menu ul li a:focus {
+	outline-color: var(--mediumblue);
+	outline-offset: 0;
+}
+
 
 .mega-sub-menu div.text-column + div.text-column > ul > li:first-child {
 	border-top: solid 1px var(--mediumgray);
@@ -646,7 +764,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		left: 0;
 		min-width: calc(800px - 2rem);
 		transition: opacity .4s 1s;
-		box-shadow: 6px 6px 6px 0 rgba(0,0,0,0.5);
+		box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.5);
 		z-index: 100;
 
 		justify-content: space-between;
@@ -677,22 +795,23 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		border-top: none;
 	}
 	
-	
 	.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="true"] {
 		background: var(--menu-background);
 		color: #000;
-		box-shadow: 6px 6px 6px 0 rgba(0,0,0,0.5);
+		box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.5);
 	}
 	.mega-menu button.nav-toggle[aria-expanded]:hover {
 		background: var(--mediumblue);
 		color: var(--white);
 	}
 	.mega-menu button.nav-toggle:focus {
-		outline: solid currentColor 4px;
+		/* adjust the offset so the outline border is visible */
 		outline-offset: -5px;
+		outline-color: var(--white);
 	}
-
-	
+	.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="true"]:focus {
+		outline-color: var(--mediumblue);
+	}
 
 	.mega-menu[data-menu-state] button.nav-toggle[aria-expanded="true"] + .mega-sub-menu {
 		display: flex;
@@ -709,6 +828,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		/* there are 5 inner-sub-menu-margins that need to be distributed out across 4 columns */
 		width: calc(25% - 1.25 * var(--inner-sub-menu-margin));
 	}
+	
 	.mega-sub-menu > div.double {
 		width: calc(50% - 2.5 * var(--inner-sub-menu-margin) + var(--inner-sub-menu-margin));
 	}
@@ -719,6 +839,8 @@ button.nav-toggle[aria-expanded="true"] + ul {
 	.mega-sub-menu > div.double > ul > li {
 		break-inside: avoid;
 	}
+
+
 
 	.mega-sub-menu > div + div {
 		margin-left: var(--inner-sub-menu-margin);
@@ -737,7 +859,11 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		display: block;
 		padding: 1px 0;
 		text-decoration: none;
-		margin-top: 0.25rem;
+		margin: 0.25rem 0 0;
+	}
+	.mega-sub-menu > div.text-column > ul li a:focus {
+		outline-color: var(--mediumblue);
+		outline-offset: 2px;	
 	}
 	
 	.mega-sub-menu > div.image-column {
@@ -750,6 +876,11 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		flex-direction: column-reverse;
 		flex-wrap: nowrap;
 	}
+	.mega-sub-menu > div.image-column > a:focus {
+		outline-color: var(--mediumblue);
+		outline-offset: 2px;	
+	}
+	
 	.mega-sub-menu > div.image-column > a > img {
 		width: 100%;
 		margin-bottom: 0.75rem;
@@ -833,8 +964,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 		color: var(--white);
 	}
 	#search_hours_toggle_container > div > button:focus {
-		outline: solid 3px var(--white);
-		outline-offset: 0;
+		outline-color: var(--white);
 	}
 }
 
@@ -876,21 +1006,19 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
  SEARCH BOX
 ****************************/
 #search_box {
-	line-height: 1;
 	display: block;
 	background: var(--primaryblue);
 	color: var(--white);
-	padding: 0.75rem 1rem;
+	padding: 1rem 1rem;
 }
 
 #search_box > * {
 	
 }
 
-
 #search_box > div {
 	position: relative;
-	padding-right: 2.125rem;
+	padding-right: 1.5rem; /* for the button chevron being absolutely positioned */
 }
 #search_box h2 {
 	font-size: 1.25rem;
@@ -905,20 +1033,25 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	position: absolute;
 	top: -3px;
 	bottom: -3px;
-	left: 0;
-	right: 0;
-	width: 100%;
+	left: -4px;
+	right: -4px;
+	width: calc(100% + 8px);
 	border: none;
 	background: transparent;
 	color: var(--white);
 	text-align: right;
 	z-index: 0;
+	padding: 0;
 }
-
+#search_box h2 + button:focus {
+	outline-color: var(--white);
+}
 
 #search_box h2 + button > svg {
 	width: 1rem;
-	height: 100%;
+	height: 1.25rem;
+	position: relative;
+	top: 1px;
 	margin-right: 0.25rem;
 }
 #search_box h2 + button[aria-expanded="false"] > svg.up {
@@ -934,13 +1067,31 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 }
 
 #search_box > form {
-	margin: 1.25rem 0;
+	margin: 1rem 0 0;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-content: stretch;
 }
+
+#search_box > form > input[type="search"] {
+	border: none;
+	height: 2.25rem;
+	padding: 0 0.5rem;
+	background: var(--white);
+	flex-grow: 1;
+}
+#search_box > form > input[type="search"]:focus {
+	outline-color: var(--white);
+	z-index: 5;
+}
+#search_box > form > input[type="search"]::placeholder {
+	color: var(--mediumgray);
+	opacity: 1;
+	font-style: italic;
+}
+
 #search_box > form > button[type="submit"] {
 	background: var(--mediumgray);
 	color: var(--white);
@@ -950,10 +1101,12 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	position: relative;
 	height: 2.25rem;
 	padding: 0 0.625rem;
+	flex-shrink: 0;
+	
+	margin-left: 0.375rem;
 }
 #search_box > form > button[type="submit"]:focus {
-	outline: 4px solid var(--mediumorange);
-	outline-offset: 0;
+	outline-color: var(--white);
 	z-index: 5;
 }
 #search_box > form > button[type="submit"] svg {
@@ -961,25 +1114,6 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	height: 1.25rem;
 	position: relative;
 	top: 2px;
-}
-
-#search_box > form > input[type="search"] {
-	border: none;
-	height: 2.25rem;
-	padding: 0 0.5rem;
-	width: 65%;
-	background: var(--white);
-}
-#search_box > form > input[type="search"]:focus {
-	outline: 3px solid var(--mediumorange);
-	outline-offset: 0;
-	z-index: 5;
-}
-#search_box > form > input[type="search"]::placeholder {
-	color: var(--mediumgray);
-	opacity: 1;
-	font-style: italic;
-	
 }
 
 #search_box > nav > ul {
@@ -991,9 +1125,23 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	padding-left: 0;
 	margin: 0;
 }
+#search_box > nav > ul > li {
+	margin-top: 1rem;
+	flex: 1 0 auto;
+	text-align: center;
+}
+#search_box > nav > ul > li + li {
+	margin-left: 0.875rem;
+}
 #search_box > nav > ul > li > a {
 	color: var(--white);
 	text-decoration: none;
+	display: inline-block;
+	margin: 0 auto;
+	
+}
+#search_box > nav > ul > li > a:focus {
+	outline-color: var(--white);
 }
 
 
@@ -1079,7 +1227,8 @@ main {
 }
 
 #chat_container {
-	display: inline-block;
+	display: none;
+	/* display: inline-block; */
 	line-height: 1;
 	position: fixed;
 	right: 0;
