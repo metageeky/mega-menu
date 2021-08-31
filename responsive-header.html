@@ -79,15 +79,15 @@
 		<a class="skipnavlink offscreen" href="#main">
 			Skip to main content
 		</a>
+		<div id="mobile_alert_link_container">
+			<a id="mobile_alert_link" class="active" href="">
+				<svg class="alert" focusable="false"><use href="#icon-alert"></use></svg>
+				Library Alerts <span>(90)</span> 
+			</a>
+		</div>
 		<div id="logo_container" class="page-centered-content">
 			<a href="">
 				<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
-			</a>
-		</div>
-		<div id="chat_container">
-			<a href="">
-				<svg focusable="false"><use href="#icon-chat"></use></svg>
-				<span>Chat</span>
 			</a>
 		</div>
 		<nav id="top_nav" aria-label="Main">
@@ -100,7 +100,7 @@
 				<div id="audience_nav" class="page-centered-content">
 					<span>Info For:</span>
 					<button class="nav-toggle" aria-expanded="false">
-						<span id="audience_nav_name">Audience Links</span>
+						<span id="audience_nav_name">Services for...</span>
 						<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 					</button>
@@ -118,7 +118,7 @@
 			<div id="user_nav_container" role="region" aria-labelledby="user_nav_name">
 				<div id="user_nav" class="page-centered-content">
 					<button class="nav-toggle" aria-expanded="false">
-						<span id="user_nav_name">Usage Links</span>
+						<span id="user_nav_name">Help with...</span>
 						<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
 						<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 					</button>
@@ -378,6 +378,14 @@
 				</button>
 			</div>
 		</div>
+		
+		<div id="chat_container">
+			<a href="">
+				<div>Chat With Us</div>
+				<svg focusable="false"><use href="#icon-chat"></use></svg>
+			</a>
+		</div>
+		
 		<div id="search_hours_container">
 			<div id="search_hours" class="page-centered-content">
 				<div id="search_box" class="collapsed" role="search">
@@ -433,6 +441,7 @@
 				</div>
 			</div>
 		</div>
+
 	</header>
 	<main id="main" class="page-centered-content">
 		<h1>

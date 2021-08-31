@@ -1,5 +1,17 @@
+:root {
+	--responsive-width: 800px;
+	--max-content-width: 1200px;
+	
+	--mega-menu-height: 3.25rem;
+}
+
 a, a:visited {
 	color: var(--mediumblue);
+}
+
+*:focus {
+	outline: solid currentColor 3px;
+	outline-offset: 2px;
 }
 
 /***************************
@@ -7,7 +19,7 @@ a, a:visited {
 ****************************/
 
 .page-centered-content {
-	max-width: 1200px;
+	max-width: var(--max-content-width);
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-left: auto;
@@ -18,8 +30,7 @@ a, a:visited {
 
 #page_header {
 	position: relative;
-	--logo-height: 4.5rem;
-	--logo-vertical-padding: 0.5rem;
+
 }
 
 @media screen and (min-width: 800px) {
@@ -33,7 +44,43 @@ a, a:visited {
 	}
 }
 
+/*****************************
+ MOBILE ALERT 
+ *****************************/
+#mobile_alert_link_container {
+	text-align: center;
+	background: var(--darkorange);
+}
+ 
+#mobile_alert_link_container a {
+	display: none;
+}
 
+#mobile_alert_link_container a.active {
+	display: inline-block;
+	color: var(--white);
+	text-align: center;
+	padding: 0.25rem 1rem;
+	margin: 0.5rem auto;
+	text-transform: uppercase;
+}
+#mobile_alert_link svg {
+	display: inline;
+	position: relative;
+	width: 1.25em;
+	height: 1.25em;
+	top: 3px;
+	right: 0;
+}
+
+@media screen and (min-width: 800px) {
+	#mobile_alert_link_container, 
+	#mobile_alert_link,
+	#mobile_alert_link.active {
+		display: none;
+	}
+	
+}
 
 /****************************
  LOGO
@@ -65,7 +112,6 @@ a, a:visited {
 		height: 55px;
 	}
 	#logo_container img {
-
 		height: 55px;
 	}
 }
@@ -105,8 +151,7 @@ button.hamburger-toggle:hover {
 	background: var(--mediumblue);
 }
 button.hamburger-toggle:focus {
-	outline: solid 4px var(--mediumblue);
-	outline-offset: 0;
+	outline-color: var(--mediumblue);
 }
 button.hamburger-toggle:hover:focus {
 	outline-color: var(--suorange);
@@ -164,7 +209,7 @@ button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user
 #top_nav {
 	position: absolute;
 	right: 0;
-	margin-top: -0.5rem;
+	margin-top: -.375rem;
 	padding-bottom: 2rem;
 	min-width: 15rem;
 	width: 75%;
@@ -322,11 +367,11 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		align-content: stretch;
 		align-items: flex-end;
 		height: 3.125rem;
+		font-size: 1rem;
 	}
 	#audience_nav_container span {
 		display: inline;
 		white-space: nowrap;
-		margin-right: 2rem;
 		margin-bottom: 0.5rem;
 		text-transform: uppercase;
 	}
@@ -428,12 +473,12 @@ button.nav-toggle[aria-expanded="true"] + ul {
 
 	#user_nav ul li a {
 		display: block;
-		text-transform: uppercase;
 		padding: 0;
 		margin-top: 0;
 		margin-left: 1rem;
 		text-decoration: none;
 		font-size: 0.875rem;
+		text-transform: uppercase;
 	}
 	#user_nav ul li a#alert_link.active {
 		color: var(--darkorange);
@@ -443,26 +488,26 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		position: relative;
 	}
 	#user_nav ul li a svg.alert {
-		width: 1.25rem;
-		height: 1.25rem;
+		width: 1.25em;
+		height: 1.25em;
 		top: 3px;
 		right: 0;
 	}
 	#user_nav ul li a svg.help {
-		width: 1.25rem;
-		height: 1.25rem;
+		width: 1.25em;
+		height: 1.25em;
 		top: 3px;
 		right: 0;
 	}
 	#user_nav ul li a svg.feedback {
-		width: 1.375rem;
-		height: 1.375rem;
+		width: 1.375em;
+		height: 1.375em;
 		top: 5px;
 		right: -2px;
 	}
 	#user_nav ul li a svg.accounts {
-		width: 1.25rem;
-		height: 1.25rem;
+		width: 1.25em;
+		height: 1.25em;
 		top: 3px;
 		right: 0;
 	}
@@ -549,17 +594,20 @@ button.nav-toggle[aria-expanded="true"] + ul {
 	}
 
 	.mega-menu button.nav-toggle {
-		padding: 0.5rem 0.375rem;
+		padding: 0 0.5rem;
 		color: var(--white);
 		background: transparent;
 		font-size: 1rem;
 		font-weight: 500;
-		height: 2.75rem;
-
+		height: var(--mega-menu-height);
 		display: block;
 		width: auto;
 		border-color: transparent;
 		margin-top: 0;
+	}
+
+	.mega-menu button.nav-toggle svg {
+		margin-left: 1px;
 	}
 
 	.mega-menu > ul {
@@ -578,11 +626,10 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		padding: 0;
 		
 	}
-	.mega-menu > ul > li + li {
-	}
+
 
 	.mega-menu {
-		--inner-sub-menu-margin: 20px;
+		--inner-sub-menu-margin: 1.25rem;
 	}
 
 	.mega-sub-menu {
@@ -593,7 +640,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		background: var(--menu-background);
 		color: #000;
 		list-style: none;
-		padding: 15px var(--inner-sub-menu-margin);
+		padding: 1rem var(--inner-sub-menu-margin);
 		z-index: 10;
 		
 		left: 0;
@@ -618,6 +665,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		left: -15px;
 	}
 	.mega-sub-menu:focus {
+		/* do not show focus outline on a div that is a programmatic tab stop */
 		outline: none;
 	}
 
@@ -770,14 +818,14 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 		background: var(--white);
 		border-radius: 4px;
 		padding: 0 0.5rem;
-		height: 1.75rem;
+		height: 2rem;
 		border: solid 2px;
 		color: var(--mediumblue);
 		text-transform: uppercase;
 		font-size: 0.75rem;
 		font-weight: 700;
 		position: relative;
-		top: calc(-1.75rem - 0.5rem);
+		top: calc(-2rem - (var(--mega-menu-height) - 2rem) / 2); /* height of this button minus 1/2 of mega menu height - this button height */
 	}
 	#search_hours_toggle_container > div > button:hover {
 		background: var(--mediumblue);
@@ -1027,49 +1075,37 @@ main:focus {
 
 
 main {
-	height: 800px;
+	min-height: 800px;
 }
 
 #chat_container {
-	display: none;
+	display: inline-block;
+	line-height: 1;
 	position: fixed;
-	height: 100vh;
-	width: 100vw;
-	background: transparent;
-	pointer-events: none;
-	outline: 8px lime dotted;
-	top: 0;
-	left: 0;
-	z-index: 5000;
-	
+	right: 0;
+	z-index: 5;
+	background-color: var(--primaryblue);
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
 }
 #chat_container a {
-	background-color: var(--darkorange);
+	display: block;
 	color: var(--white);
-	border: none;
-	font-size: 0.875rem;
-	font-weight: 700;
-	padding: 0.5rem;
-	display: inline-flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-content: stretch;
-	align-items: center;
 	text-decoration: none;
-	position: sticky;
-	top: 1rem;
-	right: 1rem;
-	pointer-events: auto;
+	padding: 2rem 0.25rem;
+	text-align: center;
 }
-#chat_container a * {
-	pointer-events: none;
+
+#chat_container a:focus {
+	color: lime;
+}
+#chat_container a div {
+	display: inline-block;
+	text-transform: uppercase;
+	margin-bottom: 0.75rem;
 }
 #chat_container a svg {
-	width: 3rem;
-	height: 2.5rem;
-}
-#chat_container a span {
-	flex: 0 0 auto;
-	margin-top: 0.25rem
+	height: 1.5rem;
+	width: 2.1rem;
+	transform: rotate(90deg);
 }
