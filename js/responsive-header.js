@@ -45,7 +45,6 @@ window.addEventListener('load', function(event) {
 	e = document.querySelector('#search_box h2 + button');
 	e.addEventListener('click', function(evt) {
 		// open search box
-		console.log(evt);
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
 		}
