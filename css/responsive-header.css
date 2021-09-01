@@ -18,9 +18,24 @@
 	--menu-background: #f1f1f2;
 	
 	
+	--horizontal-body-padding: 1rem;
+	
 	--responsive-width: 800px;
-	--max-content-width: 1200px;
+	--max-content-width: 1000px;
+	
+	--logo-height: 45px;
+	--logo-vertical-padding: 0.5rem;
+	--logo-container-height: calc(var(--logo-height) + 2 * var(--logo-vertical-padding));
+
+	
+	--audience-nav-height: 3.125rem;
+	--user-nav-height: 2rem;
 	--mega-menu-height: 3.25rem;
+	
+	--inner-sub-menu-margin: 1rem;
+	
+	--chat-height: 10rem;
+	--chat-width: 2.5rem;
 }
 
 
@@ -53,29 +68,46 @@ a:hover {
 	overflow: hidden;
 }
 
-.skipnavlink {
+body {
+	min-width: 320px;
+}
+
+
+/*********************
+ SKIP LINKS
+**********************/
+#skipnav_container {
 	position: absolute;
 	left: 1rem;
 	top: 1rem;
-	padding: 0.625rem;
-	color: var(--white) !important;
-	background-color: var(--lightblue);
+	background-color: var(--menu-background);
 	z-index: 2000;
 	font-size: 1.125rem;
 	font-weight: 600;
 }
 
-.skipnavlink:focus {
+#skipnav_container:focus-within {
 	overflow: auto;
 	clip: auto;
 	width: auto;
 	height: auto;
-	outline-offset: -4px;
-	outline-color: var(--white);
+	box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.5);
 }
 
-
-
+#skipnav_container a {
+	display: block;
+	padding: 0.625rem 0.75rem;
+}
+#skipnav_container a:focus {
+	outline-offset: -6px;
+	outline-color: var(--white);
+	background: var(--lightblue);
+	color: var(--white);
+	text-decoration: none;
+}
+#skipnav_container a + a {
+	border-top: solid 2px var(--darkgray);
+}
 
 
 /***************************
@@ -88,8 +120,8 @@ a:hover {
 	margin-bottom: 0;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
+	padding-left: var(--horizontal-body-padding);
+	padding-right: var(--horizontal-body-padding);
 }
 
 #page_header {
@@ -98,10 +130,10 @@ a:hover {
 }
 
 @media screen and (min-width: 800px) {
-	.page-centered-content {
-		padding-left: 1rem;
-		padding-right: 1rem;
+	:root {
+		--horizontal-body-padding: 1.5rem;
 	}
+
 
 	#page_header {
 		position: relative;
@@ -171,39 +203,46 @@ a:hover {
  ****************************/
 #logo_container {
 	display: block;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	height: calc(45px + 2 * 0.5rem);
+	padding-top: var(--logo-vertical-padding);
+	padding-bottom: var(--logo-vertical-padding);
+	height: var(--logo-container-height);
 }
 
 #logo_container a {
 	display: inline-block;
-	height: 45px;
+	height: var(--logo-height);
 }
 
 #logo_container img {
 	display: block; /* needed to avoid extra height being created by the SVG in an inline-block */
 	width: auto;
-	height: 45px;
+	height: var(--logo-height);
 }
 
 @media screen and (min-width: 400px) {
+	:root {
+		--logo-height: 55px;
+	}
+	
 	#logo_container {
-		height: calc(55px + 2 * 0.5rem);
+		height: var(--logo-container-height);
 	}
 
 	#logo_container a {
-		height: 55px;
+		height: var(--logo-height);
 	}
 	#logo_container img {
-		height: 55px;
+		height: var(--logo-height);
 	}
 }
 
 @media screen and (min-width: 800px) {
+	:root {
+		--logo-vertical-padding: 1rem;
+	}
 	#logo_container {
-		margin-top: 3.125rem;
-		padding-top: 1rem;
+		margin-top: var(--audience-nav-height);
+		padding-top: var(--logo-vertical-padding);
 		padding-bottom: 0;
 	}
 }
@@ -220,9 +259,9 @@ button.hamburger-toggle {
 	padding: 0.5rem;
 
 	position: absolute;
-	right: 0.5rem;
-	top: -45px;
-	height: 45px;
+	right: var(--horizontal-body-padding);
+	top: calc(var(--logo-vertical-padding) - var(--logo-container-height));
+	height: var(--logo-height);
 	
 	display: inline-flex;
 	flex-direction: column;
@@ -264,10 +303,7 @@ button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user
 	button.hamburger-toggle {
 		font-size: 0.875rem;
 		font-weight: 700;
-		padding: 0.5rem;
-		right: 0.5rem;
-		top: -60px;
-		height: 60px;
+		right: var(--horizontal-body-padding);
 	}
 }
 
@@ -290,13 +326,11 @@ button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user
 #top_nav {
 	position: absolute;
 	right: 0;
-	margin-top: -.375rem;
 	padding-bottom: 2rem;
 	min-width: 15rem;
 	width: 75%;
 	max-width: 20rem;
 	font-size: 1.25rem;
-	z-index: 1000;
 }
 
 @media screen and (min-width: 800px) {
@@ -305,7 +339,7 @@ button.hamburger-toggle[aria-expanded="false"] + #audience_nav_container + #user
 		width: auto;
 		min-width: auto;
 		max-width: none;
-		margin-top: -2rem; /* height of the user_nav */
+		margin-top: calc(-1 * var(--logo-vertical-padding) - var(--user-nav-height));
 		font-size: 1rem;
 		padding-bottom: 0;
 	}
@@ -387,9 +421,8 @@ button.nav-toggle[aria-expanded="true"] + ul {
  AUDIENCE NAVIGATION
 *******************************/
 #audience_nav_container {
-	margin-top: 0.375rem;
-}
-#audience_nav {
+	z-index: 1000;
+	position: relative;
 }
 
 #audience_nav > span {
@@ -435,22 +468,13 @@ button.nav-toggle[aria-expanded="true"] + ul {
 @media screen and (min-width: 800px) {
 	#audience_nav_container {
 		margin-top: 0;
-	}
-	#audience_nav > span{
-		display: inline;
-	}
-
-	#audience_nav .nav-toggle {
-		display:none;
-	}
-	
-	#audience_nav_container {
 		background: var(--primaryblue);
 		color: var(--white);
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
+		z-index: auto;
 	}
 	#audience_nav {
 		display: flex;
@@ -459,8 +483,15 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		justify-content: flex-start;
 		align-content: stretch;
 		align-items: flex-end;
-		height: 3.125rem;
+		height: var(--audience-nav-height);
 		font-size: 1rem;
+	}
+	#audience_nav > span{
+		display: inline;
+	}
+
+	#audience_nav .nav-toggle {
+		display:none;
 	}
 	#audience_nav_container span {
 		display: inline;
@@ -508,6 +539,10 @@ button.nav-toggle[aria-expanded="true"] + ul {
 /******************************
  USER NAVIGATION 
 *******************************/
+#user_nav_container {
+	z-index: 1000;
+	position: relative;
+}
 
 #user_nav a svg {
 	display: none;
@@ -551,11 +586,15 @@ button.nav-toggle[aria-expanded="true"] + ul {
 }
 
 @media screen and (min-width: 800px) {
+	#user_nav_container {
+		z-index: auto;
+		position: initial;
+	}
 	#user_nav .nav-toggle {
 		display:none;
 	}
 	#user_nav ul {
-		height: 2rem;
+		height: var(--user-nav-height);
 		width: auto;
 		background: transparent;
 		display: flex;
@@ -628,6 +667,11 @@ button.nav-toggle[aria-expanded="true"] + ul {
 /******************************
  MEGAMENU NAVIGATION
 *******************************/
+#main_nav_container {
+	z-index: 1000;
+	position: relative;
+}
+
 #main_nav > ul {
 	list-style: none;
 	padding: 0;
@@ -639,7 +683,6 @@ button.nav-toggle[aria-expanded="true"] + ul {
 }
 
 .mega-sub-menu {
-	width: calc(100% - 1rem);
 	background: var(--menu-background);
 	margin-top: 0;
 	margin-bottom: 0;
@@ -706,7 +749,9 @@ button.nav-toggle[aria-expanded="true"] + ul {
 	#main_nav_container {
 		background: var(--darkorange);
 		color: var(--white);
-		margin-top: 1rem;
+		margin-top: var(--logo-vertical-padding);
+		position: initial;
+		z-index: auto;
 	}
 	#main_nav {
 	}
@@ -743,11 +788,6 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		display: inline-block;
 		padding: 0;
 		
-	}
-
-
-	.mega-menu {
-		--inner-sub-menu-margin: 1.25rem;
 	}
 
 	.mega-sub-menu {
@@ -840,8 +880,6 @@ button.nav-toggle[aria-expanded="true"] + ul {
 		break-inside: avoid;
 	}
 
-
-
 	.mega-sub-menu > div + div {
 		margin-left: var(--inner-sub-menu-margin);
 	}
@@ -908,18 +946,49 @@ button.nav-toggle[aria-expanded="true"] + ul {
  SEARCH HOURS TOGGLE
 ****************************/
 #search_hours_toggle_container {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	text-align: right;
+	margin-top: 1rem;
+	line-height: 1;
+}
+button#search_hours_toggle {
+	pointer-events: auto;
+	background: var(--white);
+	color: var(--mediumblue);
+	border: solid 2px;
+	border-radius: 4px;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 0 0.5rem;
+	height: 2.25rem;
+	min-width: 2.25rem;
+	text-transform: uppercase;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
-button#search_hours_toggle {
+button#search_hours_toggle > * {
+	pointer-events: none;
+}
+
+button#search_hours_toggle span {
+	font-size: 0.875rem;
+	display: inline-block;
+	margin-right: 0.25rem;
+}
+
+button#search_hours_toggle[aria-expanded="true"] span {
 	display: none;
 }
 
 button#search_hours_toggle svg {
-	height: 0.75rem;
-	width: 0.75rem;
+	height: 1rem;
+	width: 1rem;
 	position: relative;
-	top: 1px;
-	margin-left: 2px;
+	top: -1.5px;
 }
 button#search_hours_toggle[aria-expanded="false"] svg.icon.down{
 	display: inline;
@@ -936,35 +1005,37 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 
 @media screen and (min-width: 800px) {
 	#search_hours_toggle_container {
-		pointer-events: none;
 		width: 100%;
 		position: absolute;
-	}
-	#search_hours_toggle_container > div {
 		text-align: right;
+		margin-top: 0;
 	}
-	#search_hours_toggle_container > div > button {
-		display: inline-block;
-		pointer-events: auto;
-		background: var(--white);
-		border-radius: 4px;
+	button#search_hours_toggle {
 		padding: 0 0.5rem;
 		height: 2rem;
-		border: solid 2px;
-		color: var(--mediumblue);
-		text-transform: uppercase;
-		font-size: 0.75rem;
-		font-weight: 700;
 		position: relative;
 		top: calc(-2rem - (var(--mega-menu-height) - 2rem) / 2); /* height of this button minus 1/2 of mega menu height - this button height */
 	}
-	#search_hours_toggle_container > div > button:hover {
+	button#search_hours_toggle:hover {
 		background: var(--mediumblue);
 		border-color: var(--mediumblue);
 		color: var(--white);
 	}
-	#search_hours_toggle_container > div > button:focus {
+	button#search_hours_toggle:focus {
 		outline-color: var(--white);
+	}
+	
+	button#search_hours_toggle span {
+		font-size: 0.75rem;
+	}
+	button#search_hours_toggle[aria-expanded="true"] span {
+		display: inline-block;
+	}
+
+	button#search_hours_toggle svg {
+		height: 0.75rem;
+		width: 0.75rem;
+		top: 0;
 	}
 }
 
@@ -980,6 +1051,10 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	padding-bottom: 1rem;
 }
 
+#search_hours_container.collapsed > #search_hours {
+	display: none;
+}
+
 #search_hours {
 	display: flex;
 	flex-direction: column;
@@ -992,13 +1067,18 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 
 @media screen and (min-width: 800px) {
 	#search_hours_container {
-		padding-top: 2rem;
-		padding-bottom: 2rem;
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
+	}
+
+	#search_hours_container.collapsed {
+		display: none;
 	}
 	
 	#search_hours {
 		flex-direction: row;
 		justify-content: space-around;
+		padding-right: calc(var(--chat-width) + 1rem);
 	}
 }
 
@@ -1009,7 +1089,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	display: block;
 	background: var(--primaryblue);
 	color: var(--white);
-	padding: 1rem 1rem;
+	padding: 0.75rem 1rem;
 }
 
 #search_box > * {
@@ -1021,7 +1101,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	padding-right: 1.5rem; /* for the button chevron being absolutely positioned */
 }
 #search_box h2 {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	margin: 0;
 	z-index: 1;
 	position: relative;
@@ -1049,7 +1129,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 
 #search_box h2 + button > svg {
 	width: 1rem;
-	height: 1.25rem;
+	height: 1.125rem;
 	position: relative;
 	top: 1px;
 	margin-right: 0.25rem;
@@ -1095,7 +1175,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 #search_box > form > button[type="submit"] {
 	background: var(--mediumgray);
 	color: var(--white);
-	font-size: 1.125rem;
+	font-size: 1rem;
 	border: none;
 	text-transform: uppercase;
 	position: relative;
@@ -1123,15 +1203,12 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	flex-direction: row;
 	justify-content: space-between;
 	padding-left: 0;
-	margin: 0;
+	margin: 1rem 0 0;
+	gap: 1rem;
 }
 #search_box > nav > ul > li {
-	margin-top: 1rem;
 	flex: 1 0 auto;
 	text-align: center;
-}
-#search_box > nav > ul > li + li {
-	margin-left: 0.875rem;
 }
 #search_box > nav > ul > li > a {
 	color: var(--white);
@@ -1180,7 +1257,7 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 }
 #hours_box > h2 {
 	color: var(--darkorange);
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 	margin: 0;
 }
 #hours_box #hours {
@@ -1190,11 +1267,12 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-content: center;
-	align-items: center;
+	align-items: flex-start;
 }
 #hours_box #hours > div {
 	font-weight: 700;
-	font-size: 1.125rem;
+	font-size: 1rem;
+	line-height: 1.25;
 }
 #hours_box #hours > a {
 	font-size: 0.875rem;
@@ -1215,25 +1293,28 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
  MAIN
 *******************************/
 main:focus {
+	/* prevent outline from appearing if focus occurs programmatically */
 	outline: none;
 }
 
-
-
-
-
-main {
-	min-height: 800px;
+main.page-centered-content {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	padding-right: calc(var(--chat-width) + 1rem);
 }
 
+/***********************
+ CHAT CONTAINER
+ ***********************/
+
 #chat_container {
-	display: none;
-	/* display: inline-block; */
+	display: flex;
 	line-height: 1;
 	position: fixed;
+	top: calc(50% - var(--chat-height) / 2);
 	right: 0;
 	z-index: 5;
-	background-color: var(--primaryblue);
+	background-color: var(--mediumblue);
 	writing-mode: vertical-rl;
 	text-orientation: mixed;
 }
@@ -1241,20 +1322,21 @@ main {
 	display: block;
 	color: var(--white);
 	text-decoration: none;
-	padding: 2rem 0.25rem;
 	text-align: center;
+	height: var(--chat-height);
 }
 
 #chat_container a:focus {
-	color: lime;
+	outline-color: var(--white);
+	outline-offset: -5px;
 }
 #chat_container a div {
 	display: inline-block;
 	text-transform: uppercase;
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.5rem;
 }
 #chat_container a svg {
-	height: 1.5rem;
-	width: 2.1rem;
+	height: var(--chat-width);
+	width: var(--chat-width);
 	transform: rotate(90deg);
 }

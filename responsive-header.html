@@ -76,9 +76,17 @@
 	</div>
 
 	<header role="banner" id="page_header">
-		<a class="skipnavlink sr-only" href="#main">
-			Skip to main content
-		</a>
+		<div id="skipnav_container" class="sr-only">
+			<a id="search_skip_link" href="#bento_search">
+				Skip to Search
+			</a>
+			<a id="chat_skip_link" href="#chat_trigger">
+				Skip to Chat
+			</a>
+			<a id="main_skip_link" href="#main">
+				Skip to main content
+			</a>
+		</div>
 		<div id="mobile_alert_link_container">
 			<a id="mobile_alert_link" class="active" href="">
 				<svg class="alert" focusable="false"><use href="#icon-alert"></use></svg>
@@ -369,21 +377,12 @@
 				</div><!-- end main_nav -->
 			</div><!-- end main_nav_container -->
 		</nav>
-		<div id="search_hours_toggle_container">
-			<div class="page-centered-content">
-				<button id="search_hours_toggle" aria-expanded="true">
-					Search and Hours
+		<div id="search_hours_toggle_container" class="page-centered-content">
+				<button id="search_hours_toggle" aria-expanded="true" aria-label="Toggle Search and Hours">
+					<span>Search and Hours</span>
 					<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
 					<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 				</button>
-			</div>
-		</div>
-		
-		<div id="chat_container">
-			<a href="">
-				<div>Chat With Us</div>
-				<svg focusable="false"><use href="#icon-chat"></use></svg>
-			</a>
 		</div>
 		
 		<div id="search_hours_container">
@@ -393,14 +392,14 @@
 						<h2>
 							Search our catalog, articles, website, and more
 						</h2>
-						<button aria-label="toggle search" aria-expanded="false">
+						<button id="responsive_search_toggle" aria-label="toggle search" aria-expanded="false">
 							<svg focusable="false" class="icon down"><use href="#icon-down-triangle"></use></svg>
 							<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
 						</button>
 					</div>
 
 					<form >
-						<input type="search" aria-label="search text" placeholder="enter keywords">
+						<input id="bento_search" type="search" aria-label="search text" placeholder="enter keywords">
 						<button type="submit">
 							<svg focusable="false"><use href="#icon-search"></use></svg>
 							Search
@@ -441,7 +440,13 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<div id="chat_container">
+			<a id="chat_trigger" href="">
+				<div>Chat</div>
+				<svg focusable="false"><use href="#icon-chat"></use></svg>
+			</a>
+		</div>
 	</header>
 	<main id="main" class="page-centered-content">
 		<h1>

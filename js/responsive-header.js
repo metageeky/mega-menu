@@ -1,8 +1,32 @@
 window.addEventListener('load', function(event) { 
 	let e;
 	let megamenu = document.querySelector('.mega-menu');
-	
 	let responsiveWidth = parseInt(megamenu.getAttribute('data-responsive-width'));
+
+	// make the search skip link put focus in the search and that search is visible
+	e = document.getElementById('search_skip_link');
+	e.addEventListener('click', function(evt) {
+		evt.preventDefault();
+		// check the search hours toggle
+		let s_h_toggle = document.getElementById('search_hours_toggle');
+		if(s_h_toggle.getAttribute('aria-expanded') == 'false')
+			s_h_toggle.click();
+		// check the responsive search toggle
+		let r_s_toggle = document.getElementById('responsive_search_toggle');
+		if(r_s_toggle.getAttribute('aria-expanded') == 'false')
+			r_s_toggle.click();
+		
+		window.location = "#bento_search";
+		document.getElementById('bento_search').focus();
+	});
+	
+	// make the chat skip link put focus in the search
+	e = document.getElementById('chat_skip_link');
+	e.addEventListener('click', function(evt) {
+		evt.preventDefault();
+		window.location = "#chat_trigger";
+		document.getElementById('chat_trigger').focus();
+	});
 	
 	// hamburger-toggle for responsive view
 	let hamburger = document.querySelector('#main_nav_hamburger');
@@ -77,11 +101,11 @@ window.addEventListener('load', function(event) {
 	e.addEventListener('click', function(evt) {
 		if(evt.target.getAttribute('aria-expanded') == 'false') {
 			evt.target.setAttribute('aria-expanded', 'true');
-			document.querySelector('#search_hours_container').style.display = 'block';
+			document.querySelector('#search_hours_container').classList.toggle('collapsed');
 		}
 		else {
 			evt.target.setAttribute('aria-expanded', 'false');
-			document.querySelector('#search_hours_container').style.display = 'none';
+			document.querySelector('#search_hours_container').classList.toggle('collapsed');
 		}
 	});
 	
