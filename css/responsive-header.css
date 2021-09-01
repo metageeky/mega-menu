@@ -170,14 +170,15 @@ body {
 }
 #mobile_alert_link_container a:focus {
 	outline-color: var(--white);
+	outline-offset: -5px;
 }
 
 #mobile_alert_link_container a.active {
 	display: inline-block;
 	color: var(--white);
 	text-align: center;
-	padding: 0.25rem 1rem;
-	margin: 0.5rem auto;
+	padding: 0.5rem 1rem;
+	margin: 0 auto;
 	text-transform: uppercase;
 }
 #mobile_alert_link svg {
@@ -950,7 +951,7 @@ button.nav-toggle[aria-expanded="true"] + ul {
 	position: absolute;
 	width: 100%;
 	text-align: right;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 	line-height: 1;
 }
 button#search_hours_toggle {
@@ -962,12 +963,25 @@ button#search_hours_toggle {
 	text-transform: uppercase;
 	font-weight: 700;
 	padding: 0 0.5rem;
-	height: 2.25rem;
-	min-width: 2.25rem;
+	height: 2rem;
+	min-width: 2rem;
 	text-transform: uppercase;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+}
+
+button#search_hours_toggle:hover,
+button#search_hours_toggle:focus {
+	background: var(--mediumblue);
+	border-color: var(--mediumblue);
+	color: var(--white);
+}
+
+button#search_hours_toggle:focus{
+	outline-color: var(--white);
+	outline-width: 2px;
+	outline-offset: -5px;
 }
 
 button#search_hours_toggle > * {
@@ -975,7 +989,7 @@ button#search_hours_toggle > * {
 }
 
 button#search_hours_toggle span {
-	font-size: 0.875rem;
+	font-size: 0.75rem;
 	display: inline-block;
 	margin-right: 0.25rem;
 }
@@ -985,10 +999,8 @@ button#search_hours_toggle[aria-expanded="true"] span {
 }
 
 button#search_hours_toggle svg {
-	height: 1rem;
-	width: 1rem;
-	position: relative;
-	top: -1.5px;
+	height: 0.75rem;
+	width: 0.75rem;
 }
 button#search_hours_toggle[aria-expanded="false"] svg.icon.down{
 	display: inline;
@@ -1016,13 +1028,10 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 		position: relative;
 		top: calc(-2rem - (var(--mega-menu-height) - 2rem) / 2); /* height of this button minus 1/2 of mega menu height - this button height */
 	}
-	button#search_hours_toggle:hover {
-		background: var(--mediumblue);
-		border-color: var(--mediumblue);
-		color: var(--white);
-	}
+
 	button#search_hours_toggle:focus {
-		outline-color: var(--white);
+		outline-width: 3px;
+		outline-offset: 2px;
 	}
 	
 	button#search_hours_toggle span {
@@ -1030,12 +1039,6 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	}
 	button#search_hours_toggle[aria-expanded="true"] span {
 		display: inline-block;
-	}
-
-	button#search_hours_toggle svg {
-		height: 0.75rem;
-		width: 0.75rem;
-		top: 0;
 	}
 }
 
@@ -1047,8 +1050,9 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	min-height: calc(0.5rem + 2rem + 0.5rem); /* 2rem is the height of the toggle */
 }
 
 #search_hours_container.collapsed > #search_hours {
@@ -1067,8 +1071,8 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 
 @media screen and (min-width: 800px) {
 	#search_hours_container {
-		padding-top: 1.25rem;
-		padding-bottom: 1.25rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	#search_hours_container.collapsed {
