@@ -55,6 +55,21 @@ window.addEventListener('load', function(event) {
 		document.getElementById('search_box').classList.toggle('collapsed');
 	});
 	
+	// toggle for left hand nav in responsive mode 
+	e = document.querySelector('#main_left_nav_header > button');
+	e.addEventListener('click', function(evt) {
+		// open search box
+		if(evt.target.getAttribute('aria-expanded') == 'false') {
+			evt.target.setAttribute('aria-expanded', 'true');
+		}
+		// close search box
+		else {
+			evt.target.setAttribute('aria-expanded', 'false');
+		}
+		evt.target.parentElement.classList.toggle('collapsed');
+	});
+	
+	
 	// toggle button for audience menu
 	e = document.querySelector('#audience_nav button.nav-toggle');
 	e.addEventListener('click', function(evt) {

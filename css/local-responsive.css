@@ -44,9 +44,6 @@
 
 
 :root {
-	--content-width: 900px;
-	
-
 }
 
 * {
@@ -54,38 +51,23 @@
 }
 
 
-
-a { 
-	text-decoration: underline;
-}
-
 [hidden] {
 	display: none;
 }
 
-html {
-	height: 100%;
+
+
+
+
+h1, h2, h3, h4, h5 h6,
+p {
+	padding: 0;
+	margin: 0;
 }
 
-body {
-	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
-	color: #101010;
-	line-height: 1.5;
-	/* below is for forcing the footer always to the bottom */
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-content: stretch;
-	align-items: stretch;
+p {
+	margin-bottom: 1rem;
 }
-
-
-
-
-
-
 
 
 /******************************************
@@ -107,12 +89,6 @@ main {
 	flex: 1 0 auto;
 }
 
-h1 {
-	background: lightgreen;
-	margin: 0;
-	padding: 0;
-}
-
 
 /******************************************
 	FOOTER
@@ -128,57 +104,5 @@ footer {
 }
 
 
-div.select {
-	position: relative;
-	border: solid 2px var(--lightgray);
-	background: var(--white);
-	color: var(--primaryblue);
-}
-div.select:after {
-	/* content: url("../assets/chevron-down.svg"); */
-	width: 1rem;
 
-	display: block;
-	position: absolute;
-	right: 0.5rem;
-	top: calc(0.5rem + 2px); /* 2px from border on select */
-	font-size: inherit;
-	line-height: 1.5;
-	pointer-events: none;
-}
-div.select svg {
-	pointer-events: none;
-	width: 1rem;
-	height: 100%;
-	display: block;
-	position: absolute;
-	right: 0.5rem;
-	top: 0; 
-	font-size: inherit;
-	line-height: inherit;
-}
-select.select-dropdown {
-	color: inherit;
-	line-height: 1.5;
-	font-size: inherit;
-	background: transparent;
-	overflow: hidden;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	padding-right: 1.75rem;
-	padding-left: 0.25rem;
-	position: relative;
-	border: none;
-	width: 100%;
-}
 
-select.select-dropdown option {
-	line-height: inherit;
-}
-select.select-dropdown:focus {
-	outline-color: var(--mediumorange);
-	outline-offset: -1px;
-}
