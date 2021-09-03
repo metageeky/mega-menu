@@ -59,8 +59,7 @@
 
 
 
-h1, h2, h3, h4, h5 h6,
-p {
+h1, h2, h3, h4, h5 h6, p {
 	padding: 0;
 	margin: 0;
 }
@@ -70,38 +69,6 @@ p {
 }
 
 
-/******************************************
-	HEADER
- ******************************************/
-header {
-}
-
-
-
-
-
-
-/******************************************
-	MAIN
- ******************************************/
-main {
-	/* makes the main resize to force the footer down on short content pages */
-	flex: 1 0 auto;
-}
-
-
-/******************************************
-	FOOTER
- ******************************************/
-footer {
-	background: var(--primaryblue);
-	color: var(--white);
-	
-	height: 8rem;
-	font-size: 2rem;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-}
 
 
 

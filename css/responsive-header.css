@@ -46,11 +46,10 @@
 
 a {
 	text-decoration: underline;
-}
-
-a, a:visited {
 	color: var(--mediumblue);
 }
+
+
 
 a:hover {
 	text-decoration: none;
@@ -181,7 +180,7 @@ main {
  ******************************************/
 #main_top_matter {
 	flex: 0 1 100%;
-	margin-bottom: var(--horizontal-body-padding);
+	margin-bottom: 1rem;
 }
 
 /******************************************
@@ -194,6 +193,7 @@ main.left-nav #main_left_nav {
 	display: block;
 	position: relative;
 	flex: 0 1 100%;
+	margin-bottom: 1rem;
 }
 
 #main_left_nav_header {
@@ -263,7 +263,6 @@ main.left-nav #main_left_nav {
 	display: none;
 }
 
-
 #main_left_nav ul {
 	margin: 0;
 	padding-left: 0;
@@ -271,7 +270,7 @@ main.left-nav #main_left_nav {
 	border: solid 2px var(--lightgray);
 	background: var(--white);
 	position: absolute;
-	top: 0.125rem;
+	top: 0.1875rem;
 	left: 0;
 }
 
@@ -282,7 +281,7 @@ main.left-nav #main_left_nav {
 
 #main_left_nav ul li a {
 	display: block;
-	padding: 0.375rem 0.75rem;
+	padding: 0.625rem 0.75rem;
 	text-transform: uppercase;
 	text-decoration: none;
 }
@@ -308,18 +307,19 @@ main.left-nav #main_left_nav {
 	flex-grow: 1;
 }
 #main_left_nav a.home svg {
-	width: 1.75em;
-	height: 1em;
+	flex: 0 0 auto;
+	width: 1.125em;
+	height: 1.25rem;
 	position: relative;
-	top: 0.1875em;
-	left: 0.125em;
+	left: 0.25em;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 950px) {
 	main.left-nav #main_left_nav {
 		width: 20%;
 		flex: 0 1 auto;
 		margin-right: var(--horizontal-body-padding);
+		margin-bottom: 0;
 	}
 	#main_left_nav_header {
 		position: absolute;
@@ -361,12 +361,10 @@ main.left-nav #main_left_nav {
 #main_central_column {
 	flex: 1 0 auto;
 	width: 100px; /* dummy width to get it to adjust size */
-	margin-top: 1rem;
 }
 
 @media screen and (min-width: 900px) {
 	#main_central_column {
-		margin-top: 0;
 	}
 }
 
@@ -376,11 +374,11 @@ main.left-nav #main_left_nav {
 #main_right_aside {
 	display: none;
 	flex-grow: 0 1 auto;
-	margin-left: var(--horizontal-body-padding);
 	font-size: 0.875rem;
 }
 main.right-aside #main_right_aside{
 	display: inline-block;
+	flex: 1 1 100%;
 }
 #main_right_aside p {
 	margin-top: 1em;
@@ -391,7 +389,9 @@ main.right-aside #main_right_aside{
 }
 @media screen and (min-width: 800px) {
 	#main_right_aside {
+		flex: 0 1 auto;
 		max-width: 25%;
+		margin-left: var(--horizontal-body-padding);
 	}
 }
 
@@ -1403,6 +1403,10 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	min-height: calc(0.5rem + 2rem + 0.5rem); /* 2rem is the height of the toggle */
 }
 
+#search_hours_container.collapsed {
+	background-image: none;
+}
+
 #search_hours_container.collapsed > #search_hours {
 	display: none;
 }
@@ -1717,6 +1721,7 @@ main.page-centered-content {
 	margin: 0;
 	padding-left: 0;
 	list-style: none;
+	
 }
 #breadcrumbs ol li {
 	display: inline-block;
@@ -1728,16 +1733,102 @@ main.page-centered-content {
 #breadcrumbs ol li + li::before {
 	content: ""; /* avoid adding content here unless you want a screen reader to hear it */
 	display: inline-block;
-	width: 0.5em;
-	height: 1px;
+	width: 0.625em;
+	height: 0.125em;
 	margin-left: 0.25em;
 	margin-right: 0.5em;
 	position: relative;
-	background: currentColor;
-	bottom: calc(0.5ex - 1px);
-	
+	background: var(--mediumblue);
+	bottom: 0.5ex;
 }
 
 #breadcrumbs ol li a {
 	display: inline-block;
 }
+
+
+/******************************************
+ FOOTER
+ ******************************************/
+footer {
+	background: var(--primaryblue);
+	color: var(--white);
+	padding: 1rem 0;
+	font-size: 0.875rem;
+}
+
+footer address {
+}
+
+footer a {
+	color: var(--white);
+	display: inline-block;
+}
+
+footer address {
+	font-style: normal;
+	line-height: 1.75;
+}
+footer address a.phone {
+	margin-right: 0.75rem;
+}
+footer address .fax:after {
+	content: " fax";
+}
+
+footer nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+}
+
+footer nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+}
+footer nav ul li + li {
+	margin-left: 1.5rem;
+}
+
+
+footer nav a {
+	color: var(--white);
+}
+footer nav a svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+footer nav a:hover svg {
+	color: var(--suorange);
+}
+
+footer nav a.tooltip {
+	position: relative;
+}
+
+footer nav a.tooltip:hover span,
+footer nav a.tooltip:focus span {
+	clip: auto;
+	height: auto;
+	width: auto;
+	overflow: auto;
+	left: 62.5%;
+	bottom: calc(100% + 0.25rem);
+	background: var(--white);
+	color: var(--darkgray);
+	padding: 0.25rem 0.625rem;
+	border: 3px solid var(--suorange);
+	z-index: 5;
+}
+
+
