@@ -140,6 +140,7 @@ html {
 }
 
 body {
+	position: relative;
 	font-family: ShermanSans, Verdana, Tahoma, sans-serif;
 	color: var(--darkgray);
 	line-height: 1.5;
@@ -1398,8 +1399,8 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
 	min-height: calc(0.5rem + 2rem + 0.5rem); /* 2rem is the height of the toggle */
 }
 
@@ -1571,17 +1572,18 @@ button#search_hours_toggle[aria-expanded="true"] svg.icon.up{
 #search_box > nav > ul > li {
 	flex: 1 0 auto;
 	text-align: center;
+	position: relative; /* required for the complex tooltips to be positioned correctly */
 }
 #search_box > nav > ul > li > a {
 	color: var(--white);
 	text-decoration: none;
 	display: inline-block;
 	margin: 0 auto;
-	
 }
 #search_box > nav > ul > li > a:focus {
 	outline-color: var(--white);
 }
+
 
 
 @media screen and (min-width: 800px) {
@@ -1831,4 +1833,69 @@ footer nav a.tooltip:focus span {
 	z-index: 5;
 }
 
+/***************************
+ BACK TO TOP
+****************************/
 
+#back_to_top {
+	position: absolute;
+	top: 100vh;
+	right: 1rem;
+	bottom: 0;
+	pointer-events: none;
+}
+#back_to_top a {
+	position: fixed;
+	position: sticky;
+	pointer-events: all;
+	top: calc(100vh - 6.25rem);
+	display: inline-flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	text-decoration: none;
+	line-height: 3rem;
+	text-align: center;
+	width: 3rem;
+	height: 3rem;
+	background: var(--suorange);
+}
+#back_to_top a svg {
+	height: 2.25rem;
+	width: 2.25rem;
+	color: var(--white);
+}
+@media screen and (min-width: 800px) {
+	#back_to_top a {
+		top: calc(100vh - 6rem;)
+	}
+}
+
+/****************************
+ COMPLEX TOOLTIPS 
+*****************************/
+a[has-complex-tooltip]:focus + div.complex-tooltip,
+a[has-complex-tooltip]:hover + div.complex-tooltip {
+	visibility: visible;
+	opacity: 1;
+}
+div.complex-tooltip {
+	visibility: hidden;
+	background-color: var(--darkgray);
+	color: var(--white);
+	font-size: 0.75rem;
+	text-align: center;
+	border-radius: 6px;
+	padding: 0.375rem;
+	position: absolute;
+	z-index: 10;
+	top: auto;
+	bottom: calc(100% + 0.75rem); 
+	left: calc(50% - 7rem); /* one-half of width */
+	opacity: 0;
+	transition: opacity 0.3s;
+	white-space: normal;
+	line-height: 1.5em;
+	width: 14rem; 
+	margin: 0 0.375rem;
+}

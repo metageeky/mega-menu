@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/responsive-header.css">
 	<script src="js/responsive-header.js"></script>
 	<script src="js/screen-reader-messaging.js"></script>
+	<script src="js/complex-tooltips.js"></script>
 	<script>
 		window.addEventListener('load', function(event) { 
 			document.querySelector('#hours_location_select').addEventListener('change', function(evt) {
@@ -414,12 +415,37 @@
 						<h3 id="search_related_links" class="sr-only">Search-related links</h3>
 						<ul role="list" aria-labelledby="search_related_links">
 							<li>
-								<a href="">Classic Catalog</a>
-								
+								<a href="" aria-describedby="catalog_tooltip" has-complex-tooltip>
+									Classic Catalog
+								</a>
+								<div class="complex-tooltip" id="catalog_tooltip" role="tooltip">
+									A list of print and electronic materials available in the Syracuse University Libraries.
+								</div>
 							</li>
-							<li><a href="">Summon</a></li>
-							<li><a href="">A-Z Journals</a></li>
-							<li><a href="">SURFACE</a></li>
+							<li>
+								<a href="" aria-describedby="summon_tooltip" has-complex-tooltip>
+									Summon
+								</a>
+								<div class="complex-tooltip" id="summon_tooltip" role="tooltip">
+									Something something about Summon searching almost everything such as books, articles, and other resources.
+								</div>
+							</li>
+							<li>
+								<a href="" aria-describedby="a_z_tooltip" has-complex-tooltip>
+									A-Z Journals
+								</a>
+								<div class="complex-tooltip" id="a_z_tooltip" role="tooltip">
+									A list of databases available through the Syracuse University Libraries.
+								</div>
+							</li>
+							<li>
+								<a href="" aria-describedby="surface_tooltip" has-complex-tooltip>
+									SURFACE
+								</a>
+								<div class="complex-tooltip" id="surface_tooltip" role="tooltip">
+									Syracuse University's open-access institutional repository.
+								</div>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -599,7 +625,7 @@
 	</main>
 	<footer aria-labelledby="footer_heading">
 		<h2 id="footer_heading" class="sr-only">
-			Additional Site Information
+			Contact Information and Site Information
 		</h2>
 		<div class="page-centered-content">
 			<address>
@@ -671,9 +697,17 @@
 					</li>
 				</ul>
 			</nav>
-		</div>
+		</div>		
 	</footer>
-	
+
+	<!-- back to top link with pure CSS -->
+	<div id="back_to_top">
+		<a href="#page_header">
+			<span class="sr-only">Top</span>
+			<svg focusable="false" class="icon up"><use href="#icon-up-triangle"></use></svg>
+		</a>
+	</div>
+
 	<!-- aria-live for the screen reader messenger -->
 	<div id="sr_messenger" class="sr-only" aria-live="polite" aria-atomic="true" aria-relevant="additions text"></div>
 </body>
