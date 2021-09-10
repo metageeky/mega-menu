@@ -16,12 +16,14 @@
 	<script>
 		window.addEventListener('load', function(event) { 
 			document.querySelector('#hours_location_select').addEventListener('change', function(evt) {
-				setTimeout(function() {
-					let times = {'bird': '9 a.m. - 5 p.m.', 'carnegie': '10 a.m. - 3 p.m.', 'arch': 'Closed' };
-					let new_time = document.getElementById('hours_location_today').innerText = times[evt.target.value];
-					// set a timeout so that the new selection is labeled
-					ScreenReaderMessenger.getMessenger().say("Today's hours are " + new_time);
-				}, 100);
+				/* Load today's today's times */
+				// We fake it for this demo by hard-coding.
+				
+				let times = {'bird': '9 a.m. - 5 p.m.', 'carnegie': '10 a.m. - 3 p.m.', 'arch': 'Closed' };
+				
+				let new_time = document.getElementById('hours_location_today').innerText = times[evt.target.value];
+				// set a timeout so that the new selection is labeled
+				ScreenReaderMessenger.getMessenger().say("Today's hours are " + new_time);
 			});
 		});
 	</script>
@@ -102,7 +104,10 @@
 				<img alt="Syracuse University Libraries" id="logo" src="assets/logo.svg">
 			</a>
 		</div>
-		<nav id="top_nav" aria-label="Main">
+		<nav id="top_nav" aria-labelledby="top_nav_id">
+			<h2 class="sr-only">
+				<span id="top_nav_id">Main Site</span> Navigation
+			</h2>
 			<button id="main_nav_hamburger" class="hamburger-toggle" aria-expanded="false">
 				<svg focusable="false"><use href="#icon-menu"></use></svg>
 				<div>Menu</div>
@@ -625,7 +630,7 @@
 	</main>
 	<footer aria-labelledby="footer_heading">
 		<h2 id="footer_heading" class="sr-only">
-			Contact Information and Site Information
+			SU Libraries Contact Information and Site Information
 		</h2>
 		<div class="page-centered-content">
 			<address>

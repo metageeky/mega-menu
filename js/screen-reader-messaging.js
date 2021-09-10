@@ -5,8 +5,15 @@ var ScreenReaderMessenger = (function() {
 		let srm = new Object();
 		srm.globalTimer = null;
 		srm.speakRegion = null;
-
+		
 		srm.say = function(msg) {
+			// delay the say for 100 milliseconds to allow for other messages to get through
+			setTimeout( ()=> {
+				srm.actuallySay(msg);
+			}, 100);
+		};
+		
+		srm.actuallySay = function(msg) {
 			// How many milliseconds until the message is erased from the speaking region
 			ERASE_DELAY = 5000;
 

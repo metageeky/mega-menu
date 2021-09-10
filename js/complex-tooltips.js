@@ -24,7 +24,7 @@ function resetTooltipZIndex() {
 	}
 }
 
-window.addEventListener('load', function(event) { 
+window.addEventListener('load', function(evt) { 
 	var links = document.querySelectorAll('[has-complex-tooltip]'); 
 	
 	for(e of links) {
